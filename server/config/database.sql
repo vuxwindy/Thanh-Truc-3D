@@ -1,0 +1,12 @@
+-- Create database if not exists
+CREATE DATABASE IF NOT EXISTS thanh_truc;
+USE thanh_truc;
+
+-- Create examples table
+CREATE TABLE IF NOT EXISTS examples (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+); 
