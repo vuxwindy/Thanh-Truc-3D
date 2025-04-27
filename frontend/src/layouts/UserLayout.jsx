@@ -32,9 +32,22 @@ const UserLayout = ({ children }) => {
     dispatch(logout());
     navigate('/customer/login');
   };
-  
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/categories`); 
+        setNotifications(response.data);
+      } catch (error) {
+        console.error('Lỗi khi lấy thông báo:', error);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
     // Giá trị cứng cho thông báo
-    const notificationCount = 5;
+    const notificationCount = notifications.filter(notification => !notification.read).length;
 
     useEffect(() => {
         setIsAuthenticated(getAccessToken());
@@ -64,9 +77,10 @@ const UserLayout = ({ children }) => {
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Navbar bg="light" expand="lg" className="mb-3">
+    <Navbar bg="light"   expand="lg" className="mb-3 shadow  ">
+
         <Container>
-          <Navbar.Brand as={Link} to="/customer/dashboard">
+          <Navbar.Brand as={Link} to="/customer">
             <img
               src="/logo.png"
               width="30"
@@ -104,7 +118,18 @@ const UserLayout = ({ children }) => {
                 <Nav className="me-auto">
                     {/* Empty nav when not authenticated */}
                     <Nav.Link href="/customer">Home</Nav.Link>
+                    <NavDropdown title="Games" id="games-dropdown">
+                        {categories.map(category => (
+                            <NavDropdown.Item 
+                                key={category.id} 
+                                href={`/customer/games/category/${category.id}`}
+                            >
+                                {category.name}
+                            </NavDropdown.Item>
+                        ))}
+                    </NavDropdown>
                     <Nav.Link href="/customer/blogs">Blogs</Nav.Link>
+                    <Nav.Link href="/customer/Terms">Buying Guide</Nav.Link>
                 </Nav>
             )}
 
@@ -122,8 +147,8 @@ const UserLayout = ({ children }) => {
                             <Badge
                                 pill
                                 bg="danger"
-                                className="position-absolute top-0 start-100 translate-middle"
-                                style={{ fontSize: '0.6rem' }}
+                                className="position-absolute top-10 start-100 translate-middle"
+                                style={{ fontSize: '0.5rem' }}
                             >
                                 {cartItemCount}
                             </Badge>
@@ -138,8 +163,8 @@ const UserLayout = ({ children }) => {
                             <Badge
                                 pill
                                 bg="danger"
-                                className="position-absolute top-0 start-100 translate-middle"
-                                style={{ fontSize: '0.6rem' }}
+                                className="position-absolute top-20 start-100 translate-middle"
+                                style={{ fontSize: '0.5rem' }}
                             >
                                 {notificationCount}
                             </Badge>

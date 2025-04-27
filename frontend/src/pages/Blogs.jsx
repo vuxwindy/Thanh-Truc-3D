@@ -28,6 +28,8 @@ const Blogs = () => {
     fetchBlogs();
   }, [page, search]);
 
+  
+  
   if (loading) return <div className="text-center mt-5">Loading...</div>;
   if (error) return <div className="alert alert-danger mt-5">{error}</div>;
 
@@ -39,9 +41,10 @@ const Blogs = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Search blogs..."
+          placeholder="Enter a term you want to search for...."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          // onKeyDown={handleSearchKeyDown} // Lắng nghe sự kiện nhấn phím
         />
       </div>
 
@@ -51,7 +54,7 @@ const Blogs = () => {
             <div className="card h-100">
               <div className="card-body">
                 <div className="author-info d-flex align-items-center mb-4">
-                  {blog?.user?.avatar ? (
+                  {/* {blog?.user?.avatar ? (
                     <img
                       src={blog.user.avatar}
                       alt={blog.user.fullName || 'Author'}
@@ -65,10 +68,10 @@ const Blogs = () => {
                     >
                       {blog?.user?.fullName?.charAt(0) || 'A'}
                     </div>
-                  )}
+                  )} */}
                   <div>
-                    <h6 className="mb-0">{blog?.user?.fullName || 'Anonymous'}</h6>
-                    {blog?.user?.email && <small className="text-muted">{blog.user.email}</small>}
+                    {/* <h6 className="mb-0">{blog?.user?.fullName || 'Anonymous'}</h6>
+                    {blog?.user?.email && <small className="text-muted">{blog.user.email}</small>} */}
                     <div><small className="text-muted">Published: {new Date(blog.created_at).toLocaleDateString()}</small></div>
                   </div>
                 </div>

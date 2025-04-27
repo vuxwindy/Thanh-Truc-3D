@@ -41,6 +41,9 @@ const AdminLayout = ({ children }) => {
                             <Nav.Link href="/admin/users">
                                 <FaUsers className="me-1" /> {t('common.users')}
                             </Nav.Link>
+                            <Nav.Link href="/admin/client">
+                                <FaUsers className="me-1" /> {t('common.client')}
+                            </Nav.Link>
                             <Nav.Link href="/admin/products">
                                 <FaBoxOpen className="me-1" /> {t('common.products')}
                             </Nav.Link>

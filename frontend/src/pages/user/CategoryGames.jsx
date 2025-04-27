@@ -7,6 +7,8 @@ import { addToCart } from '../../services/cart.service';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../store/slices/cartSlice';
 import { toast } from 'react-toastify';
+
+
 const CategoryGames = () => {
   const { categoryId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -97,6 +99,11 @@ const CategoryGames = () => {
       setCartLoading(true);
       await dispatch(addItemToCart({ productId: product.id, quantity: 1 })).unwrap();
       toast.success(`${product.name} added to cart!`);
+        // Gửi thông báo về việc thêm sản phẩm vào giỏ hàng
+    await axios.post(`${API_URL}/notifications`, {
+      userId: currentUser.id, // id người dùng
+      message: `Bạn đã thêm ${productName} vào giỏ hàng.`,
+    });
     } catch (err) {
       console.error('Error adding to cart:', err);
       toast.error('Failed to add item to cart. Please try again.');
@@ -256,7 +263,7 @@ const CategoryGames = () => {
           <Row>
             {products.map(product => (
               <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                <Card className="h-100 shadow-sm product-card">
+                <Card className="h-100 shadow-sm product-card rounded ">
                   <div
                     className="product-image-container"
                     onClick={() => handleProductClick(product.id)}
@@ -280,13 +287,14 @@ const CategoryGames = () => {
                         <span className="text-muted text-decoration-line-through">${product.priceOrigin}</span>
                       )}
                     </div>
-                  </Card.Body>
-                  <Card.Footer className="bg-white border-top-0">
-                    <Button variant="primary" className="w-100">
-                      <FaShoppingCart className="me-2" />
-                      Add to Cart
-                    </Button>
-                  </Card.Footer>
+                 
+                    <Card.Footer className="bg-white border-top-0">
+                      <Button variant="primary" className="w-100">
+                        <FaShoppingCart className="me-2" />
+                        View Detail Product 
+                      </Button>
+                    </Card.Footer>
+                   </Card.Body>
                 </Card>
               </Col>
             ))}

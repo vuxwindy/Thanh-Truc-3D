@@ -39,7 +39,7 @@ const BlogDetail = () => {
         <h1 className="mb-4">{blog.title}</h1>
         
         <div className="author-info d-flex align-items-center mb-4">
-          {blog?.user?.avatar ? (
+          {/* {blog?.user?.avatar ? (
             <img 
               src={blog.user.avatar} 
               alt={blog.user.fullName || 'Author'} 
@@ -53,7 +53,7 @@ const BlogDetail = () => {
             >
               {blog?.user?.fullName?.charAt(0) || 'A'}
             </div>
-          )}
+          )} */}
           <div>
             <h6 className="mb-0">{blog?.user?.fullName || 'Anonymous'}</h6>
             {blog?.user?.email && <small className="text-muted">{blog.user.email}</small>}

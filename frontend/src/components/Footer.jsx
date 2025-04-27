@@ -13,23 +13,32 @@ const Footer = () => {
       <Container>
         <Row className="mb-4">
           <Col md={4}>
-            <h5>{t('footer.about')}</h5>
-            <p>{t('footer.aboutDescription')}</p>
+          <h5>About Thanh Truc</h5>
+            <ul className="list-unstyled">
+              <li>Business Name: <b> Thanh Truc Kinh Bac Company Limited </b></li>
+              <li>MST/DKKD/QDTL: <b>2301283179</b></li>
+              <li>Business Headquarters: <b>Do Nha Quarter, Phuong Lieu Ward, Que Vo Town, Bac Ninh</b></li>
+              <li>Phone: <b>0949942222</b></li>
+            </ul>          
           </Col>
           <Col md={4}>
             <h5>{t('footer.quickLinks')}</h5>
             <ul className="list-unstyled">
-              <li><Link to="/customer/terms" className="text-light text-decoration-none">{t('footer.termsConditions')}</Link></li>
+              <li><Link to="/customer/blogs/17" className="text-light text-decoration-none">Privacy Policy</Link></li>
+              <li><Link to="/customer/blogs/16" className="text-light text-decoration-none">Buying Guide</Link></li>
+              <li><Link to="/customer/blogs/18" className="text-light text-decoration-none">Payment Methods</Link></li>
+              <li><Link to="/customer/blogs/19" className="text-light text-decoration-none">Inspection Policy</Link></li>
             </ul>
           </Col>
           <Col md={4}>
-            <h5>{t('footer.connectWithUs')}</h5>
-            <div className="d-flex gap-3">
-              <a href="#" className="text-light"><FaFacebook size={24} /></a>
-              <a href="#" className="text-light"><FaTwitter size={24} /></a>
-              <a href="#" className="text-light"><FaInstagram size={24} /></a>
-              <a href="#" className="text-light"><FaYoutube size={24} /></a>
-            </div>
+            <h5>{t('Basic instruction')}</h5>
+            <ul className="list-unstyled">
+              {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
+              <li><Link to="/customer/blogs/20" className="text-light text-decoration-none">Complaints reception and handling process</Link></li>
+              <li><Link to="/customer/blogs/21" className="text-light text-decoration-none">Return and refund policy</Link></li>
+              <li><Link to="/customer/blogs/22" className="text-light text-decoration-none">Warranty policy</Link></li>
+              <li><Link to="/customer/Terms" className="text-light text-decoration-none">Inspection Policy</Link></li>
+            </ul>
           </Col>
         </Row>
         <Row>

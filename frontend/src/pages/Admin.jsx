@@ -11,6 +11,7 @@ import Banners from './admin/Banners'; // Add this import
 import Posts from './admin/Posts';
 import Users from './admin/users';
 import AdminProfile from './admin/AdminProfile'; // Import the new AdminProfile component
+import Client from './admin/Client';
 
 const Admin = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Admin = () => {
       <Routes>
         <Route path="dashboard" element={<Dashboard user={user}></Dashboard>} />
         <Route path="users" element={<Users />} />
+        <Route path="client" element={<Client />} />
         <Route path="products" element={<Products />} />
         <Route path="banners" element={<Banners />} /> {/* Add this route */}
         <Route path="posts" element={<Posts />} />

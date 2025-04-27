@@ -48,6 +48,9 @@ const sendProductLicensesEmail = async (email, orderId, products) => {
       <tr>
         <td style="padding: 10px; border: 1px solid #ddd;">${product.name}</td>
         <td style="padding: 10px; border: 1px solid #ddd;"><code>${product.licence}</code></td>
+        <td style="padding: 10px; border: 1px solid #ddd;">
+          <a href="${product.link}" target="_blank" style="color: #0d6efd; text-decoration: none;">View Product</a>
+        </td>
       </tr>
     `).join('');
 
@@ -68,6 +71,7 @@ const sendProductLicensesEmail = async (email, orderId, products) => {
               <tr style="background-color: #f8f9fa;">
                 <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Product</th>
                 <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">License Key</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Link Product</th>
               </tr>
             </thead>
             <tbody>

@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div
     style={{
-      background: 'linear-gradient(to top, #1f1c2c, #928dab)',
+      background: 'linear-gradient(to top,rgb(0, 0, 0),rgb(20, 10, 80))',
       color: '#f8f9fa',
       padding: '60px 0',
       minHeight: '100vh',
