@@ -16,7 +16,9 @@ import AdminLayout from "./layouts/AdminLayout.jsx";
 import UserLayout from "./layouts/UserLayout.jsx";
 import Customer from './pages/Customer.jsx';
 import Blogs from './pages/Blogs.jsx';
+import Terms from './pages/user/Terms.jsx';
 import Dashboard from './pages/user/Dashboard.jsx';
+import CategoryGames from './pages/user/CategoryGames.jsx';
 import ChatWidget from './components/ChatWidget';
 import { ChatProvider } from './contexts/ChatContext';
 import LiveAgentChatWidget from './components/chat/LiveAgentChatWidget.jsx';
@@ -86,8 +88,8 @@ const AppContent = () => {
                 <Route path="forgot-password" element={<ForgotPassword />} />
                 <Route path="dashboard" element={<Dashboard/>}/>
                 <Route path="blogs" element={<Blogs/>}/> 
-                {/* <Route path="category" element={<Category />} />
-                <Route path="home" element={<Home />} /> */}
+                <Route path="terms" element={<Terms/>}/> 
+                <Route path="games/category/:categoryId" element={<CategoryGames />} />
               </Route>
 
               {/* Protected Routes */}
