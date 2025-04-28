@@ -82,12 +82,11 @@ const UserLayout = ({ children }) => {
         <Container>
           <Navbar.Brand as={Link} to="/customer">
             <img
-              src="/logo.png"
-              width="30"
-              height="30"
+              src="/slogo-300x300.png"
+              width="100"
+              height="100"
               className="d-inline-block align-top me-2"
               alt="Thanh Truc Logo" />
-            Thanh Truc 
           </Navbar.Brand>
          
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
