@@ -32,7 +32,7 @@ module.exports = {
         allowNull: true
       },
       city: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
       },
       phone: {
