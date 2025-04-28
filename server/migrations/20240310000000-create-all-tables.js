@@ -32,7 +32,7 @@ module.exports = {
         allowNull: true
       },
       city: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
       },
       phone: {
@@ -307,6 +307,16 @@ module.exports = {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
+      status: {
+        type: Sequelize.ENUM('pending', 'processing', 'completed', 'cancelled'),
+        defaultValue: 'pending',
+        allowNull: false
+      },
+      transaction_id: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -340,6 +350,20 @@ module.exports = {
           model: 'products',
           key: 'id'
         }
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1
+      },
+      price: {
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false,
+        defaultValue: 0,
+      },
+      licence: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
       created_at: {
         allowNull: false,

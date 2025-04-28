@@ -19,7 +19,7 @@ const getDashboardStats = async () => {
             {
               model: db.Role,
               as: 'roles',
-              where: { name: 'customer' },
+              where: { role_name: 'customer' },
               through: { attributes: [] },
               required: true
             }
@@ -210,7 +210,7 @@ const getUserRegistrationData = async (period = 'month') => {
               {
                 model: db.Role,
                 as: 'roles',
-                where: { name: 'customer' },
+                where: { role_name: 'customer' },
                 through: { attributes: [] },
                 required: true
               }

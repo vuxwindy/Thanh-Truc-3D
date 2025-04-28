@@ -200,6 +200,7 @@ const adminLogin = async (email, password) => {
       required: false // Use left join to get all roles
     }]
   });
+  console.log(user)
 
   if (!user) {
     throw new Error('Invalid admin credentials');
