@@ -23,7 +23,7 @@ export const ChatProvider = ({ children }) => {
       
       // Khởi tạo với tin nhắn chào mừng
       setMessages([
-        { id: 1, text: 'Xin chào! Tôi là trợ lý AI của Web2D. Tôi có thể giúp gì cho bạn?', sender: 'bot' }
+        { id: 1, text: 'Xin chào! Tôi là trợ lý AI của Thanh Truc. Tôi có thể giúp gì cho bạn?', sender: 'bot' }
       ]);
       
       setIsLoading(false);
@@ -89,7 +89,7 @@ export const ChatProvider = ({ children }) => {
       await chatService.endConversation(conversationId);
       setConversationId(null);
       setMessages([
-        { id: Date.now(), text: 'Xin chào! Tôi là trợ lý AI của Web2D. Tôi có thể giúp gì cho bạn?', sender: 'bot' }
+        { id: Date.now(), text: 'Xin chào! Tôi là trợ lý AI của Thanh Truc. Tôi có thể giúp gì cho bạn?', sender: 'bot' }
       ]);
     } catch (error) {
       console.error('Error ending conversation:', error);

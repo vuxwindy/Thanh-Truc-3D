@@ -1,4 +1,4 @@
-# Web2D Frontend
+# Thanh Truc Frontend
 
 A modern React frontend application built with Vite, Redux, and React Bootstrap.
 

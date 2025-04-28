@@ -1,5 +1,5 @@
 {
-  "name": "web2d-server",
+  "name": "thanh_truc-server",
   "version": "1.0.0",
   "description": "Express.js API server with MySQL",
   "main": "app.js",
