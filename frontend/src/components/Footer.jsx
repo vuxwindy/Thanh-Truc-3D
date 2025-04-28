@@ -21,7 +21,7 @@ const Footer = () => {
               <li>Phone: <b>0949942222</b></li>
             </ul>          
           </Col>
-          <Col md={4}>
+          <Col md={3}>
             <h5>{t('footer.quickLinks')}</h5>
             <ul className="list-unstyled">
               <li><Link to="/customer/blogs/17" className="text-light text-decoration-none">Privacy Policy</Link></li>
@@ -30,7 +30,7 @@ const Footer = () => {
               <li><Link to="/customer/blogs/19" className="text-light text-decoration-none">Inspection Policy</Link></li>
             </ul>
           </Col>
-          <Col md={4}>
+          <Col md={3}>
             <h5>{t('Basic instruction')}</h5>
             <ul className="list-unstyled">
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
@@ -40,10 +40,19 @@ const Footer = () => {
               <li><Link to="/customer/Terms" className="text-light text-decoration-none">Inspection Policy</Link></li>
             </ul>
           </Col>
+
+          <Col md={1}>
+            <a href='http://online.gov.vn/Home/WebDetails/116237'>
+              <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png'
+                   alt="Đã thông báo Bộ Công Thương" 
+                   title="Đã thông báo Bộ Công Thương" 
+                   style={{ height: '80px', width: 'auto' }}/>
+            </a>
+          </Col>
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="mb-0">&copy; {currentYear} Web2D. {t('footer.allRightsReserved')}</p>
+            <p className="mb-0">&copy; {currentYear} Thanh Truc. {t('footer.allRightsReserved')}</p>
           </Col>
         </Row>
       </Container>
