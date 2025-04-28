@@ -100,10 +100,12 @@ const CategoryGames = () => {
       await dispatch(addItemToCart({ productId: product.id, quantity: 1 })).unwrap();
       toast.success(`${product.name} added to cart!`);
         // Gửi thông báo về việc thêm sản phẩm vào giỏ hàng
-    await axios.post(`${API_URL}/notifications`, {
-      userId: currentUser.id, // id người dùng
-      message: `Bạn đã thêm ${productName} vào giỏ hàng.`,
-    });
+        // Trang thông báo lỗi
+        
+    // await axios.post(`${API_URL}/notifications`, {
+    //   userId: currentUser.id, // id người dùng
+    //   message: `Bạn đã thêm ${productName} vào giỏ hàng.`,
+    // });
     } catch (err) {
       console.error('Error adding to cart:', err);
       toast.error('Failed to add item to cart. Please try again.');
