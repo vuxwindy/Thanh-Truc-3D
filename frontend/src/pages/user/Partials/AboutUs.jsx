@@ -21,35 +21,35 @@ const AboutUs = () => {
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           >
             <p className="lead mb-3">
-              Welcome to <strong>Thanh Truc</strong> - your premier destination for high-quality games and gaming products.
+            Chào mừng đến với <strong>Thanh Truc</strong> - điểm đến hàng đầu của bạn cho các trò chơi và sản phẩm trò chơi chất lượng cao.
             </p>
             <p>
-              Founded in 2020, we specialize in delivering exceptional gaming experiences across multiple platforms.
-              Our carefully curated collection includes the latest and most popular titles in mobile gaming, web games,
-              and blockchain-based games.
+            Được thành lập vào năm 2020, chúng tôi chuyên cung cấp trải nghiệm chơi game đặc biệt trên nhiều nền tảng.
+Bộ sưu tập được tuyển chọn cẩn thận của chúng tôi bao gồm các tựa game mới nhất và phổ biến nhất trong trò chơi di động, trò chơi trên web
+và trò chơi dựa trên blockchain.
             </p>
           </div>
         </Col>
       </Row>
       <Col>
-          <h2 className="mb-4 fw-semibold text-center">What We Offer</h2>
+          <h2 className="mb-4 fw-semibold text-center">Những gì chúng tôi cung cấp</h2>
         </Col>
       {/* Dịch vụ */}
       <Row className="mb-5 text-center">       
         {[
           {
-            title: 'Quality Games',
-            text: 'We provide a selection of high-quality games across various genres and platforms.',
+            title: 'Trò chơi chất lượng',
+            text: 'Chúng tôi cung cấp nhiều trò chơi chất lượng cao ở nhiều thể loại và nền tảng khác nhau.',
             icon: '🎮',
           },
           {
-            title: 'Secure Transactions',
-            text: 'Our platform ensures safe and secure transactions for all your gaming purchases.',
+            title: 'Giao dịch an toàn',
+            text: 'Nền tảng của chúng tôi đảm bảo các giao dịch an toàn và bảo mật cho mọi giao dịch mua trò chơi của bạn.',
             icon: '🔒',
           },
           {
-            title: 'Customer Support',
-            text: 'We\'re dedicated to providing excellent customer service and support.',
+            title: 'Hỗ trợ khách hàng',
+            text: 'Chúng tôi cam kết cung cấp dịch vụ hỗ trợ và chăm sóc khách hàng tuyệt vời.',
             icon: '🤝',
           },
         ].map((item, idx) => (
