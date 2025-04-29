@@ -43,7 +43,8 @@ const Footer = () => {
 
           <Col md={1}>
             <a href='http://online.gov.vn/Home/WebDetails/116237'>
-              <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png'
+              {/* <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png' */}
+              <img src='/logoSale.png'
                    alt="Đã thông báo Bộ Công Thương" 
                    title="Đã thông báo Bộ Công Thương" 
                    style={{ height: '80px', width: 'auto' }}/>
