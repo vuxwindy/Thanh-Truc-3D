@@ -17,7 +17,13 @@ import UserOrders from './user/UserOrders';
 import Order from './user/Order';
 import Setting from './user/Setting';
 import NotificationPage from './user/NotificationPage ';
-
+import PrivacyPolicy from './user/PrivacyPolicy';
+import PaymentMethods from './user/PaymentMethods';
+import InspectionPolicy from './user/InspectionPolicy';
+import HandlingProcess from './user/HandlingProcess';
+import RefundPolicy from './user/RefundPolicy';
+import WarrantyPolicy from './user/WarrantyPolicy';
+ 
 const Customer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -59,10 +65,18 @@ const Customer = () => {
         <Route path="orders/:id" element={<Order />} />
         {/* Dynamic category routes */}
         <Route path="games/category/:categoryId" element={<CategoryGames />} />
-        
+         
         {/* Blogs route */}
         <Route path="blogs" element={<div>Blogs</div>} />
+        {/* điều khoản & hướng dẫn route */}
         <Route path="terms" element={<Terms />} />
+        <Route path='PrivacyPolicy' element={<PrivacyPolicy/>} />
+        <Route path='PaymentMethods' element={<PaymentMethods/>} />
+        <Route path='InspectionPolicy' element={<InspectionPolicy/>} />
+        <Route path='HandlingProcess' element={<HandlingProcess/>} />
+        <Route path='RefundPolicy' element={<RefundPolicy/>} />
+        <Route path='WarrantyPolicy' element={<WarrantyPolicy/>} />
+         
       </Routes>
     </>
   );

@@ -83,8 +83,8 @@ const UserLayout = ({ children }) => {
           <Navbar.Brand as={Link} to="/customer">
             <img
               src="/slogo-300x300.png"
-              width="100"
-              height="100"
+              width="80"
+              height="80"
               className="d-inline-block align-top me-2"
               alt="Thanh Truc Logo" />
           </Navbar.Brand>
