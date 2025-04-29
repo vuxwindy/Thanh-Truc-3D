@@ -14,7 +14,7 @@ module.exports = {
         updated_at: new Date()
       },
       {
-        name: 'Blocktrain',
+        name: 'Blockchain',
         created_at: new Date(),
         updated_at: new Date()
       }
@@ -23,7 +23,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('categories', {
-      name: ['Game Mobile', 'Game Web', 'Blocktrain']
+      name: ['Game Mobile', 'Game Web', 'Blockchain']
     }, {});
   }
 };
