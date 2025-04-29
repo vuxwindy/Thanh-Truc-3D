@@ -108,10 +108,7 @@ const Order = () => {
               <h5 className="mb-0">Thông tin đơn hàng</h5>
             </Col>
             <Col xs="auto">{getStatusBadge(order.status)}</Col>
-            {/*demo lấy mẫu san pham da mua
-             <Col xs="auto">
-              <span class="badge bg-success">Hoàn thành</span>
-            </Col> */}
+            {/* <Col xs="auto"> <span class="badge bg-success">Đang xử lý</span></Col> demo lay anh*/}
           </Row>
         </Card.Header>
         <Card.Body>
@@ -127,23 +124,14 @@ const Order = () => {
                 <strong>Tổng tiền:</strong> {formatCurrency(order.price)}
               </p>
             </Col>
-            <Col md={3}>
-              {/* demo lấy mẫu san pham da mua
-                <p> <strong>Mã giao dịch:</strong> BX19845 </p> 
-              */}
+            <Col md={6}>
               {order.transaction_id && (
                 <p>
                   <strong>Mã giao dịch:</strong> {order.transaction_id}
                 </p>
               )}
             </Col>
-            <Col md={3} className="text-end">
-              {order.transaction_id && (
-                <button className="btn btn-success" onClick={handleDownload}>
-                  Tải xuống
-                </button>
-              )}
-            </Col>
+      
           </Row>
         </Card.Body>
       </Card>
@@ -181,6 +169,11 @@ const Order = () => {
                     <strong>Giá:</strong>{" "}
                     {formatCurrency(item?.OrderProduct?.price || 0)}
                   </p>
+                  {order.transaction_id && (
+                    <button className="btn btn-success" onClick={handleDownload}>
+                      Tải xuống
+                    </button>
+                  )}        
                 </Col>
               </Row>
             ))}
