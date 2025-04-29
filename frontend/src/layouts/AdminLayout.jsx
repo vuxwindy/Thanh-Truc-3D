@@ -62,7 +62,7 @@ const AdminLayout = ({ children }) => {
                         </Nav>
 
                         <Nav>
-                            <LanguageSelector />
+                            {/* <LanguageSelector /> */}
                             {/* <DarkModeToggle /> */}
                             <NavDropdown
                                 title={

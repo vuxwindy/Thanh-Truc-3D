@@ -95,7 +95,7 @@ const UserLayout = ({ children }) => {
               {isAuthenticated ? (
                 <Nav className="me-auto">
                 {/* Home Link */}
-                    <Nav.Link href="/customer">Home</Nav.Link>
+                    <Nav.Link href="/customer">Trang Chủ</Nav.Link>
                 
                 {/* Games Dropdown */}
                     <NavDropdown title="Games" id="games-dropdown">
@@ -109,14 +109,14 @@ const UserLayout = ({ children }) => {
                         ))}
                     </NavDropdown>
                 {/* Blogs Link */}
-                    <Nav.Link href="/customer/blogs">Blogs</Nav.Link>
+                    <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link>
                 {/* Buying_Guide */}
-                    <Nav.Link href="/customer/Terms">Buying Guide</Nav.Link>
+                    <Nav.Link href="/customer/Terms">Hướng Dẫn</Nav.Link>
                 </Nav>
             ) : (
                 <Nav className="me-auto">
                     {/* Empty nav when not authenticated */}
-                    <Nav.Link href="/customer">Home</Nav.Link>
+                    <Nav.Link href="/customer">Trang Chủ</Nav.Link>
                     <NavDropdown title="Games" id="games-dropdown">
                         {categories.map(category => (
                             <NavDropdown.Item 
@@ -127,15 +127,15 @@ const UserLayout = ({ children }) => {
                             </NavDropdown.Item>
                         ))}
                     </NavDropdown>
-                    <Nav.Link href="/customer/blogs">Blogs</Nav.Link>
-                    <Nav.Link href="/customer/Terms">Buying Guide</Nav.Link>
+                    <Nav.Link href="/customer/blogs">{t('common.blogs')}</Nav.Link>
+                    <Nav.Link href="/customer/Terms">Hướng Dẫn</Nav.Link>
                 </Nav>
             )}
 
             {!isAuthenticated ? (
                 <Nav>
-                    <Nav.Link href="/customer/login">Login</Nav.Link>
-                    <Nav.Link href="/customer/register">Register</Nav.Link>
+                    <Nav.Link href="/customer/login">{t('common.login')}</Nav.Link>
+                    <Nav.Link href="/customer/register">{t('common.register')}</Nav.Link>
                 </Nav>
             ) : (
                 <Nav>
@@ -171,7 +171,7 @@ const UserLayout = ({ children }) => {
                     </Nav.Link>
 
                 <Nav>
-                <LanguageSelector />
+                {/* <LanguageSelector /> */}
                 {/* cài đặt sáng tối */}
                 {/* <DarkModeToggle /> */}
                 {user ? (

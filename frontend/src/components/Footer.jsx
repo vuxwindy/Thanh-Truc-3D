@@ -14,29 +14,29 @@ const Footer = () => {
       <Container>
         <Row className="mb-4">
           <Col md={5}>
-          <h5>About Thanh Truc</h5>
+          <h5>Giới thiệu về Thanh Truc</h5>
             <ul className="list-unstyled">
-              <li>Business Name: <b> Thanh Truc Kinh Bac Company Limited </b></li>
+              <li>Tên Doanh Nghiệp: <b> Công ty TNHH Thanh Trúc Kinh Bắc </b></li>
               <li>MST/DKKD/QDTL: <b>2301283179</b></li>
-              <li>Business Headquarters: <b>Do Nha Quarter, Phuong Lieu Ward, Que Vo Town, Bac Ninh</b></li>
-              <li>Phone: <b>0949942222</b></li>
+              <li>Trụ Sở Doanh Nghiệp: <b>Khu phố Đỗ Nhà, Phường Phương Liễu, Thị trấn Quế Võ,TP.Bắc Ninh</b></li>
+              <li>Điện Thoại: <b>0949942222</b></li>
             </ul>          
           </Col>
           <Col md={2}>
             <h5>{t('footer.quickLinks')}</h5>
-            <ul className="list-unstyled">
-              <li><Link to="/customer/PrivacyPolicy" className="text-light text-decoration-none">Privacy Policy</Link></li>
-              <li><Link to="/customer/PaymentMethods" className="text-light text-decoration-none">Payment Methods</Link></li>
-              <li><Link to="/customer/InspectionPolicy" className="text-light text-decoration-none">Inspection Policy</Link></li>
+            <ul className="list-unstyled"> 
+              <li><Link to="/customer/PrivacyPolicy" className="text-light text-decoration-none">Chính sách bảo mật</Link></li>
+              <li><Link to="/customer/PaymentMethods" className="text-light text-decoration-none">Phương thức thanh toán</Link></li>
+              <li><Link to="/customer/InspectionPolicy" className="text-light text-decoration-none">Chính sách kiểm tra</Link></li>
             </ul>
           </Col>
           <Col md={3}>
             <h5>{t('Basic instruction')}</h5>
             <ul className="list-unstyled">
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
-              <li><Link to="/customer/HandlingProcess" className="text-light text-decoration-none">Complaints reception and handling process</Link></li>
-              <li><Link to="/customer/RefundPolicy" className="text-light text-decoration-none">Return and refund policy</Link></li>
-              <li><Link to="/customer/WarrantyPolicy" className="text-light text-decoration-none">Warranty policy</Link></li>
+              <li><Link to="/customer/HandlingProcess" className="text-light text-decoration-none">Quy trình tiếp nhận và xử lý khiếu nại</Link></li>
+              <li><Link to="/customer/RefundPolicy" className="text-light text-decoration-none">Chính sách trả hàng và hoàn tiền</Link></li>
+              <li><Link to="/customer/WarrantyPolicy" className="text-light text-decoration-none">Chính sách bảo hành</Link></li>
              
             </ul>
           </Col>

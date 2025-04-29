@@ -9,20 +9,20 @@ const InspectionPolicy = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase">Inspection policy</h1>
+            <h1 class="entry-title mb uppercase">Chính sách kiểm tra</h1>
             <p className="lead">
-              Last updated: {new Date().toLocaleDateString()}
+            Cập nhật lần cuối: {new Date().toLocaleDateString()}
             </p>
 
           
               <p>
-                To protect the interests of customers when shopping on
-                thanhtruckb.com, we have a policy to support customers to check
-                upon receipt. That is, when you receive the link from the email,
-                you are allowed to install and check directly.
+              Để bảo vệ quyền lợi của khách hàng khi mua sắm trên
+thanhtruckb.com, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
+khi nhận hàng. Tức là khi bạn nhận được đường link từ email,
+bạn được phép cài đặt và kiểm tra trực tiếp.
               </p>
               <p>
-                <em>*</em> For more information, please contact us via hotline:
+                <em>*</em> Để biết thêm thông tin chi tiết, vui lòng liên hệ với chúng tôi qua đường dây nóng:
                 0949942222.
               </p>
  

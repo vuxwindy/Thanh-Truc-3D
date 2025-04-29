@@ -9,79 +9,75 @@ const HandlingProcess = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase"> Complaints reception and handling process</h1>
+            <h1 class="entry-title mb uppercase"> Quy trình tiếp nhận và xử lý khiếu nại</h1>
             <p className="lead">
-              Last updated: {new Date().toLocaleDateString()}
+            Cập nhật lần cuối: {new Date().toLocaleDateString()}
             </p>
             
                   
             
               <p>
-                <strong>Article 1: Resolution mechanism</strong>.
+                <strong>Điều 1: Cơ chế giải quyết</strong>.
               </p>
               <p>
-                All complaints from the Customer are resolved on the basis of
-                negotiation. In case of failure to reach the desired agreement,
-                either party has the right to bring the case to the competent
-                State agency for resolution.
+              Mọi khiếu nại của Khách hàng đều được giải quyết trên cơ sở
+đàm phán. Trong trường hợp không đạt được thỏa thuận mong muốn,
+một trong hai bên có quyền đưa vụ việc ra cơ quan Nhà nước có thẩm quyền
+để giải quyết.
               </p>
               <p>
-                In case of an incident due to the fault of&nbsp;
-                <u>thanhtruckb.com</u>, we will immediately apply necessary
-                measures to ensure the rights of the customer.
+              Trong trường hợp xảy ra sự cố do lỗi của &nbsp;
+                <u>thanhtruckb.com</u>, chúng tôi sẽ ngay lập tức áp dụng các biện pháp cần thiết để đảm bảo quyền lợi của khách hàng.
               </p>
               <p>
-                <strong>Article 2: Method of submitting complaints</strong>.
+                <strong>Điều 2: Phương pháp nộp khiếu nại</strong>.
               </p>
               <p>
-                Customers can submit complaints to request Thanh Truc Kinh Bac
-                Company Limited to resolve them in the following ways:
+              Khách hàng có thể gửi khiếu nại yêu cầu Công ty TNHH Thanh Trúc Kinh Bắc giải quyết theo các cách sau:
               </p>
-              <p>* Method 1: Call our hotline: 0949942222</p>
+              <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0949942222</p>
               <p>
-                * Method 2: Send an email to the address:&nbsp;
+                * Phương pháp 2: Gửi email đến địa chỉ:&nbsp;
                 <a href="mailto:thanhtruckinhbac@gmail.com">
                   thanhtruckinhbac@gmail.com
                 </a>
               </p>
               <p>
-                * Method 3: Directly to the address: Do Nha Quarter, Phuong Lieu
-                Ward, Que Vo Town, Bac Ninh Province.
+                * Cách 3: Đến trực tiếp địa chỉ: Khu phố Đỗ Nha, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
               </p>
               <p>
-                <strong>Article 3: Implementation procedure</strong>.
+                <strong>Điều 3: Quy trình thực hiện</strong>.
               </p>
               <p>
-              *  <em>Step 1: </em>Submit a complaint.
+              *  <em>Bước 1: </em>Gửi khiếu nại.
               </p>
               <p>
-                Customers submit complaints about services or benefits that have
-                not been fully guaranteed to Thanh Truc Kinh Bac Company Limited
-                through the methods specified above.
+              Khách hàng gửi khiếu nại về các dịch vụ hoặc quyền lợi chưa được Công ty TNHH Thanh Trúc Kinh Bắc đảm bảo đầy đủ
+              thông qua các phương thức nêu trên.
               </p>
               <p>
-              *   <em>Step 2: </em>Receiving and handling complaints.
+              *   <em>Bước 2: </em>Tiếp nhận và xử lý khiếu nại.
               </p>
               <p>
-                Thanh Truc Kinh Bac Company Limited will receive complaints from
-                Customers and proceed to verify information.
+              Công ty TNHH Thanh Trúc Kinh Bắc sẽ tiếp nhận khiếu nại của
+              Khách hàng và tiến hành xác minh thông tin.
               </p>
               <p>
-              *  <em>Step 3: </em>Responding to Customers.
+              *  <em>Bước 3: </em>Trả lời khách hàng.
               </p>
               <p>
-                Thanh Truc Kinh Bac Company Limited will respond to the results
-                of handling complaints to Customers within 03 working days from
-                the date of completion of information verification and
-                processing.
+              Công ty TNHH Thanh Trúc Kinh Bắc sẽ phản hồi kết quả
+xử lý khiếu nại cho Khách hàng trong vòng 03 ngày làm việc kể từ
+ngày hoàn tất xác minh thông tin và
+xử lý.
               </p>
               <p>
-                Thanh Truc Kinh Bac Company Limited will try to verify
-                information and resolve complaints quickly and promptly to
-                ensure the rights of Customers. In cases beyond the ability and
-                authority of the Center, we will request the Customer to bring
-                this case to a competent state agency for settlement in
-                accordance with the law.
+              Công ty TNHH Thanh Trúc Kinh Bắc sẽ cố gắng xác minh
+thông tin và giải quyết khiếu nại nhanh chóng, kịp thời để
+đảm bảo quyền lợi của Khách hàng. Trong trường hợp vượt quá khả năng và
+thẩm quyền của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này
+đến cơ quan nhà nước có thẩm quyền để giải quyết theo
+quy định của pháp luật.
               </p>
  
           </section>

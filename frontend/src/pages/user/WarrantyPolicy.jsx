@@ -9,55 +9,53 @@ const WarrantyPolicy = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase"> Warranty Policy </h1>
+            <h1 class="entry-title mb uppercase"> Chính sách bảo hành</h1>
             <p className="lead">
-              Last updated: {new Date().toLocaleDateString()}
+            Cập nhật lần cuối: {new Date().toLocaleDateString()}
             </p>
            
             <ol>
                 <li >
-                  <strong>Covered by the warranty:</strong>
+                  <strong>Được bảo hành:</strong>
                 </li>
               </ol>
                <p>
-                – The product that has just been delivered is not as the image,
-                description provided or on the website
+                – Sản phẩm vừa được giao không giống như hình ảnh,
+                mô tả được cung cấp hoặc trên trang web.
               </p>
               <ol start="2">
                 <li >
-                  <strong>Cases not covered by the warranty:</strong>
+                  <strong>Những trường hợp không được bảo hành:</strong>
                 </li>
               </ol>
-              <p>– The product is defective due to improper installation</p>
-              <p>– The product is modified, the code is changed</p>
+              <p>– Sản phẩm bị lỗi do lắp đặt không đúng cách</p>
+              <p>– Sản phẩm đã được sửa đổi, mã đã được thay đổi</p>
               <ol start="3">
                 <li >
                   <strong>
-                    Procedures, warranty methods and contact points
+                  Quy trình, phương pháp bảo hành và điểm liên hệ
                   </strong>
                 </li>
               </ol>
               <p>
                 <strong>
-                  We encourage you to send directly to the company's
-                  headquarters at the address: Do Nha Quarter, Phuong Lieu Ward,
-                  Que Vo Town, Bac Ninh Province, Vietnam for warranty support
-                  in the fastest time.
+                Chúng tôi khuyến khích bạn gửi trực tiếp đến
+trụ sở công ty theo địa chỉ: Khu phố Đỗ Nha, Phường Phương Liễu,
+Thị xã Quế Võ, Tỉnh Bắc Ninh, Việt Nam để được hỗ trợ bảo hành
+trong thời gian nhanh nhất.
                 </strong>
               </p>
               <p>
                 <strong>
-                  In case you send the goods to thanhtruckb.com, the warranty
-                  period is expected to be within 3-5 days from the date
-                  thanhtruckb.com receive the goods. The specific warranty
-                  period depends on the product defect in each case.
+                Trong trường hợp bạn gửi hàng đến thanhtruckb.com, thời hạn bảo hành dự kiến ​​là trong vòng 3-5 ngày kể từ ngày thanhtruckb.com nhận được hàng. Thời hạn bảo hành cụ thể
+                tùy thuộc vào lỗi sản phẩm trong từng trường hợp.
                 </strong>
               </p>
               <p>
                 <strong>
-                  For answers to questions or detailed instructions about
-                  https://thanhtruckb.com/ , product warranty process, please
-                  contact 0949942222 phone number or email:
+                  Để trả lời các câu hỏi hoặc hướng dẫn chi tiết về
+                  https://thanhtruckb.com/ , quy trình bảo hành sản phẩm, vui lòng
+                  liên hệ số điện thoại 0949942222 hoặc email:
                   thanhtruckinhbac@gmail.com
                 </strong>
               </p>  

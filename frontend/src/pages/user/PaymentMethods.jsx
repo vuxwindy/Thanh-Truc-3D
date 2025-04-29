@@ -9,41 +9,41 @@ const PaymentMethods = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase">Payment Methods</h1>
+            <h1 class="entry-title mb uppercase">Phương thức thanh toán</h1>
             <p className="lead">
-              Last updated: {new Date().toLocaleDateString()}
+            Cập nhật lần cuối: {new Date().toLocaleDateString()}
             </p>
 
              
               <p>
-                Currently, when purchasing products online on the website
-                https://thanhtruckb.com/, customers make payment in the
-                following ways:
+              Hiện nay, khi mua sản phẩm trực tuyến trên website
+https://thanhtruckb.com/, khách hàng thực hiện thanh toán theo
+những cách sau:
               </p>
               <p>
                 <strong>
-                  Bank transfer
+                Chuyển khoản ngân hàng
                   <br />
                 </strong>
                 <br />
-                Customers transfer money to our bank account below:
+                Khách hàng chuyển tiền vào tài khoản ngân hàng của chúng tôi dưới đây:
               </p>
               <p>
-                Account name:&nbsp;
-                <strong>THANH TRUC KINH BAC COMPANY LIMITED</strong>
+              Tên tài khoản:&nbsp;
+                <strong>CÔNG TY TNHH THÀNH TRÚC KINH BẮC</strong>
               </p>
               <p>
-                Account number:&nbsp;<strong>9683666666</strong>
+              Số tài khoản:&nbsp;<strong>9683666666</strong>
               </p>
               <p>
-                <strong>Military Commercial Joint Stock Bank (MBBank)</strong>
+                <strong>Ngân hàng thương mại cổ phần Quân đội (MBBank)</strong>
               </p>
               <p>
-                * Note: Before ordering and paying by bank transfer, please
-                carefully check the information about the ordered product
-                (product type, description image, introduction information…)
-                along with the amount to be paid clearly displayed in the order
-                information on the thanhtruckb.com website interface.
+              * Lưu ý: Trước khi đặt hàng và thanh toán bằng chuyển khoản, vui lòng
+kiểm tra kỹ thông tin về sản phẩm đã đặt hàng
+(loại sản phẩm, hình ảnh mô tả, thông tin giới thiệu…)
+cùng số tiền cần thanh toán được hiển thị rõ ràng trong thông tin đơn hàng
+trên giao diện website thanhtruckb.com.
               </p>
      
           </section>

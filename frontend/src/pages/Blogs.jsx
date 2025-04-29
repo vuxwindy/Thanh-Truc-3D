@@ -35,7 +35,7 @@ const Blogs = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Blog Posts</h1>
+      <h1 className="mb-4">Bài Viết Tin Tức </h1>
 
       <div className="mb-4">
         <input

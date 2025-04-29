@@ -9,68 +9,64 @@ const RefundPolicy = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase"> Return and Refund Policy </h1>
+            <h1 class="entry-title mb uppercase"> Chính sách hoàn trả và hoàn tiền </h1>
             <p className="lead">
-              Last updated: {new Date().toLocaleDateString()}
+            Cập nhật lần cuối: {new Date().toLocaleDateString()}
             </p>
               <ol>
                 <li>
                   <strong>
-                    Cases accepted for return (only applicable to physical
-                    products)
+                  Các trường hợp được chấp nhận trả lại (chỉ áp dụng cho sản phẩm vật lý)
                   </strong>
                 </li>
               </ol>
               <p>
-                – The product has a defect due to the design and technical
-                department of http://thanhtruckb.com/
+                – Sản phẩm bị lỗi do bộ phận thiết kế và kỹ thuật của http://thanhtruckb.com/
               </p>
               <ol start="2">
                 <li>
-                  <strong>Regulations on product return:</strong>
+                  <strong>Quy định về trả lại sản phẩm:</strong>
                 </li>
               </ol>
               <p>
-                – The time for customers to contact to request a valid return is
-                03 working days from the time of receiving the product.
+                – Thời gian để khách hàng liên hệ yêu cầu trả hàng hợp lệ là
+                03 ngày làm việc kể từ thời điểm nhận được sản phẩm.
               </p>
               <p>
-                – How to return: Customers need to notify the staff of
-                http://thanhtruckb.com/ via phone number 0949942222 about the
-                reason for return, address and correct contact phone number so
-                that we can carry out the product return process as quickly as
-                possible according to your request. We will ask customers to
-                provide proof of purchase (photos, videos of unpacking) to have
-                a basis for processing customers’ requests to exchange/return
-                goods.
+                – Cách thức trả hàng: Khách hàng cần thông báo cho nhân viên của
+http://thanhtruckb.com/ qua số điện thoại 0949942222 về
+lý do trả hàng, địa chỉ và số điện thoại liên lạc chính xác để
+chúng tôi có thể thực hiện quy trình trả hàng nhanh nhất
+có thể theo yêu cầu của quý khách. Chúng tôi sẽ yêu cầu khách hàng
+cung cấp bằng chứng mua hàng (ảnh, video mở hộp) để
+có cơ sở xử lý yêu cầu đổi/trả hàng của khách hàng.
               </p>
               <p>
-                For valid return requests (customers provide full information
-                proving that they purchased the product on the website
-                http://thanhtruckb.com/ and meet the return contact deadline),
-                we will support customers to exchange new products.
+              Đối với các yêu cầu trả hàng hợp lệ (khách hàng cung cấp đầy đủ thông tin
+chứng minh đã mua sản phẩm trên trang web
+http://thanhtruckb.com/ và đáp ứng thời hạn liên hệ trả hàng),
+chúng tôi sẽ hỗ trợ khách hàng đổi sản phẩm mới.
               </p>
               <p>
-                – Product return location: http://thanhtruckb.com/ encourages
-                customers to bring the product directly to the store at the
-                address: Do Nha Quarter, Phuong Lieu Ward, Que Vo Town, Bac Ninh
-                Province so that we can check the product and customers can view
-                and choose to exchange the product according to their needs. For
-                customers in the province, you can send the product by post and
-                contact the Company about the exchanged product, postal code… so
-                that we can process and send the product back as soon as
-                possible upon receiving the product.
+              – Địa điểm đổi trả sản phẩm: http://thanhtruckb.com/ khuyến khích
+khách hàng mang sản phẩm trực tiếp đến cửa hàng tại
+địa chỉ: Khu phố Đỗ Nha, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh
+để chúng tôi kiểm tra sản phẩm và khách hàng có thể xem
+và lựa chọn đổi sản phẩm theo nhu cầu của mình. Đối với
+khách hàng ở tỉnh, bạn có thể gửi sản phẩm qua đường bưu điện và
+liên hệ với Công ty về sản phẩm đổi trả, mã bưu chính… để
+chúng tôi có thể xử lý và gửi trả sản phẩm sớm nhất có thể sau khi nhận được sản phẩm.
               </p>
               <ol start="3">
                 <li>
-                  <strong>Refund Policy</strong>
+                  <strong>Chính sách hoàn tiền</strong>
                 </li>
               </ol>
               <p>
-                We do not refund all technology products after a successful
-                transaction. All purchases are final and we do not offer any
-                money back guarantees. You read and agree that you will not be
-                refunded for any purchase under any circumstances.
+              Chúng tôi không hoàn lại tiền cho tất cả các sản phẩm công nghệ sau khi giao dịch thành công
+. Tất cả các giao dịch mua đều là giao dịch cuối cùng và chúng tôi không cung cấp bất kỳ
+đảm bảo hoàn lại tiền nào. Bạn đã đọc và đồng ý rằng bạn sẽ không được
+hoàn lại tiền cho bất kỳ giao dịch mua nào trong bất kỳ trường hợp nào.
               </p>
         
           </section>
