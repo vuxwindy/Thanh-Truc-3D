@@ -9,7 +9,7 @@ import Settings from './admin/Settings';
 import Dashboard from './admin/Dashboard';
 import Banners from './admin/Banners'; // Add this import
 import Posts from './admin/Posts';
-import Users from './admin/users';
+import Users from './admin/Users';
 import AdminProfile from './admin/AdminProfile'; // Import the new AdminProfile component
 import Client from './admin/Client';
 
