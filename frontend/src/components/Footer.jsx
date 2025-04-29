@@ -23,7 +23,8 @@ const Footer = () => {
             </ul>          
           </Col>
           <Col md={2}>
-            <h5>{t('footer.quickLinks')}</h5>
+            {/* <h5>{t('footer.quickLinks')}</h5> */}
+            <h5>Hỗ Trợ</h5>
             <ul className="list-unstyled"> 
               <li><Link to="/customer/PrivacyPolicy" className="text-light text-decoration-none">Chính sách bảo mật</Link></li>
               <li><Link to="/customer/PaymentMethods" className="text-light text-decoration-none">Phương thức thanh toán</Link></li>
@@ -31,7 +32,7 @@ const Footer = () => {
             </ul>
           </Col>
           <Col md={3}>
-            <h5>{t('Basic instruction')}</h5>
+            <h5>Hướng Dẫn</h5>
             <ul className="list-unstyled">
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
               <li><Link to="/customer/HandlingProcess" className="text-light text-decoration-none">Quy trình tiếp nhận và xử lý khiếu nại</Link></li>
