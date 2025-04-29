@@ -23,7 +23,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('categories', {
-      name: ['Game Mobile', 'Game Web', 'Blocktrain']
+      name: ['Game Mobile', 'Game Web', 'Blockchain']
     }, {});
   }
 };
