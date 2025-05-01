@@ -91,7 +91,7 @@ const Cart = () => {
 
   return (
     <Container className="py-4">
-      <h1 className="mb-4">Your Shopping Cart</h1>
+      <h1 className="mb-4">Giỏ hàng của bạn</h1>
       
       {error && <Alert variant="danger">{error}</Alert>}
       
@@ -99,8 +99,8 @@ const Cart = () => {
         <Card className="text-center p-5">
           <Card.Body>
             <FaShoppingCart size={50} className="text-muted mb-3" />
-            <h3>Your cart is empty</h3>
-            <p className="text-muted">Looks like you haven't added any products to your cart yet.</p>
+            <h3>Giỏ hàng của bạn đang trống</h3>
+            <p className="text-muted">Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.</p>
             <Link to="/customer/dashboard">
               <Button variant="primary">
                 <FaArrowLeft className="me-2" />

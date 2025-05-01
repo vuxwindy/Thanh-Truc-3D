@@ -19,6 +19,7 @@ import Blogs from './pages/Blogs.jsx';
 import Terms from './pages/user/Terms.jsx';
 import Dashboard from './pages/user/Dashboard.jsx';
 import CategoryGames from './pages/user/CategoryGames.jsx';
+import Termsc from './pages/user/TermsCopy.jsx';
 import ChatWidget from './components/ChatWidget';
 import { ChatProvider } from './contexts/ChatContext';
 import LiveAgentChatWidget from './components/chat/LiveAgentChatWidget.jsx';
@@ -90,6 +91,7 @@ const AppContent = () => {
                 <Route path="blogs" element={<Blogs/>}/> 
                 <Route path="terms" element={<Terms/>}/> 
                 <Route path="games/category/:categoryId" element={<CategoryGames />} />
+                <Route path="user-manual" element={<Termsc/>}/> 
               </Route>
 
               {/* Protected Routes */}

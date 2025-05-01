@@ -23,7 +23,8 @@ import InspectionPolicy from './user/InspectionPolicy';
 import HandlingProcess from './user/HandlingProcess';
 import RefundPolicy from './user/RefundPolicy';
 import WarrantyPolicy from './user/WarrantyPolicy';
- 
+import Termsc from './user/TermsCopy';
+
 const Customer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -69,6 +70,8 @@ const Customer = () => {
         {/* Blogs route */}
         <Route path="blogs" element={<div>Blogs</div>} />
         {/* điều khoản & hướng dẫn route */}
+     
+        <Route path='user-manual' element={<Termsc />} />
         <Route path="terms" element={<Terms />} />
         <Route path='PrivacyPolicy' element={<PrivacyPolicy/>} />
         <Route path='PaymentMethods' element={<PaymentMethods/>} />

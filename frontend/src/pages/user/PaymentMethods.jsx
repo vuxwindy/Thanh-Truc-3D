@@ -17,7 +17,7 @@ const PaymentMethods = () => {
              
               <p>
               Hiện nay, khi mua sản phẩm trực tuyến trên website
-https://thanhtruckb.com/, khách hàng thực hiện thanh toán theo
+https://thanhtruckb.com/, khách hàng có thể chọn thực hiện thanh toán theo
 những cách sau:
               </p>
               <p>
@@ -44,6 +44,9 @@ kiểm tra kỹ thông tin về sản phẩm đã đặt hàng
 (loại sản phẩm, hình ảnh mô tả, thông tin giới thiệu…)
 cùng số tiền cần thanh toán được hiển thị rõ ràng trong thông tin đơn hàng
 trên giao diện website thanhtruckb.com.
+              </p>
+              <p>
+              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của thanhtruckb.com trước khi thực hiện thanh toán bằng chuyển khoản. 
               </p>
      
           </section>

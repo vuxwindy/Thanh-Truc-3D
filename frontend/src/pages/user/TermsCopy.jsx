@@ -1,0 +1,93 @@
+import React , { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+ 
+import Terms from './Terms';
+import PrivacyPolicy from './PrivacyPolicy';
+import PaymentMethods from './PaymentMethods';
+import HandlingInstall from './HandlingInstall';
+import HandlingProcess from './HandlingProcess';
+import RefundPolicy from './RefundPolicy';
+import WarrantyPolicy from './WarrantyPolicy';
+import InspectionPolicy from './InspectionPolicy';
+
+
+const Termsc = () => {
+  const [selectedPage, setSelectedPage] = useState("PrivacyPolicy");
+  const menu = [
+    { title: "Chính sách bảo mật", key: "PrivacyPolicy" },
+    { title: "Chính sách kiểm tra", key: "InspectionPolicy" },
+    { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
+    { title: "Hướng dẫn mua hàng", key: "Terms" },
+    { title: "Quy trình tiếp nhận và xử lý khiếu nại", key: "HandlingProcess" },
+    { title: "Chính sách hoàn trả và hoàn tiền", key: "RefundPolicy" },
+    { title: "Chính sách bảo hành", key: "WarrantyPolicy" },
+    { title: "Hướng dẫn cài đặt phần mền", key: "HandlingInstall" },
+  ];
+  const renderContent = () => {
+    switch (selectedPage) {
+      case "PrivacyPolicy":
+        return <PrivacyPolicy />;
+      case "Terms":
+        return <Terms />;
+      case "PaymentMethods":
+        return <PaymentMethods />;
+      case "HandlingInstall":
+        return <HandlingInstall />;
+      case "HandlingProcess":
+        return <HandlingProcess />;
+      case "InspectionPolicy":
+        return <InspectionPolicy />;
+      case "RefundPolicy":
+        return <RefundPolicy />;
+      case "WarrantyPolicy":
+        return <WarrantyPolicy />;
+      default:
+        return <p>Vui lòng chọn mục bên trái để xem nội dung.</p>;
+    }
+  };
+  return (
+    <Container className="py-4">
+      <Row>
+        <Col>
+          {/* Add more sections as needed */}
+          
+          <section className="mt-4">
+					  <h1 class="entry-title mb uppercase">Hướng dẫn sử dụng tài liệu</h1>
+            <p className="lead">Cập nhật lần cuối: {new Date().toLocaleDateString()}</p>
+						<p>Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Thanh Truc một cách dễ dàng và thuận tiện nhất. 
+              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Thanh Truc.</p>
+         
+
+          </section>
+        </Col>
+      </Row>
+
+      <Row className="my-5">
+      {/* Sidebar bên trái */}
+      <Col md={3}>
+            <ul className="list-group">
+            {menu.map((item, idx) => (
+              <li
+                key={idx}
+                className={`list-group-item ${selectedPage === item.key ? "active" : ""}`}
+                style={{ cursor: "pointer" }}
+                onClick={() => setSelectedPage(item.key)}
+              >
+                {item.title}
+              </li>
+            ))}
+          </ul>
+        </Col>
+
+      {/* Nội dung bên phải */}
+      <Col md={9}>{renderContent()}</Col>
+      </Row>
+
+       
+     
+     
+    </Container>
+  );
+};
+
+export default Termsc;

@@ -111,7 +111,9 @@ const UserLayout = ({ children }) => {
                 {/* Blogs Link */}
                     <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link>
                 {/* Buying_Guide */}
-                    <Nav.Link href="/customer/Terms">Hướng Dẫn</Nav.Link>
+                    <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
+                    <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
+                    
                 </Nav>
             ) : (
                 <Nav className="me-auto">
@@ -127,8 +129,9 @@ const UserLayout = ({ children }) => {
                             </NavDropdown.Item>
                         ))}
                     </NavDropdown>
-                    <Nav.Link href="/customer/blogs">{t('common.blogs')}</Nav.Link>
-                    <Nav.Link href="/customer/Terms">Hướng Dẫn</Nav.Link>
+                    <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link>
+                    <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
+                    <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
                 </Nav>
             )}
 
