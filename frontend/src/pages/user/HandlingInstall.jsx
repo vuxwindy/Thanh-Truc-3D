@@ -177,6 +177,14 @@ const HandlingInstall = () => {
               <li>Kiểm tra file requirements.txt, hoặc tài liệu đi kèm để cài đúng các thư viện cần thiết.</li>
             </ul>
             </section>
+            <section>
+             <p> Nếu có bất kì thắc mắc hay cần hỗ trợ trực tiếp bạn có thể liên hệ với chúng tôi qua </p>
+             <ul>
+              <li>Hostline:  0949942222 </li>
+              <li>Mail: thanhtruckinhbac@gmail.com</li>
+              <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122">Nhân viên chăm sóc khách hàng</a> </li>
+             </ul>
+            </section>
           </Col>
         </Row>
       </Container>

@@ -32,13 +32,12 @@ const Footer = () => {
             </ul>
           </Col>
           <Col md={3}>
-            <h5>Hướng Dẫn</h5>
+            <h5>Liên hệ:</h5>
             <ul className="list-unstyled">
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
-              <li><Link to="/customer/HandlingProcess" className="text-light text-decoration-none">Quy trình tiếp nhận và xử lý khiếu nại</Link></li>
-              <li><Link to="/customer/RefundPolicy" className="text-light text-decoration-none">Chính sách trả hàng và hoàn tiền</Link></li>
-              <li><Link to="/customer/WarrantyPolicy" className="text-light text-decoration-none">Chính sách bảo hành</Link></li>
-             
+              <li>Mail: <a href="mailto: thanhtruckinhbac@gmail.com">thanhtruckinhbac@gmail.com</a></li>
+              <li>Hostline:  0949942222 </li>
+              <li>FaFacebook: <a href="https://www.facebook.com/profile.php?id=100016006836122"><FaFacebook /></a> </li>             
             </ul>
           </Col>
 
