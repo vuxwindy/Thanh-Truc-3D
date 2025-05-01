@@ -38,7 +38,7 @@ const Category = () => {
     }
 
     return (
-        <div className="category-section my-4">
+        <div className="category-section my-4 p-5  ">
             <h2 className="mb-4">Categories</h2>
             <Row>
                 {categoryProducts.map(({ category, product }) => (
