@@ -53,7 +53,7 @@ const Customer = () => {
   return (
     <>
       <Routes>
-        <Route path="dashboard" element={<Dashboard/>} />
+        {/* <Route path="dashboard" element={<Dashboard/>} /> */}
         <Route path="cart" element={<Cart />} /> {/* Update this line */}
         <Route path="notifications" element={<NotificationPage/>} />
         <Route path="profile" element={<Profile />} />

@@ -33,6 +33,9 @@ const AppContent = () => {
   const authState = useSelector(state => state.auth);
 
   // Update authentication status when location changes or auth state changes
+  // useEffect theo dõi thay đổi đăng nhập & location
+  // Kiểm tra token đăng nhập
+  // Nếu người dùng truy cập đường /admin/* mà không có quyền admin → tự động chuyển hướng về /admin/login
   useEffect(() => {
     const token = getAccessToken();
     setIsAuthenticated(token);
@@ -100,7 +103,7 @@ const AppContent = () => {
               </Route>
 
               {/* Redirect root to dashboard if authenticated, otherwise to login */}
-              <Route
+              {/* <Route
                 path=""
                 element={
                   isAuthenticated ? (
@@ -113,11 +116,13 @@ const AppContent = () => {
                      
                   )
                 }
-              />
+              /> */}
+              <Route path="" element={<Navigate to="/customer/dashboard" replace />} />
+
             </Routes>
           </UserLayout>
         } />
-        <Route
+        {/* <Route
           path=""
           element={
             isAuthenticated ? (
@@ -126,10 +131,20 @@ const AppContent = () => {
                 <Navigate to="/customer/dashboard" replace />
             ) : (
               <Navigate to="/customer/login" replace />
-              // <Navigate to="/customer/dashboard" replace />
             )
           }
-        />
+        /> */}
+        <Route path="" element={<Navigate to="/customer/dashboard" replace />} />
+
+        <Route
+  path=""
+  element={
+    isAuthenticated
+      ? <Navigate to="/admin/dashboard" replace />
+      : <Navigate to="/admin/login" replace />
+  }
+/>
+
       </Routes>
     </>
   );
