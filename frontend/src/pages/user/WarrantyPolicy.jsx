@@ -20,7 +20,7 @@ const WarrantyPolicy = () => {
                 </li>
               </ol>
                <p>
-                – Sản phẩm vừa được giao không giống như hình ảnh,
+                – Sản phẩm vừa được giao(nhận) không giống như hình ảnh,
                 mô tả được cung cấp hoặc trên trang web.
               </p>
               <ol start="2">

@@ -9,19 +9,22 @@ import HandlingProcess from './HandlingProcess';
 import RefundPolicy from './RefundPolicy';
 import WarrantyPolicy from './WarrantyPolicy';
 import InspectionPolicy from './InspectionPolicy';
-
+import AboutThanhTruc from './AboutThanhTruc';
+import CopyrightGameHelp from './CopyrightGameHelp';
 
 const Termsc = () => {
-  const [selectedPage, setSelectedPage] = useState("PrivacyPolicy");
+  const [selectedPage, setSelectedPage] = useState("AboutThanhTruc");
   const menu = [
+    { title: "Giới thiệu về Thanh Truc", key: "AboutThanhTruc" },
+    { title: "Lý do nên mua game bản quyền", key: "CopyrightGameHelp" },
     { title: "Chính sách bảo mật", key: "PrivacyPolicy" },
     { title: "Chính sách kiểm tra", key: "InspectionPolicy" },
-    { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
-    { title: "Hướng dẫn mua hàng", key: "Terms" },
-    { title: "Quy trình tiếp nhận và xử lý khiếu nại", key: "HandlingProcess" },
     { title: "Chính sách hoàn trả và hoàn tiền", key: "RefundPolicy" },
     { title: "Chính sách bảo hành", key: "WarrantyPolicy" },
+    { title: "Quy trình tiếp nhận và xử lý khiếu nại", key: "HandlingProcess" },
     { title: "Hướng dẫn cài đặt phần mền", key: "HandlingInstall" },
+    { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
+    { title: "Hướng dẫn mua hàng", key: "Terms" },
   ];
   const renderContent = () => {
     switch (selectedPage) {
@@ -41,6 +44,12 @@ const Termsc = () => {
         return <RefundPolicy />;
       case "WarrantyPolicy":
         return <WarrantyPolicy />;
+      case "AboutThanhTruc":
+        return <AboutThanhTruc />;
+      case "CopyrightGameHelp":
+      return <CopyrightGameHelp />;
+      // case "CopyrightGameHelp":
+      //   return <CopyrightGameHelp />;
       default:
         return <p>Vui lòng chọn mục bên trái để xem nội dung.</p>;
     }
@@ -52,12 +61,9 @@ const Termsc = () => {
           {/* Add more sections as needed */}
           
           <section className="mt-4">
-					  <h1 class="entry-title mb uppercase">Hướng dẫn sử dụng tài liệu</h1>
-            <p className="lead">Cập nhật lần cuối: {new Date().toLocaleDateString()}</p>
-						<p>Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Thanh Truc một cách dễ dàng và thuận tiện nhất. 
-              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Thanh Truc.</p>
-         
-
+					 <em>* Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Thanh Truc một cách dễ dàng và thuận tiện nhất. 
+              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Thanh Truc.
+           </em>
           </section>
         </Col>
       </Row>

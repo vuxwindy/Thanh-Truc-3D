@@ -37,7 +37,7 @@ một trong hai bên có quyền đưa vụ việc ra cơ quan Nhà nước có 
               </p>
               <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0949942222</p>
               <p>
-                * Phương pháp 2: Gửi email đến địa chỉ:&nbsp;
+                * Cách 2: Gửi email đến địa chỉ:&nbsp;
                 <a href="mailto:thanhtruckinhbac@gmail.com">
                   thanhtruckinhbac@gmail.com
                 </a>

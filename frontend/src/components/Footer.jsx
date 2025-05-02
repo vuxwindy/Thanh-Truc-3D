@@ -37,7 +37,7 @@ const Footer = () => {
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
               <li>Mail: <a href="mailto: thanhtruckinhbac@gmail.com">thanhtruckinhbac@gmail.com</a></li>
               <li>Hostline:  0949942222 </li>
-              <li>FaFacebook: <a href="https://www.facebook.com/profile.php?id=100016006836122"><FaFacebook /></a> </li>             
+              <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122"><FaFacebook /></a> </li>             
             </ul>
           </Col>
 

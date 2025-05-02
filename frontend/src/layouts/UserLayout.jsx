@@ -76,8 +76,8 @@ const UserLayout = ({ children }) => {
     }, []);
 
   return (
-    <div className="d-flex flex-column min-vh-100">
-    <Navbar bg="light"   expand="lg" className="mb-3 shadow  ">
+    <div className="d-flex flex-column min-vh-100" >
+    <Navbar expand="lg" className="custom-navbar shadow-sm ">
 
         <Container>
           <Navbar.Brand as={Link} to="/customer">
@@ -89,11 +89,11 @@ const UserLayout = ({ children }) => {
               alt="Thanh Truc Logo" />
           </Navbar.Brand>
          
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="main-navbar" />
+          <Navbar.Collapse id="main-navbar">
               {/* Only show navigation items when authenticated */}
               {isAuthenticated ? (
-                <Nav className="me-auto">
+                <Nav className="me-auto fw-semibold">
                 {/* Home Link */}
                     <Nav.Link href="/customer">Trang Chủ</Nav.Link>
                 

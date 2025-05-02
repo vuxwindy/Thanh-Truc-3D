@@ -34,6 +34,12 @@ const AboutUs = () => {
 Bộ sưu tập được tuyển chọn cẩn thận của chúng tôi bao gồm các tựa game mới nhất và phổ biến nhất trong trò chơi di động, trò chơi trên web
 và trò chơi dựa trên blockchain.
             </p>
+            <p>
+  Với đội ngũ đam mê công nghệ và yêu thích game, Thanh Trúc không chỉ là một nền tảng mua bán – chúng tôi là người bạn đồng hành của mọi game thủ. Từ sản phẩm bản quyền đến các dịch vụ hỗ trợ cộng đồng, chúng tôi luôn đặt sự hài lòng và an toàn của khách hàng lên hàng đầu.
+</p>
+<p>
+  Sự khác biệt của Thanh Trúc đến từ sự kết hợp giữa công nghệ hiện đại, dịch vụ tận tâm và cam kết không ngừng cải tiến. Chúng tôi tự hào là cầu nối giữa game thủ và thế giới giải trí số – nơi mà mỗi trải nghiệm đều đáng nhớ.
+</p>
           </div>
         </Col>
       </Row>
@@ -111,6 +117,14 @@ và trò chơi dựa trên blockchain.
 Chúng tôi nỗ lực tạo ra một nền tảng nơi những người đam mê chơi game có thể khám phá, mua và tận hưởng
 các trò chơi chất lượng một cách dễ dàng và tự tin.
             </p>
+            <p>
+  Chúng tôi cam kết cung cấp dịch vụ chuyên nghiệp, nhanh chóng và an toàn — đảm bảo mỗi giao dịch đều minh bạch và đáng tin cậy.
+  Bằng việc hợp tác với các nhà phát hành uy tín, Thanh Trúc mang đến kho sản phẩm đa dạng, luôn cập nhật xu hướng mới nhất trong thế giới game.
+</p>
+<p>
+  Hơn cả một nền tảng mua bán, chúng tôi mong muốn xây dựng một cộng đồng gắn kết, nơi mọi game thủ đều được lắng nghe, hỗ trợ và đồng hành.
+  Đó là lý do vì sao đội ngũ của chúng tôi không ngừng phát triển hệ thống, cải tiến dịch vụ và đặt lợi ích người chơi làm trung tâm trong mọi hoạt động.
+</p>
             <p className="mb-0">
             Cảm ơn bạn đã chọn Thanh Trúc cho nhu cầu chơi game của mình. Chúng tôi mong muốn được phục vụ bạn!
             </p>
