@@ -45,3 +45,4 @@ coverage/
 .env.production.local 
 
 uploads/
+config/config.json
