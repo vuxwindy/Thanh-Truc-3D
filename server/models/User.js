@@ -46,7 +46,13 @@ module.exports = (sequelize) => {
     passportImage: {
       type: DataTypes.STRING,
       allowNull: true
-    }    
+    },
+    cccd: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true // nếu bạn muốn mỗi người chỉ có 1 CCCD duy nhất
+    }
+    
   }, {
     tableName: 'users',
     timestamps: true,

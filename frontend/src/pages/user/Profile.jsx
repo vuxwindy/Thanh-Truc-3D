@@ -11,7 +11,8 @@ import { getUserProfile, updateUserProfile } from '../../services/user.service';
 
 const schema = yup.object().shape({
   fullName: yup.string().required('Full name is required'),
-  phone: yup.string().matches(/^[A-Z0-9]{6,15}$/, 'Passport or Government-Issued ID must be alphanumeric (6–15 characters)'),
+  cccd: yup.string().matches(/^[A-Z0-9]{6,15}$/, 'Passport or Government-Issued ID must be alphanumeric (6–15 characters)'),
+  phone: yup.string().matches(/^\d{9,13}$/, 'Mobile Phone number you are using'),
   address: yup.string(),
   city: yup.string(),
   email: yup.string().email('Invalid email format'),
@@ -49,6 +50,7 @@ const Profile = () => {
         // Set form values
         setValue('fullName', userData.fullName);
         setValue('phone', userData.phone);
+        setValue('cccd', userData.cccd);
         setValue('address', userData.address);
         setValue('city', Number(userData.city));
         setValue('email', userData.email);
@@ -115,6 +117,7 @@ const Profile = () => {
           ...user,
           fullName: updatedUser.fullName,
           phone: updatedUser.phone,
+          cccd: updatedUser.cccd,
           address: updatedUser.address,
           city: updatedUser.city,
           avatar: updatedUser.avatar,
@@ -263,13 +266,26 @@ const Profile = () => {
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
-
                   <Col md={6} className="mb-3">
-                    <Form.Group controlId="phone">
+                    <Form.Group controlId="cccd">
                       <Form.Label>Identity verification documents</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Enter your Passport or Government-issued ID"
+                        {...register('cccd')}
+                        isInvalid={!!errors.cccd}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.phone?.message}
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                  </Col>
+                  <Col md={6} className="mb-3">
+                    <Form.Group controlId="phone">
+                      <Form.Label>Phone</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Mobile Phone Number"
                         {...register('phone')}
                         isInvalid={!!errors.phone}
                       />

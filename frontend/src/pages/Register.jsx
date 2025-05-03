@@ -20,6 +20,10 @@ const schema = yup.object().shape({
   country: yup.string().required('Country is required'),
   city: yup.string().required('City is required'),
   phone: yup
+  .string()
+  .matches(/^\d{9,13}$/, 'Mobile Phone number you are using')
+  .required('Mobile Phone number is required'),
+  cccd: yup
       .string()
       .matches(/^[A-Z0-9]{6,15}$/, 'Passport or ID must be alphanumeric (6–15 characters)')
       .required('Passport or Government-issued ID is required'),
@@ -80,6 +84,7 @@ const Register = () => {
               email: user.email,
               fullName: user.fullName,
               phone: user.phone,
+              cccd: user.cccd,
               roles: user.roles
             },
             token
@@ -212,17 +217,30 @@ const Register = () => {
                       {errors.city?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
+                  {/* phone */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control
+                        type="tel"
+                        placeholder="Mobile Phone Number"
+                        {...register('phone')}
+                        isInvalid={!!errors.phone}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.phone?.message}
+                    </Form.Control.Feedback>
+                  </Form.Group>
                   {/* ID Number: CCCD, Partposs */}
                   <Form.Group className="mb-3">
                     <Form.Label>Identity verification documents</Form.Label>
                     <Form.Control
                         type="tel"
                         placeholder="Enter your Passport or Government-issued ID"
-                        {...register('phone')}
-                        isInvalid={!!errors.phone}
+                        {...register('cccd')}
+                        isInvalid={!!errors.cccd}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors.phone?.message}
+                      {errors.cccd?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
