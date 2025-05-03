@@ -73,9 +73,9 @@ const Terms = () => {
                 <p>&nbsp;</p>
             <p><strong>Bước 7:</strong> Bây giờ bạn có thể kiểm tra email của mình để nhận liên kết sản phẩm.</p>
             <img
-                src="/BGS5.png"
+                src="/emailProduct.png"
                  className="img-fluid rounded mx-auto d-block"
-                alt="BuyingGuideS3"
+                alt="Email Product "
               />
                 <p>&nbsp;</p>
             

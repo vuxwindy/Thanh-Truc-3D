@@ -2,11 +2,11 @@ import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
 const officeImages = [
-  { src: "/images/sanh.jpg", title: "Khu vực sảnh" },
-  { src: "/images/khong-gian-chung.jpg", title: "Khu vực không gian chung" },
-  { src: "/images/giai-tri.jpg", title: "Khu vực giải trí" },
-  { src: "/nhan-vien.jpg", title: "Phòng bán hàng" },
-  { src: "/images/cskh.jpg", title: "Bộ phận CSKH" },
+  { src: "/sanhvanphong.jpg", title: "Khu vực sảnh" },
+  { src: "/khonggianchung.jpg", title: "Khu vực không gian chung" },
+  { src: "/anninhmang.jpg", title: "Phòng  an ninh mạng" },
+  { src: "/nhan-vien.jpg", title: "Phòng bán hàng & CSKH" },
+  { src: "/cskh.jpg", title: "Bộ phận kỹ thuật chuyên môn" },
   { src: "/anhPhongHop.jpg", title: "Không gian phòng họp" },
 ];
 
