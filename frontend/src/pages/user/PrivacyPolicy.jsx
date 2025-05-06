@@ -310,7 +310,7 @@ chủ thể dữ liệu bị ảnh hưởng.
               <br />
               Địa chỉ:&nbsp;
               <strong>
-              Khu phố Đỗ Nhà, Phường Phương Liễu, Thị xã Quế Võ, TP.Bắc Ninh
+              Khu phố Đỗ Nhà, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh , Việt Nam
               </strong>
             </p>
           </section>

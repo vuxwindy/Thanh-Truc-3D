@@ -18,7 +18,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>Tên Doanh Nghiệp: <b> Công ty TNHH Thanh Trúc Kinh Bắc </b></li>
               <li>MST/DKKD/QDTL: <b>2301283179</b></li>
-              <li>Trụ Sở Doanh Nghiệp: <b>Khu phố Đỗ Nhà, Phường Phương Liễu, Thị trấn Quế Võ,TP.Bắc Ninh</b></li>
+              <li>Trụ Sở Doanh Nghiệp: <b>Khu phố Đỗ Nhà, Phường Phương Liễu, Thị xã Quế Võ,Tỉnh Bắc Ninh, Việt Nam</b></li>
               <li>Điện Thoại: <b>0949942222</b></li>
             </ul>          
           </Col>
