@@ -15,7 +15,7 @@ import CopyrightGameHelp from './CopyrightGameHelp';
 const Termsc = () => {
   const [selectedPage, setSelectedPage] = useState("AboutThanhTruc");
   const menu = [
-    { title: "Giới thiệu về Thanh Truc", key: "AboutThanhTruc" },
+    { title: "Giới thiệu về Lucentis", key: "AboutThanhTruc" },
     { title: "Lý do nên mua game bản quyền", key: "CopyrightGameHelp" },
     { title: "Chính sách bảo mật", key: "PrivacyPolicy" },
     { title: "Chính sách kiểm tra", key: "InspectionPolicy" },
@@ -61,8 +61,8 @@ const Termsc = () => {
           {/* Add more sections as needed */}
           
           <section className="mt-4">
-					 <em>* Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Thanh Truc một cách dễ dàng và thuận tiện nhất. 
-              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Thanh Truc.
+					 <em>* Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Lucentis một cách dễ dàng và thuận tiện nhất. 
+              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Lucentis.
            </em>
           </section>
         </Col>

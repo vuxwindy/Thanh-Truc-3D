@@ -50,7 +50,7 @@ trên giao diện website thanhtruckb.com.
               </p>
               &nbsp;
               <h2>
-              <strong>Các thông tin liên hệ với Thanh Truc Shop</strong>
+              <strong>Các thông tin liên hệ với Lucentis Shop</strong>
             </h2>
             <p>
               Khách hàng có thể liên hệ với Công ty TNHH Thanh Trúc Kinh Bắc

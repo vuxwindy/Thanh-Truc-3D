@@ -1,4 +1,4 @@
-# Thanh Truc Frontend
+# Lucentis Frontend
 
 A modern React frontend application built with Vite, Redux, and React Bootstrap.
 

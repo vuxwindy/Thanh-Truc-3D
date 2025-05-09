@@ -14,7 +14,7 @@ const Footer = () => {
       <Container>
         <Row className="mb-4">
           <Col md={5}>
-          <h5>Giới thiệu về Thanh Truc</h5>
+          <h5>Giới thiệu về Lucentis</h5>
             <ul className="list-unstyled">
               <li>Tên Doanh Nghiệp: <b> Công ty TNHH Thanh Trúc Kinh Bắc </b></li>
               <li>MST/DKKD/QDTL: <b>2301283179</b></li>
@@ -40,20 +40,20 @@ const Footer = () => {
               <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122"><FaFacebook /></a> </li>             
             </ul>
           </Col>
-
-          <Col md={1}>
+  {/* <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png' */}
+          {/* <Col md={1}>
             <a href='http://online.gov.vn/Home/WebDetails/116237'>
-              {/* <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png' */}
+            
               <img src='/logoSale.png'
                    alt="Đã thông báo Bộ Công Thương" 
                    title="Đã thông báo Bộ Công Thương" 
                    style={{ height: '80px', width: 'auto' }}/>
             </a>
-          </Col>
+          </Col> */}
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="mb-0">&copy; {currentYear} Thanh Truc. {t('footer.allRightsReserved')}</p>
+            <p className="mb-0">&copy; {currentYear} Lucentis. {t('footer.allRightsReserved')}</p>
           </Col>
         </Row>
       </Container>

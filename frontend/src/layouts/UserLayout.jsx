@@ -80,15 +80,15 @@ const UserLayout = ({ children }) => {
     <Navbar expand="lg" className="custom-navbar shadow-sm ">
 
         <Container>
-          <Navbar.Brand as={Link} to="/customer">
+          <Navbar.Brand as={Link} to="/customer">          
             <img
-              src="/slogo-300x300.png"
-              width="80"
+              src="/AnhLucentis300x230.jpg"
+              width="100"
               height="80"
               className="d-inline-block align-top me-2"
-              alt="Thanh Truc Logo" />
+              alt="Lucentis - SOURCE SOFTWARE . GAME Logo" />                         
           </Navbar.Brand>
-         
+          
           <Navbar.Toggle aria-controls="main-navbar" />
           <Navbar.Collapse id="main-navbar">
               {/* Only show navigation items when authenticated */}

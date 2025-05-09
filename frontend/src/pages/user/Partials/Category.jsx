@@ -39,12 +39,13 @@ const Category = () => {
 
     return (
         <div className="category-section my-4 p-5  ">
-            <h2 className="mb-4">Categories</h2>
+            <h2 className="mb-4   fw-bold text-dark">Danh Mục Sản Phẩm</h2>
             <Row>
                 {categoryProducts.map(({ category, product }) => (
                     <Col key={category.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                        <Card className="h-100 shadow-sm">
-                            <Card.Header className="bg-primary text-white">
+                         <a href={`/customer/games/category/${category.id}`}style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Card className="h-100 shadow rounded-2 border-0">
+                            <Card.Header style={{ backgroundColor: '#fcd12a', color: '#222' }} className="fw-bold text-center rounded-top-2">
                                 <h5 className="mb-0">{category.name}</h5>
                             </Card.Header>
                             {product.image && (
@@ -52,14 +53,15 @@ const Category = () => {
                                     variant="top" 
                                     src={`${CDN_URL}/${product.image}`} 
                                     alt={product.name}
+                                      className="rounded-0"
                                     style={{ height: '180px', objectFit: 'cover' }}
                                 />
                             )}
-                            <Card.Body>
-                                <Card.Title>{product.name}</Card.Title>
+                            <Card.Body style={{ backgroundColor: '#f6eddc' }} className="border-0 rounded-bottom-2">
+                                <Card.Title className="fw-semibold">{product.name}</Card.Title>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <p className="text-danger mb-0">${product.priceSale}</p>
+                                        <p className="text-danger mb-0 fw-bold">${product.priceSale}</p>
                                         {Number(product.priceOrigin) > Number(product.priceSale) && (
                                             <small className="text-muted text-decoration-line-through">
                                                 ${product.priceOrigin}
@@ -76,12 +78,14 @@ const Category = () => {
                                     </div>
                                 </div>
                             </Card.Body>
-                            <Card.Footer className="bg-white">
-                                <a href={`/customer/games/category/${category.id}`} className="btn btn-outline-primary btn-sm w-100">
+                            {/* <Card.Footer style={{ backgroundColor: '#f6eddc' }} className="border-0 rounded-bottom-2">
+                                <a href={`/customer/games/category/${category.id}`}
+                                 className="btn btn-warning btn-sm w-100 fw-semibold"
+                                 style={{ color: '#222' }}>
                                     View All Products
                                 </a>
-                            </Card.Footer>
-                        </Card>
+                            </Card.Footer> */}
+                        </Card> </a>
                     </Col>
                 ))}
             </Row>

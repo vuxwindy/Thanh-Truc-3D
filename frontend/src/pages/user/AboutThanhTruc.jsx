@@ -18,7 +18,7 @@ const AboutThanhTruc = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase">Giới thiệu về Thanh Truc</h1>
+            <h1 class="entry-title mb uppercase">Giới thiệu về Lucentis</h1>
             <p>
               <em>Chuyên bán các sản phẩm về Game bản quyền, Phần mềm</em>
             </p>
@@ -31,7 +31,7 @@ const AboutThanhTruc = () => {
               <li>Chất lượng dịch vụ</li>
             </ul>
             <p>&nbsp;</p>
-            <h2>Văn phòng hoạt động của Thanh Truc</h2>
+            <h2>Văn phòng hoạt động của Lucentis</h2>
             <Row>
               {officeImages.map((img, idx) => (
                 <Col
@@ -54,21 +54,21 @@ const AboutThanhTruc = () => {
             </Row>
             <p>&nbsp;</p>
             <h2>
-              <strong>Vì sao các khách hàng thường chọn Thanh Truc?</strong>
+              <strong>Vì sao các khách hàng thường chọn Lucentis?</strong>
             </h2>
             &nbsp;
             <h3>
               <strong>1. Những năm hoạt động Uy tín </strong>
             </h3>
             <p>
-              Thanh Truc Shop là một tên tuổi mới trong tại thị trường quốc tế,
+              Lucentis Shop là một tên tuổi mới trong tại thị trường quốc tế,
               được khẳng định thông qua hơn 1 triệu khách hàng.
             </p>
             <ul>
               <li>Do chính cộng đồng bình chọn.</li>
               <li>
                 Đã có hơn 1 Triệu khách hàng đặt hàng trong suốt 3 năm hoạt
-                động. &nbsp; Hàng tháng website Thanh Truc chào đón hơn 400.000
+                động. &nbsp; Hàng tháng website Lucentis chào đón hơn 400.000
                 lượt truy cập mua hàng.
               </li>
               <li>
@@ -80,7 +80,7 @@ const AboutThanhTruc = () => {
               <strong>2. Sản phẩm đa dạng</strong>{" "}
             </h3>
             <p>
-              Với hàng chục nghìn sản phẩm trên Website Thanh Truc chúng tôi tự
+              Với hàng chục nghìn sản phẩm trên Website Lucentis chúng tôi tự
               tin mang đến cho bạn tất cả những gì bạn cần trong thế giới bản
               quyền.
             </p>
@@ -149,7 +149,7 @@ const AboutThanhTruc = () => {
             </p>
             <p>&nbsp;</p>
             <h2>
-              <strong>Các thông tin liên hệ với Thanh Truc Shop</strong>
+              <strong>Các thông tin liên hệ với Lucentis Shop</strong>
             </h2>
             <p>
               Khách hàng có thể liên hệ với Công ty TNHH Thanh Trúc Kinh Bắc

@@ -41,9 +41,9 @@ i18n
 // Update document title based on language
 i18n.on('languageChanged', (lng) => {
   const titles = {
-    en: 'Thanh Truc - Digital Gaming Platform',
-    vi: 'Thanh Truc - Nền tảng trò chơi kỹ thuật số',
-    zh: 'Thanh Truc - 数字游戏平台'
+    en: 'Lucentis - Digital Gaming Platform',
+    vi: 'Lucentis - Nền tảng trò chơi kỹ thuật số',
+    zh: 'Lucentis - 数字游戏平台'
   };
   
   document.title = titles[lng] || titles.en;

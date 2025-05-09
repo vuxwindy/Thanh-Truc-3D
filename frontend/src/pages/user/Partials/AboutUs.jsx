@@ -16,7 +16,7 @@ const AboutUs = () => {
       {/* Giới thiệu */}
       <Row className="mb-5">
         <Col>
-          <h1 className="text-center mb-4 display-5 fw-bold">About Thanh Truc</h1>
+          <h1 className="text-center mb-4 display-5 fw-bold">About Lucentis</h1>
           <div
             className="p-5 rounded-4 "
          style={{
@@ -27,7 +27,7 @@ const AboutUs = () => {
         
           >
             <p className="lead mb-3">
-            Chào mừng đến với <strong>Thanh Truc</strong> - điểm đến hàng đầu của bạn cho các trò chơi và sản phẩm trò chơi chất lượng cao.
+            Chào mừng đến với <strong>Lucentis</strong> - điểm đến hàng đầu của bạn cho các trò chơi và sản phẩm trò chơi chất lượng cao.
             </p>
             <p>
             Được thành lập vào năm 2020, chúng tôi chuyên cung cấp trải nghiệm chơi game đặc biệt trên nhiều nền tảng.

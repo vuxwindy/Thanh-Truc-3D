@@ -130,7 +130,7 @@ const ChatWidget = () => {
                     <span className="ai-dot"></span>
                     <span>AI</span>
                   </div>
-                  <h3>Trợ lý AI Thanh Truc</h3>
+                  <h3>Trợ lý AI Lucentis</h3>
                 </div>
                 {conversationId && (
                   <button 
