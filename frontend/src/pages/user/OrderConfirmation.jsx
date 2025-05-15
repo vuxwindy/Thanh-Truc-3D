@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, Table, Alert, Spinner, Badge } from 
 import { FaArrowLeft, FaCheckCircle, FaPaypal } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
-import GooglePayButton from '@google-pay/button-react';
+// import GooglePayButton from '@google-pay/button-react';
 import { updateOrderStatus, getOrderById } from '../../services/order.service';
 
 const OrderConfirmation = () => {
