@@ -77,13 +77,12 @@ const UserLayout = ({ children }) => {
 
   return (
     <div className="d-flex flex-column min-vh-100" >
-    <Navbar expand="lg" className="custom-navbar shadow-sm ">
-
+    <Navbar expand="lg"  className="shadow-sm border-bottom border-secondary " variant="dark" style={{ backgroundColor: '#1a1a1a ' }} >
         <Container>
           <Navbar.Brand as={Link} to="/customer">          
             <img
               src="/AnhLucentis300x230.jpg"
-              width="100"
+              width="160"
               height="80"
               className="d-inline-block align-top me-2"
               alt="Lucentis - SOURCE SOFTWARE . GAME Logo" />                         
@@ -93,12 +92,12 @@ const UserLayout = ({ children }) => {
           <Navbar.Collapse id="main-navbar">
               {/* Only show navigation items when authenticated */}
               {isAuthenticated ? (
-                <Nav className="me-auto fw-semibold">
+                <Nav className="me-auto fw-semibold  ">
                 {/* Home Link */}
-                    <Nav.Link href="/customer">Trang Chủ</Nav.Link>
+                    <Nav.Link href="/customer"   >Trang Chủ</Nav.Link>
                 
                 {/* Games Dropdown */}
-                    <NavDropdown title="Games" id="games-dropdown">
+                    <NavDropdown title="Sản Phẩm" id="games-dropdown">
                         {categories.map(category => (
                             <NavDropdown.Item 
                                 key={category.id} 
@@ -119,7 +118,7 @@ const UserLayout = ({ children }) => {
                 <Nav className="me-auto">
                     {/* Empty nav when not authenticated */}
                     <Nav.Link href="/customer">Trang Chủ</Nav.Link>
-                    <NavDropdown title="Games" id="games-dropdown">
+                    <NavDropdown title="Sản Phẩm" id="games-dropdown">
                         {categories.map(category => (
                             <NavDropdown.Item 
                                 key={category.id} 
@@ -198,7 +197,7 @@ const UserLayout = ({ children }) => {
         </Container>
       </Navbar>
 
-      <div className="flex-grow-1">
+      <div className="flex-grow-1  pt-0">
         {children}
       </div>
 

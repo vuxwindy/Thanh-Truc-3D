@@ -34,7 +34,7 @@ const Blogs = () => {
   if (error) return <div className="alert alert-danger mt-5">{error}</div>;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 py-5 text-light">
       <h1 className="mb-4">Bài Viết Tin Tức </h1>
 
       <div className="mb-4">
@@ -51,8 +51,8 @@ const Blogs = () => {
       <div className="row">
         {blogs.map((blog) => (
           <div key={blog.id} className="col-md-4 mb-4">
-            <div className="card h-100">
-              <div className="card-body">
+            <div className="card h-100 bg-dark text-light">
+              <div className="card-body ">
                 <div className="author-info d-flex align-items-center mb-4">
                   {/* {blog?.user?.avatar ? (
                     <img
@@ -72,7 +72,7 @@ const Blogs = () => {
                   <div>
                     {/* <h6 className="mb-0">{blog?.user?.fullName || 'Anonymous'}</h6>
                     {blog?.user?.email && <small className="text-muted">{blog.user.email}</small>} */}
-                    <div><small className="text-muted">Published: {new Date(blog.created_at).toLocaleDateString()}</small></div>
+                    <div><small>Published: {new Date(blog.created_at).toLocaleDateString()}</small></div>
                   </div>
                 </div>
                 <p className="card-text">
@@ -94,14 +94,14 @@ const Blogs = () => {
 
       <div className="d-flex justify-content-center mt-4">
         <button
-          className="btn btn-outline-primary me-2"
+          className="btn btn-outline-light me-2"
           onClick={() => setPage((p) => Math.max(1, p - 1))}
           disabled={page === 1}
         >
           Previous
         </button>
         <button
-          className="btn btn-outline-primary"
+          className="btn btn-outline-light"
           onClick={() => setPage((p) => p + 1)}
           disabled={page === totalPages}
         >

@@ -7,6 +7,7 @@ import { addToCart } from '../../services/cart.service';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../store/slices/cartSlice';
 import { toast } from 'react-toastify';
+import ProductReview from '../../components/ProductReview ';
 
 
 const CategoryGames = () => {
@@ -24,7 +25,21 @@ const CategoryGames = () => {
   });
   const limit = 8; // Products per page
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchParams.get('search') || '');
-
+//product reviews
+const reviews = [
+  {
+    name: "Nguyễn Văn A",
+    rating: 5,
+    comment: "Sản phẩm rất tốt, nhiều mặt hàng đa dạng!",
+    date: "12/05/2025",
+  },
+  {
+    name: "Trần Thị B",
+    rating: 4,
+    comment: "Chất lượng ổn, gioa diện đóng gói đẹp.",
+    date: "10/05/2025",
+  },
+];
   // Product detail modal state
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -224,11 +239,17 @@ const CategoryGames = () => {
   }
 
   return (
-    <Container className="py-4">
-      <h1 className="mb-4">{category?.name || 'Category'} Games</h1>
-
-      {/* Search Bar */}
-      <Row className="mb-4">
+<div className="pt-5 " > 
+    <Container className=" text-light " >
+      <Row className="min-vh-50 d-flex py-5 mb-5 rounded-3 " style={{ backgroundImage: `url('/banner11.jpg')`,backgroundSize: 'cover',  backgroundPosition: 'center',   boxShadow: '0 0 5px rgba(34, 255, 0, 0.36)'}}>
+    
+        <h1 className="mb-4 pt-5">{category?.name || 'Category'}</h1>
+        <h4 className="text-secondary pb-5">
+          Được hơn 10.000 cá nhân, tổ chức tin tưởng sử dụng dịch vụ <br />
+          từ các công ty khởi nghiệp đầy tham vọng đến các doanh nghiệp lớn.
+        </h4>
+  {/* Search Bar */}
+      <Row className="mb-4 py-5">
         <Col md={6} className="mx-auto">
           <InputGroup>
             <Form.Control
@@ -237,17 +258,18 @@ const CategoryGames = () => {
               onChange={handleSearchChange}
               aria-label="Search products"
             />
-            <InputGroup.Text>
-              <FaSearch />
-            </InputGroup.Text>
+            {/* <InputGroup.Text>
+               <FaSearch />  
+            </InputGroup.Text> */}
           </InputGroup>
         </Col>
       </Row>
 
+      </Row>
       {/* Results summary */}
       <Row className="mb-3">
         <Col>
-          <p className="text-muted">
+          <p className="text-light">
             {pagination.totalItems > 0
               ? `Showing ${products.length} of ${pagination.totalItems} products`
               : 'No products found'}
@@ -265,37 +287,46 @@ const CategoryGames = () => {
           <Row>
             {products.map(product => (
               <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                <Card className="h-100 shadow-sm product-card rounded ">
+                <Card className="shadow-sm product-card rounded-3 " style={{ border: "1px solid transparent",
+                   backgroundColor: "rgba(255, 255, 255, 0.04)", overflow: 'hidden', position: 'relative' }}>
                   <div
                     className="product-image-container"
                     onClick={() => handleProductClick(product.id)}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer'}}
+                    onMouseEnter={(e) => {
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) img.style.transform = 'scale(1.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) img.style.transform = 'scale(1)';
+                    }}
                   >
                     {product.image && (
                       <Card.Img
                         variant="top"
                         src={`${import.meta.env.VITE_API_URL}/uploads/${product.image}`}
                         alt={product.name}
-                        style={{ height: '180px', objectFit: 'cover' }}
+                        style={{ height: '180px', objectFit: 'fill',  transition: 'transform 0.3s ease', }}
                       />
                     )}
                   </div>
-                  <Card.Body onClick={() => handleProductClick(product.id)} style={{ cursor: 'pointer' }}>
+                  <Card.Body onClick={() => handleProductClick(product.id)} className="text-light" 
+                  style={{ cursor: 'pointer'  }}>
                     <Card.Title>{product.name}</Card.Title>
-                    <Card.Text className="text-truncate">{product.description}</Card.Text>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <Card.Text className="text-truncate text-secondary">{product.description}</Card.Text>
+                    {/* <div className="d-flex justify-content-between align-items-center">
                       <span className="text-danger fw-bold">${product.priceSale}</span>
                       {Number(product.priceOrigin) > Number(product.priceSale) && (
                         <span className="text-muted text-decoration-line-through">${product.priceOrigin}</span>
                       )}
-                    </div>
-                 
-                    <Card.Footer className="bg-white border-top-0">
+                    </div> */}               
+                    {/* <Card.Footer className="bg-white border-top-0">
                       <Button variant="primary" className="w-100">
                         <FaShoppingCart className="me-2" />
                         View Detail Product 
                       </Button>
-                    </Card.Footer>
+                    </Card.Footer> */}
                    </Card.Body>
                 </Card>
               </Col>
@@ -312,7 +343,8 @@ const CategoryGames = () => {
           )}
         </>
       )}
-
+  <ProductReview reviews={reviews} />
+ 
       {/* Product Detail Modal */}
       <Modal
         show={showModal}
@@ -393,6 +425,7 @@ const CategoryGames = () => {
         </Modal.Footer>
       </Modal>
     </Container>
+</div>
   );
 };
 

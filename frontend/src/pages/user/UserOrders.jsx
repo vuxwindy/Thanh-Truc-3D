@@ -62,15 +62,15 @@ const UserOrders = () => {
   if (error) return <div className="alert alert-danger mt-5">{error}</div>;
 
   return (
-    <div className="container mt-5">
+    <div className="container text-light bg-dark mt-5 py-5">
       <h1 className="mb-4">My Orders</h1>
       
       {orders.length === 0 ? (
         <div className="alert alert-info">You have no orders yet.</div>
       ) : (
         <>
-          <div className="table-responsive">
-            <table className="table table-striped">
+          <div className="table-responsive bg-dark p-3 rounded ">
+            <table className="table table-dark table-striped table-hover mb-0 ">
               <thead>
                 <tr>
                   <th>Order ID</th>

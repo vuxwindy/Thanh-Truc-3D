@@ -33,7 +33,7 @@ một trong hai bên có quyền đưa vụ việc ra cơ quan Nhà nước có 
                 <strong>Điều 2: Phương pháp nộp khiếu nại</strong>.
               </p>
               <p>
-              Khách hàng có thể gửi khiếu nại yêu cầu Công ty TNHH Thanh Trúc Kinh Bắc giải quyết theo các cách sau:
+              Khách hàng có thể gửi khiếu nại yêu cầu Công ty TNHH Lucentis   giải quyết theo các cách sau:
               </p>
               <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0949942222</p>
               <p>
@@ -52,27 +52,27 @@ một trong hai bên có quyền đưa vụ việc ra cơ quan Nhà nước có 
               *  <em>Bước 1: </em>Gửi khiếu nại.
               </p>
               <p>
-              Khách hàng gửi khiếu nại về các dịch vụ hoặc quyền lợi chưa được Công ty TNHH Thanh Trúc Kinh Bắc đảm bảo đầy đủ
+              Khách hàng gửi khiếu nại về các dịch vụ hoặc quyền lợi chưa được Công ty TNHH Lucentis   đảm bảo đầy đủ
               thông qua các phương thức nêu trên.
               </p>
               <p>
               *   <em>Bước 2: </em>Tiếp nhận và xử lý khiếu nại.
               </p>
               <p>
-              Công ty TNHH Thanh Trúc Kinh Bắc sẽ tiếp nhận khiếu nại của
+              Công ty TNHH Lucentis   sẽ tiếp nhận khiếu nại của
               Khách hàng và tiến hành xác minh thông tin.
               </p>
               <p>
               *  <em>Bước 3: </em>Trả lời khách hàng.
               </p>
               <p>
-              Công ty TNHH Thanh Trúc Kinh Bắc sẽ phản hồi kết quả
+              Công ty TNHH Lucentis   sẽ phản hồi kết quả
 xử lý khiếu nại cho Khách hàng trong vòng 03 ngày làm việc kể từ
 ngày hoàn tất xác minh thông tin và
 xử lý.
               </p>
               <p>
-              Công ty TNHH Thanh Trúc Kinh Bắc sẽ cố gắng xác minh
+              Công ty TNHH Lucentis   sẽ cố gắng xác minh
 thông tin và giải quyết khiếu nại nhanh chóng, kịp thời để
 đảm bảo quyền lợi của Khách hàng. Trong trường hợp vượt quá khả năng và
 thẩm quyền của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này

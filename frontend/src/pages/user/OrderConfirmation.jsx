@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Table, Alert, Spinner, Badge } from 
 import { FaArrowLeft, FaCheckCircle, FaPaypal } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
+import GooglePayButton from '@google-pay/button-react';
 import { updateOrderStatus, getOrderById } from '../../services/order.service';
 
 const OrderConfirmation = () => {
@@ -99,13 +100,13 @@ const OrderConfirmation = () => {
     }
 
     return (
-        <Container className="py-4">
+        <Container className="py-4 text-light">
             <h1 className="mb-4">Order Confirmation</h1>
 
             {error && <Alert variant="danger">{error}</Alert>}
 
             {paymentSuccess ? (
-                <Card className="text-center p-5 mb-4">
+                <Card className="text-center p-5 mb-4 ">
                     <Card.Body>
                         <FaCheckCircle size={50} className="text-success mb-3" />
                         <h3>Payment Successful!</h3>
@@ -122,8 +123,8 @@ const OrderConfirmation = () => {
                 </Card>
             ) : (
                 <>
-                    <Card className="mb-4">
-                        <Card.Header className="bg-white">
+                    <Card className="mb-4 bg-dark text-light">
+                        <Card.Header className="">
                             <div className="d-flex justify-content-between align-items-center">
                                 <h5 className="mb-0">Order Details</h5>
                                 <Badge bg={order.status === 'pending' ? 'warning' : 'success'}>
@@ -144,7 +145,7 @@ const OrderConfirmation = () => {
                             </Row>
 
                             <h6 className="mb-3">Order Items</h6>
-                            <Table responsive>
+                            <Table responsive className="table table-dark table-striped table-hover mb-0 ">
                                 <thead>
                                     <tr>
                                         <th>Product</th>
@@ -197,8 +198,8 @@ const OrderConfirmation = () => {
                         </Col>
 
                         <Col lg={4}>
-                            <Card className="mb-4">
-                                <Card.Header className="bg-white">
+                            <Card className="mb-4 bg-dark text-light">
+                                <Card.Header className="">
                                     <h5 className="mb-0">Payment Summary</h5>
                                 </Card.Header>
                                 <Card.Body>
@@ -227,7 +228,45 @@ const OrderConfirmation = () => {
                                                 <FaPaypal className="text-primary me-2" />
                                                 Pay with PayPal
                                             </h6>
-
+  <GooglePayButton
+     environment="TEST"
+  buttonColor="default"
+  buttonType="pay"
+  buttonRadius="9"
+    paymentRequest={{
+      apiVersion: 2,
+      apiVersionMinor: 0,
+      allowedPaymentMethods: [{
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['MASTERCARD', 'VISA'],
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'example', // Thay bằng tên cổng thanh toán thật như stripe, adyen...
+            gatewayMerchantId: 'exampleGatewayMerchantId',
+          },
+        },
+      }],
+      merchantInfo: {
+        merchantId: 'BCR2DN7TRCR6N5JS',
+        merchantName: 'Thanh Trúc Kinh Bắc',
+      },
+      transactionInfo: {
+        totalPriceStatus: 'FINAL',
+        totalPriceLabel: 'Total',
+        totalPrice: order.price.toString(),
+        currencyCode: 'VND',
+        countryCode: 'VN',
+      },
+    }}
+    onLoadPaymentData={paymentRequest => {
+      console.log('Google Pay Loaded:', paymentRequest);
+      // Bạn có thể xử lý logic tương tự PayPal ở đây
+    }}
+  />
                                             <PayPalScriptProvider options={{
                                                 "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
                                                 currency: "USD"

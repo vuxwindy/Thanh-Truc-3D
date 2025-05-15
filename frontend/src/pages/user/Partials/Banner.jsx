@@ -30,7 +30,7 @@ const Banner = () => {
   if (banners.length === 0) return null;
 
   return (
-    <div className="banner-container mb-4">
+    <div className="position-relative mb-4">
       <Carousel>
         {banners.map((banner) => (
           <Carousel.Item key={banner.id}>
@@ -40,16 +40,40 @@ const Banner = () => {
                   className="d-block w-100"
                   src={CDN_URL + banner.image}
                   alt={`Banner ${banner.id}`}
-                  style={{ maxHeight: '500px', objectFit: 'cover' }}
+                  style={{ maxHeight: '600px', objectFit: 'cover', filter: 'brightness(0.7)' }}
                 />
+                  <div
+                    className="position-absolute top-0 start-0 w-100 h-100"
+                    style={{
+                       background: 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, #1a1a1a 100%)',
+                      pointerEvents: 'none',
+                    }}
+                  />
+                   <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                    <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và trò chơi hấp dẫn nhất</h1>
+                    <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 5'</p>
+                  </Carousel.Caption>              
               </a>
             ) : (
+                <>
               <img
                 className="d-block w-100"
                 src={CDN_URL + banner.image}
                 alt={`Banner ${banner.id}`}
-                style={{ maxHeight: '500px', objectFit: 'cover' }}
-              />
+                style={{ maxHeight: '600px', objectFit: 'cover', filter: 'brightness(0.7)' }}
+              /> 
+                <div
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%,rgb(26, 26, 26) 100%)',
+                    pointerEvents: 'none',
+                  }}
+                />
+              <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và trò chơi hấp dẫn nhất</h1>
+                <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 5'</p>
+              </Carousel.Caption>
+              </>
             )}
           </Carousel.Item>
         ))}

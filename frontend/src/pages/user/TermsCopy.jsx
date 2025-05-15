@@ -55,7 +55,7 @@ const Termsc = () => {
     }
   };
   return (
-    <Container className="py-4">
+    <Container className="py-4 text-light ">
       <Row>
         <Col>
           {/* Add more sections as needed */}
@@ -71,11 +71,11 @@ const Termsc = () => {
       <Row className="my-5">
       {/* Sidebar bên trái */}
       <Col md={3}>
-            <ul className="list-group">
+            <ul className="list-group list-group-flush bg-dark rounded shadow">
             {menu.map((item, idx) => (
               <li
                 key={idx}
-                className={`list-group-item ${selectedPage === item.key ? "active" : ""}`}
+                className={`list-group-item bg-transparent text-light ${selectedPage === item.key ? "active fw-bold" : "border-0"}`}
                 style={{ cursor: "pointer" }}
                 onClick={() => setSelectedPage(item.key)}
               >

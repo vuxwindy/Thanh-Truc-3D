@@ -27,7 +27,7 @@ const NotificationPage = () => {
 
   return (
     <Container>
-      <h2 className="my-4">Thông Báo</h2>
+      <h2 className="my-4 text-light">Thông Báo Mua Hàng</h2>
       <ListGroup>
         {notifications.map((notification) => (
           <ListGroupItem

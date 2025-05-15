@@ -10,5 +10,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f6eddc;
+   background-color: #1a1a1a;
+  /* background-image: url('/bg-image.png'); */
+  filter: brightness(-15);
+  
 }

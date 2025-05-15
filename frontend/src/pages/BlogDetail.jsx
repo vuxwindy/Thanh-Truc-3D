@@ -30,7 +30,7 @@ const BlogDetail = () => {
   if (!blog) return <div className="alert alert-warning mt-5">Blog not found</div>;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 py-5">
       <Link to="/customer/blogs" className="btn btn-outline-primary mb-4">
         ← Back to Blogs
       </Link>
@@ -54,14 +54,14 @@ const BlogDetail = () => {
               {blog?.user?.fullName?.charAt(0) || 'A'}
             </div>
           )} */}
-          <div>
+          <div className="text-light">
             <h6 className="mb-0">{blog?.user?.fullName || 'Anonymous'}</h6>
-            {blog?.user?.email && <small className="text-muted">{blog.user.email}</small>}
-            <div><small className="text-muted">Published: {new Date(blog.created_at).toLocaleDateString()}</small></div>
+            {blog?.user?.email && <small >{blog.user.email}</small>}
+            <div><small>Published: {new Date(blog.created_at).toLocaleDateString()}</small></div>
           </div>
         </div>
         
-        <div className="card">
+        <div className="card bg-dark text-light">
           <div className="card-body">
             {/* Render HTML content from TinyMCE */}
             <div

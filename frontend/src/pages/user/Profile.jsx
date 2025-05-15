@@ -52,7 +52,8 @@ const Profile = () => {
         setValue('phone', userData.phone);
         setValue('cccd', userData.cccd);
         setValue('address', userData.address);
-        setValue('city', Number(userData.city));
+        setValue('city', userData.city);
+        // setValue('city', Number(userData.city));
         setValue('email', userData.email);
         setValue('country', userData.country);
         
@@ -136,10 +137,10 @@ const Profile = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 py-5">
       <Row className="justify-content-center">
         <Col md={8}>
-          <div className="card shadow">
+          <div className="card shadow  border-3 border-info">
             <div className="card-body p-4">
               <h2 className="text-center mb-4">My Profile</h2>
               
@@ -232,13 +233,12 @@ const Profile = () => {
                     <Form.Group controlId="city">
                       <Form.Label>City</Form.Label>
                       <Form.Control
+                        type="text"
+                        placeholder="Enter your city"
                         {...register('city')}
                         isInvalid={!!errors.city}
                       />
-                      {/* <Form.Select
-                        {...register('city')}
-                        isInvalid={!!errors.city}
-                      >
+                      {/* <Form.Select {...register('city')} isInvalid={!!errors.city} >                             
                         <option value="">Select a city</option>
                         {Object.entries(vietnameseCities).map(([id, name]) => (
                           <option key={id} value={id}>

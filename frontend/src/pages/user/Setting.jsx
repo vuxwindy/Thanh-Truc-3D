@@ -8,7 +8,7 @@ function Setting() {
   const { t } = useTranslation();
   
   return (
-    <Container>
+     <Container className="mt-5 py-5">
       <h2 className="mb-4">{t('settings.title')}</h2>
       
       <Row>

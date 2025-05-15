@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Terms = () => {
   return (
-    <Container className="py-4">
+    <Container className="py-4 text-light">
       <Row>
         <Col>
           {/* Add more sections as needed */}

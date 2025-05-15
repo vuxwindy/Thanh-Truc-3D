@@ -56,7 +56,7 @@ const Order = () => {
   if (loading) {
     return (
       <Container
-        className="d-flex justify-content-center align-items-center"
+        className="d-flex justify-content-center align-items-center py-5"
         style={{ minHeight: "300px" }}
       >
         <Spinner animation="border" role="status">
@@ -98,10 +98,10 @@ const Order = () => {
   }
 
   return (
-    <Container className="py-4">
+    <Container className="py-5 text-light">
       <h2 className="mb-4">Chi tiết đơn hàng #{order.id}</h2>
 
-      <Card className="mb-4">
+      <Card className="mb-4 bg-dark text-light">
         <Card.Header>
           <Row>
             <Col>
@@ -136,7 +136,7 @@ const Order = () => {
         </Card.Body>
       </Card>
 
-      <Card>
+      <Card className="mb-4 bg-dark text-light">
         <Card.Header>
           <h5 className="mb-0">Sản phẩm đã mua</h5>
         </Card.Header>
@@ -157,7 +157,7 @@ const Order = () => {
                     style={{ objectFit: "cover", marginBottom: "8px" }}
                   />
                   <h6>{item?.name || "Sản phẩm không xác định"}</h6>
-                  <p className="text-muted">
+                  <p>
                     {item?.description?.substring(0, 100)}...
                   </p>
                 </Col>

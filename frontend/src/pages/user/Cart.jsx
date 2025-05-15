@@ -90,17 +90,17 @@ const Cart = () => {
   }
 
   return (
-    <Container className="py-4">
-      <h1 className="mb-4">Giỏ hàng của bạn</h1>
+    <Container className="py-5 text-light ">
+      <h1 className="mb-4 ">Giỏ hàng của bạn</h1>
       
       {error && <Alert variant="danger">{error}</Alert>}
       
       {count === 0 ? (
-        <Card className="text-center p-5">
+        <Card className="text-center p-5 text-light bg-dark">
           <Card.Body>
-            <FaShoppingCart size={50} className="text-muted mb-3" />
+            <FaShoppingCart size={50} className=" mb-3" />
             <h3>Giỏ hàng của bạn đang trống</h3>
-            <p className="text-muted">Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.</p>
+            <p className="">Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.</p>
             <Link to="/customer/dashboard">
               <Button variant="primary">
                 <FaArrowLeft className="me-2" />
@@ -113,8 +113,8 @@ const Cart = () => {
         <>
           <Row>
             <Col lg={8}>
-              <Card className="mb-4">
-                <Card.Header className="bg-white">
+              <Card className="mb-4 bg-dark text-light">
+                <Card.Header className="">
                   <div className="d-flex justify-content-between align-items-center">
                     <h5 className="mb-0">Cart Items ({count})</h5>
                     <Button 
@@ -128,7 +128,8 @@ const Cart = () => {
                   </div>
                 </Card.Header>
                 <Card.Body>
-                  <Table responsive>
+            
+                  <Table responsive className="table table-dark table-striped table-hover mb-0">
                     <thead>
                       <tr>
                         <th>Product</th>
@@ -154,7 +155,7 @@ const Cart = () => {
                               <div>
                                 <h6 className="mb-0">{item.product.name}</h6>
                                 {item.product.category && (
-                                  <small className="text-muted">{item.product.category.name}</small>
+                                  <small className="">{item.product.category.name}</small>
                                 )}
                               </div>
                             </div>
@@ -218,8 +219,8 @@ const Cart = () => {
             </Col>
             
             <Col lg={4}>
-              <Card className="mb-4">
-                <Card.Header className="bg-white">
+              <Card className="mb-4 bg-dark text-light">
+                <Card.Header className="">
                   <h5 className="mb-0">Order Summary</h5>
                 </Card.Header>
                 <Card.Body>
