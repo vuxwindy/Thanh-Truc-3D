@@ -234,7 +234,7 @@ const Posts = () => {
                         <Form.Group className="mb-3">
                             <Form.Label>Content</Form.Label>
                             <Editor
-                                apiKey="2jiabyfog04uc6gv6189slz590bf889i6fou93qxyf4u4qb2" // Add your TinyMCE API key here
+                                apiKey="mhtdwbwux9pnjioh6u9vq1purr0irewlbomc1dka79iy69tj" // Add your TinyMCE API key here
                                 value={formData.content}
                                 onEditorChange={(content) => setFormData({ ...formData, content })}
                                 init={{
