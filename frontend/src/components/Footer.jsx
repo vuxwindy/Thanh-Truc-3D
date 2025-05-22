@@ -16,10 +16,10 @@ const Footer = () => {
             <h5>Giới thiệu về Lucentis</h5>
             <ul className="list-unstyled">
               <li>
-                Tên Doanh Nghiệp: <b> Công ty TNHH Lucentis   </b>
+                Tên Doanh Nghiệp: <b> CÔNG TY TNHH LUCENTIS   </b>
               </li>
               <li>
-                MST/DKKD/QDTL: <b>2301283179</b>
+                MST/DKKD/QDTL: <b>2301333239</b>
               </li>
               <li>
                 Trụ Sở Doanh Nghiệp:{" "}
@@ -29,7 +29,7 @@ const Footer = () => {
                 </b>
               </li>
               <li>
-                Điện Thoại: <b>0949942222</b>
+                Điện Thoại: <b>0332354286</b>
               </li>
             </ul>
           </Col>
@@ -69,28 +69,29 @@ const Footer = () => {
               {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
               <li>
                 Mail:{" "}
-                <a href="mailto: thanhtruckinhbac@gmail.com">
-                  thanhtruckinhbac@gmail.com
+                <a href="mailto: lucentiscompany@gmail.com">
+                  lucentiscompany@gmail.com
                 </a>
               </li>
-              <li>Hostline: 0949942222 </li>
+              <li>Hostline: 0332354286 </li>
               <li>
                 Facebook:{" Lucentis - "}
                 <a href="https://www.facebook.com/profile.php?id=100016006836122">
-                  <FaFacebook />
+                  <Facebook />
                 </a>{" "}
               </li>
             </ul>
           </Col>
-          {/* <img src='http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png'   <Col md={1}>
-            <a href='http://online.gov.vn/Home/WebDetails/116237'>
-            
+          {/* lucentis.it.com   */}
+        
+          <Col md={1}>
+            <a href='http://online.gov.vn/Home/WebDetails/132073'>           
               <img src='/logoSale.png'
                    alt="Đã thông báo Bộ Công Thương" 
                    title="Đã thông báo Bộ Công Thương" 
                    style={{ height: '80px', width: 'auto' }}/>
             </a>
-          </Col> */}
+          </Col> 
         </Row>
         <Row>
           <Col className="text-center">

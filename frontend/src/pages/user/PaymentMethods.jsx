@@ -17,7 +17,7 @@ const PaymentMethods = () => {
              
               <p>
               Hiện nay, khi mua sản phẩm trực tuyến trên website
-https://thanhtruckb.com/, khách hàng có thể chọn thực hiện thanh toán theo
+https://lucentis.it.com/, khách hàng có thể chọn thực hiện thanh toán theo
 những cách sau:
               </p>
               <p>
@@ -43,24 +43,24 @@ những cách sau:
 kiểm tra kỹ thông tin về sản phẩm đã đặt hàng
 (loại sản phẩm, hình ảnh mô tả, thông tin giới thiệu…)
 cùng số tiền cần thanh toán được hiển thị rõ ràng trong thông tin đơn hàng
-trên giao diện website thanhtruckb.com.
+trên giao diện website lucentis.it.com.
               </p>
               <p>
-              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của thanhtruckb.com trước khi thực hiện thanh toán bằng chuyển khoản. 
+              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của lucentis.it.com trước khi thực hiện thanh toán bằng chuyển khoản. 
               </p>
               &nbsp;
               <h2>
               <strong>Các thông tin liên hệ với Lucentis Shop</strong>
             </h2>
             <p>
-              Khách hàng có thể liên hệ với Công ty TNHH Lucentis  
+              Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
               theo các cách sau:
             </p>
-            <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0949942222</p>
+            <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
             <p>
               * Cách 2: Gửi email đến địa chỉ:&nbsp;
-              <a href="mailto:thanhtruckinhbac@gmail.com">
-                thanhtruckinhbac@gmail.com
+              <a href="mailto:lucentiscompany@gmail.com">
+                lucentiscompany@gmail.com
               </a>
             </p>
             <p>
@@ -68,12 +68,12 @@ trên giao diện website thanhtruckb.com.
               Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
             </p>
             <p>
-              Công ty TNHH Lucentis   sẽ phản hồi kết quả xử lý khiếu
+              CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu
               nại cho Khách hàng trong vòng 03 ngày làm việc kể từ ngày hoàn tất
               xác minh thông tin và xử lý.
             </p>
             <p>
-              Công ty TNHH Lucentis   sẽ cố gắng xác minh thông tin và
+              CÔNG TY TNHH LUCENTIS   sẽ cố gắng xác minh thông tin và
               giải quyết khiếu nại nhanh chóng, kịp thời để đảm bảo quyền lợi
               của Khách hàng. Trong trường hợp vượt quá khả năng và thẩm quyền
               của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này đến

@@ -228,7 +228,7 @@ const OrderConfirmation = () => {
                                                 <FaPaypal className="text-primary me-2" />
                                                 Pay with PayPal
                                             </h6>
-  {/* <GooglePayButton
+  <GooglePayButton
      environment="TEST"
   buttonColor="default"
   buttonType="pay"
@@ -266,7 +266,7 @@ const OrderConfirmation = () => {
       console.log('Google Pay Loaded:', paymentRequest);
       // Bạn có thể xử lý logic tương tự PayPal ở đây
     }}
-  /> */}
+  />
                                             <PayPalScriptProvider options={{
                                                 "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
                                                 currency: "USD"

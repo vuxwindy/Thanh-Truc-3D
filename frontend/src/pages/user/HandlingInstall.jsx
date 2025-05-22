@@ -9,7 +9,7 @@ const HandlingInstall = () => {
             
           <section className="mt-4">
             <p className="lead">Cập nhật lần cuối: {new Date().toLocaleDateString()}</p>
-						<p>Để cài đặt phần mền, bạn cần mua phần mền trên website thanhtruckb.com, quý khách vui lòng làm theo hướng dẫn dưới đây:</p>
+						<p>Để cài đặt phần mền, bạn cần mua phần mền trên website lucentis.it.com, quý khách vui lòng làm theo hướng dẫn dưới đây:</p>
             <p><strong>Bước 1: </strong>Click chuột vào avata, chọn <strong>Orders</strong>. Trang web sẽ dẫn bạn tới trang quản lý đơn hàng của bạn.</p>
             <img
                 src="/huong-dan-installS1.png"
@@ -180,8 +180,8 @@ const HandlingInstall = () => {
             <section>
              <p> Nếu có bất kì thắc mắc hay cần hỗ trợ trực tiếp bạn có thể liên hệ với chúng tôi qua </p>
              <ul>
-              <li>Hostline:  0949942222 </li>
-              <li>Mail: thanhtruckinhbac@gmail.com</li>
+              <li>Hostline:  0332354286 </li>
+              <li>Mail: lucentiscompany@gmail.com</li>
               <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122">Nhân viên chăm sóc khách hàng</a> </li>
              </ul>
             </section>

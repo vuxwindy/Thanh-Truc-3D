@@ -17,7 +17,7 @@ const InspectionPolicy = () => {
           
               <p>
               Để bảo vệ quyền lợi của khách hàng khi mua sắm trên
-thanhtruckb.com, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
+lucentis.it.com, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
 khi nhận hàng. Tức là khi bạn nhận được đường link từ email,
 bạn được phép cài đặt và kiểm tra trực tiếp.
               </p>
@@ -26,14 +26,14 @@ bạn được phép cài đặt và kiểm tra trực tiếp.
               <strong>Các thông tin liên hệ với Lucentis Shop</strong>
             </h2>
             <p>
-              Khách hàng có thể liên hệ với Công ty TNHH Lucentis  
+              Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
               theo các cách sau:
             </p>
-            <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0949942222</p>
+            <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
             <p>
               * Cách 2: Gửi email đến địa chỉ:&nbsp;
-              <a href="mailto:thanhtruckinhbac@gmail.com">
-                thanhtruckinhbac@gmail.com
+              <a href="mailto:lucentiscompany@gmail.com">
+                lucentiscompany@gmail.com
               </a>
             </p>
             <p>
@@ -41,12 +41,12 @@ bạn được phép cài đặt và kiểm tra trực tiếp.
               Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
             </p>
             <p>
-              Công ty TNHH Lucentis   sẽ phản hồi kết quả xử lý khiếu
+              CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu
               nại cho Khách hàng trong vòng 03 ngày làm việc kể từ ngày hoàn tất
               xác minh thông tin và xử lý.
             </p>
             <p>
-              Công ty TNHH Lucentis   sẽ cố gắng xác minh thông tin và
+              CÔNG TY TNHH LUCENTIS   sẽ cố gắng xác minh thông tin và
               giải quyết khiếu nại nhanh chóng, kịp thời để đảm bảo quyền lợi
               của Khách hàng. Trong trường hợp vượt quá khả năng và thẩm quyền
               của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này đến

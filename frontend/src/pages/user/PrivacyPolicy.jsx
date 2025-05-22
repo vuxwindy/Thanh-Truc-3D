@@ -302,11 +302,11 @@ chủ thể dữ liệu bị ảnh hưởng.
             </p>
             <p>Nếu bạn có bất kỳ câu hỏi nào, bạn có thể liên hệ với chúng tôi:</p>
             <p>
-              <strong>CÔNG TY TNHH THÀNH TRÚC  </strong>
+              <strong>CÔNG TY TNHH LUCENTIS   </strong>
               <br />
-              Hotline:&nbsp;<strong>0949942222</strong>
+              Hotline:&nbsp;<strong>0332354286</strong>
               <br />
-              Email:&nbsp;<strong>thanhtruckinhbac@gmail.com</strong>
+              Email:&nbsp;<strong>lucentiscompany@gmail.com</strong>
               <br />
               Địa chỉ:&nbsp;
               <strong>

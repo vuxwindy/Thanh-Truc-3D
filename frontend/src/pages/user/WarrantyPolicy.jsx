@@ -47,16 +47,15 @@ trong thời gian nhanh nhất.
               </p>
               <p>
                 <strong>
-                Trong trường hợp bạn gửi hàng đến thanhtruckb.com, thời hạn bảo hành dự kiến ​​là trong vòng 3-5 ngày kể từ ngày thanhtruckb.com nhận được hàng. Thời hạn bảo hành cụ thể
+                Trong trường hợp bạn gửi hàng đến lucentis.it.com, thời hạn bảo hành dự kiến ​​là trong vòng 3-5 ngày kể từ ngày lucentis.it.com nhận được hàng. Thời hạn bảo hành cụ thể
                 tùy thuộc vào lỗi sản phẩm trong từng trường hợp.
                 </strong>
               </p>
               <p>
                 <strong>
                   Để trả lời các câu hỏi hoặc hướng dẫn chi tiết về
-                  https://thanhtruckb.com/ , quy trình bảo hành sản phẩm, vui lòng
-                  liên hệ số điện thoại 0949942222 hoặc email:
-                  thanhtruckinhbac@gmail.com
+                  https://lucentis.it.com/ , quy trình bảo hành sản phẩm, vui lòng
+                  liên hệ số điện thoại 0332354286 hoặc email: lucentiscompany@gmail.com            
                 </strong>
               </p>  
     

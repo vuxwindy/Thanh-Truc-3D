@@ -11,7 +11,7 @@ const Terms = () => {
           <section className="mt-4">
 					  <h1 class="entry-title mb uppercase">Hướng dẫn mua hàng</h1>
             <p className="lead">Cập nhật lần cuối: {new Date().toLocaleDateString()}</p>
-						<p>Để mua hàng trên website thanhtruckb.com, quý khách vui lòng làm theo hướng dẫn dưới đây:</p>
+						<p>Để mua hàng trên website lucentis.it.com, quý khách vui lòng làm theo hướng dẫn dưới đây:</p>
             <p><strong>Bước 1: </strong>Chọn danh mục Trò chơi bạn muốn.</p>
             <img
                 src="/BuyingGuideS1.png"
