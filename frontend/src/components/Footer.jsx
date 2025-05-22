@@ -77,7 +77,7 @@ const Footer = () => {
               <li>
                 Facebook:{" Lucentis - "}
                 <a href="https://www.facebook.com/profile.php?id=100016006836122">
-                  <Facebook />
+                  <FaFacebook />
                 </a>{" "}
               </li>
             </ul>
