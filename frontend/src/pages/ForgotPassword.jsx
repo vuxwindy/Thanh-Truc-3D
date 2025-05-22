@@ -82,7 +82,7 @@ const ForgotPassword = () => {
     <Container className="mt-5 py-5">
       <Row className="justify-content-center">
         <Col md={6}>
-          <div className="card shadow">
+          <div className="card shadow bg-dark text-light">
             <div className="card-body p-4">
               <h2 className="text-center mb-4">Reset Password</h2>
               
