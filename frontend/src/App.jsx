@@ -24,6 +24,9 @@ import ChatWidget from './components/ChatWidget';
 import { ChatProvider } from './contexts/ChatContext';
 import LiveAgentChatWidget from './components/chat/LiveAgentChatWidget.jsx';
 import LanguageRedirect from './components/LanguageRedirect';
+import PrivacyPolicy from './pages/user/PrivacyPolicy.jsx';
+import PaymentMethods from './pages/user/PaymentMethods.jsx';
+import InspectionPolicy from './pages/user/InspectionPolicy.jsx';
 
 // AppContent component that uses Redux
 const AppContent = () => {
@@ -95,6 +98,9 @@ const AppContent = () => {
                 <Route path="terms" element={<Terms/>}/> 
                 <Route path="games/category/:categoryId" element={<CategoryGames />} />
                 <Route path="user-manual" element={<Termsc/>}/> 
+                <Route path="PrivacyPolicy" element={<PrivacyPolicy/>} />
+                <Route path="PaymentMethods" element={<PaymentMethods/>} />
+                <Route path="InspectionPolicy" element={<InspectionPolicy/>} />
               </Route>
 
               {/* Protected Routes */}

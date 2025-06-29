@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const PaymentMethods = () => {
   return (
-    <Container className="py-4">
+    <Container className="py-4 text-light">
       <Row>
         <Col>
           {/* Add more sections as needed */}
@@ -16,8 +16,8 @@ const PaymentMethods = () => {
 
              
               <p>
-              Hiện nay, khi mua sản phẩm trực tuyến trên website
-https://lucentis.it.com/, khách hàng có thể chọn thực hiện thanh toán theo
+              Hiện nay, khi mua sản phẩm trực tuyến trên website <a href="https://lucentis.it.com">lucentis.it.com</a>
+, khách hàng có thể chọn thực hiện thanh toán theo
 những cách sau:
               </p>
               <p>
@@ -43,10 +43,10 @@ những cách sau:
 kiểm tra kỹ thông tin về sản phẩm đã đặt hàng
 (loại sản phẩm, hình ảnh mô tả, thông tin giới thiệu…)
 cùng số tiền cần thanh toán được hiển thị rõ ràng trong thông tin đơn hàng
-trên giao diện website lucentis.it.com.
+trên giao diện website <a href="https://lucentis.it.com">lucentis.it.com</a>.
               </p>
               <p>
-              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của lucentis.it.com trước khi thực hiện thanh toán bằng chuyển khoản. 
+              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của lucentis trước khi thực hiện thanh toán bằng chuyển khoản. 
               </p>
               &nbsp;
               <h2>

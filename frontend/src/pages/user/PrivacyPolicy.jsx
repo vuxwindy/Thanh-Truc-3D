@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const PrivacyPolicy = () => {
   return (
-    <Container className="py-4">
+    <Container className="py-4 text-light">
       <Row>
         <Col>
           {/* Add more sections as needed */}
@@ -265,14 +265,14 @@ sử dụng các biện pháp kiểm soát dựa trên rủi ro phù hợp để
               <br />
               Chúng tôi không cố ý thu thập dữ liệu cá nhân từ trẻ em dưới
 18 tuổi mà không có sự đồng ý của người giám hộ hợp pháp của trẻ. Vui lòng
-liên hệ với chúng tôi theo địa chỉ thanhtrutinhbac@gmail.com nếu bạn tin rằng chúng tôi
+liên hệ với chúng tôi theo địa chỉ lucentiscompany@gmail.com nếu bạn tin rằng chúng tôi
 đã thu thập thông tin từ trẻ em mà không có sự đồng ý của
 người giám hộ hợp pháp của trẻ.
             </p>
             <p>
               <strong>Cơ sở pháp lý để xử lý</strong>
               <br />
-              Chúng tôi xử lý dữ liệu cá nhân theo yêu cầu của một người, với sự đồng ý của họ, để thực hiện hợp đồng với chúng tôi, dựa trên lợi ích hợp pháp của chúng tôi hoặc các căn cứ hợp pháp khác. Cơ sở cụ thể để xử lý phụ thuộc vào dịch vụ bạn đang sử dụng, dữ liệu đang được xử lý, nơi diễn ra quá trình xử lý và nơi bạn sinh sống. Nếu bạn có bất kỳ câu hỏi nào về cơ sở xử lý dữ liệu cá nhân của mình, vui lòng liên hệ với chúng tôi theo địa chỉ thanhtrutinhbac@gmail.com.
+              Chúng tôi xử lý dữ liệu cá nhân theo yêu cầu của một người, với sự đồng ý của họ, để thực hiện hợp đồng với chúng tôi, dựa trên lợi ích hợp pháp của chúng tôi hoặc các căn cứ hợp pháp khác. Cơ sở cụ thể để xử lý phụ thuộc vào dịch vụ bạn đang sử dụng, dữ liệu đang được xử lý, nơi diễn ra quá trình xử lý và nơi bạn sinh sống. Nếu bạn có bất kỳ câu hỏi nào về cơ sở xử lý dữ liệu cá nhân của mình, vui lòng liên hệ với chúng tôi theo địa chỉ lucentiscompany@gmail.com.
             </p>
             <p>
               <strong>Không phân biệt đối xử</strong>

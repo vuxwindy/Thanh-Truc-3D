@@ -64,7 +64,7 @@ const Describe = () => {
               </p>
               <Button variant="outline-light" size="lg">
                 <a href={`/customer/games/category/1`}style={{ textDecoration: 'none', color: '#f2d9c7' }}>
-                  Khám phá Soulbound Arena
+                  Khám phá Shadow of the Ronin
                 </a>
               </Button>
             </Col>           

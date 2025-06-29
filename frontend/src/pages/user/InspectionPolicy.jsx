@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const InspectionPolicy = () => {
   return (
-    <Container className="py-4">
+    <Container className="py-4 text-light">
       <Row>
         <Col>
           {/* Add more sections as needed */}
@@ -16,8 +16,8 @@ const InspectionPolicy = () => {
 
           
               <p>
-              Để bảo vệ quyền lợi của khách hàng khi mua sắm trên
-lucentis.it.com, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
+              Để bảo vệ quyền lợi của khách hàng khi mua sắm trên   
+ <a href="https://lucentis.it.com"> lucentis.it.com</a>, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
 khi nhận hàng. Tức là khi bạn nhận được đường link từ email,
 bạn được phép cài đặt và kiểm tra trực tiếp.
               </p>
