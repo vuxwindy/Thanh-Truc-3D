@@ -16,9 +16,12 @@ const dashboardRoutes = require('./routes/dashboard.routes');
 const chatRoutes = require('./routes/chatRoutes'); // Thêm chat routes
 const geminiRoutes = require('./routes/gemini.routes'); // Add Gemini routes
 const path = require('path');
+const cybersourceRoutes = require('./routes/cybersource.routes');
+
 
 const app = express();
 
+app.use('/payment-form', cybersourceRoutes);
 // Middleware
 app.use(cors());
 app.use(morgan('dev'));
