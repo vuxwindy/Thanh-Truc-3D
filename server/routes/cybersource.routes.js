@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {showPaymentForm} = require('../controllers/cybersource.controller');
 
-router.get('/', showPaymentForm);
+router.get('/:amount/:currency', showPaymentForm);
 
 
 module.exports = router;

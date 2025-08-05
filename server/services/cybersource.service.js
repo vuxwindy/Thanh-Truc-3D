@@ -10,7 +10,7 @@ function sign(params, secretKey) {
     return Buffer.from(hmac.digest()).toString('base64');
 }
 
-function buildPaymentForm() {
+function buildPaymentForm(amount, currency) {
     const transaction_uuid = crypto.randomUUID();
     const signed_date_time = new Date().toISOString().split('.')[0] + 'Z';
 
@@ -23,8 +23,8 @@ function buildPaymentForm() {
         locale: 'en',
         transaction_type: 'sale',
         reference_number: 'ORDER_' + Date.now(),
-        amount: '100000',
-        currency: 'VND'
+        amount,
+        currency
     };
 
     const signature = sign(params, SECRET_KEY);
