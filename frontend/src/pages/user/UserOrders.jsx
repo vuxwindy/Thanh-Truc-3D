@@ -63,7 +63,7 @@ const UserOrders = () => {
 
   return (
     <div className="container text-light bg-dark mt-5 py-5">
-      <h1 className="mb-4">My Orders</h1>
+      <h1 className="mb-4">Đơn hàng của tôi</h1>
       
       {orders.length === 0 ? (
         <div className="alert alert-info">You have no orders yet.</div>
@@ -92,7 +92,9 @@ const UserOrders = () => {
                         {order.status}
                       </span>
                     </td>
-                    <td>{order.transaction_id || '-'}</td>
+                    <td>{order.transaction_id || '-'}
+                      {/* demo id thanh toán */}
+                    </td>
                     <td>
                       <button
                         className="btn btn-sm btn-primary"

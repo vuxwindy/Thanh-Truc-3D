@@ -3,14 +3,15 @@ import { Container, Row, Col, Card, Button, Table, Alert, Spinner, Badge } from 
 import { FaArrowLeft, FaCheckCircle, FaPaypal } from 'react-icons/fa';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
-// import GooglePayButton from '@google-pay/button-react';
 import { updateOrderStatus, getOrderById } from '../../services/order.service';
+import axios from 'axios';
 
 const OrderConfirmation = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [paymentSuccess, setPaymentSuccess] = useState(false);
     const [order, setOrder] = useState(null);
+const [status, setStatus] = useState(null); // "success", "error", null
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -49,6 +50,15 @@ const OrderConfirmation = () => {
 
         fetchOrder();
     }, [location.state, params, navigate]);
+
+
+    const handleVPBankPayment = (amount) => {
+    const currency = 'VND';
+    const redirectUrl = `http://localhost:3001/payment-form/${amount}/${currency}`;
+    window.location.href = redirectUrl;
+    };
+
+
 
     // Handle PayPal payment success
     const handlePaymentSuccess = async (details) => {
@@ -228,45 +238,21 @@ const OrderConfirmation = () => {
                                                 <FaPaypal className="text-primary me-2" />
                                                 Pay with PayPal
                                             </h6>
-  <GooglePayButton
-     environment="TEST"
-  buttonColor="default"
-  buttonType="pay"
-  buttonRadius="9"
-    paymentRequest={{
-      apiVersion: 2,
-      apiVersionMinor: 0,
-      allowedPaymentMethods: [{
-        type: 'CARD',
-        parameters: {
-          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          allowedCardNetworks: ['MASTERCARD', 'VISA'],
-        },
-        tokenizationSpecification: {
-          type: 'PAYMENT_GATEWAY',
-          parameters: {
-            gateway: 'example', // Thay bằng tên cổng thanh toán thật như stripe, adyen...
-            gatewayMerchantId: 'exampleGatewayMerchantId',
-          },
-        },
-      }],
-      merchantInfo: {
-        merchantId: 'BCR2DN7TRCR6N5JS',
-        merchantName: 'Thanh Trúc Kinh Bắc',
-      },
-      transactionInfo: {
-        totalPriceStatus: 'FINAL',
-        totalPriceLabel: 'Total',
-        totalPrice: order.price.toString(),
-        currencyCode: 'VND',
-        countryCode: 'VN',
-      },
-    }}
-    onLoadPaymentData={paymentRequest => {
-      console.log('Google Pay Loaded:', paymentRequest);
-      // Bạn có thể xử lý logic tương tự PayPal ở đây
-    }}
-  />
+
+                                            <VPBankButton   
+                                                style={{ layout: "vertical" }}  onClick={() => handleVPBankPayment(order.price)}
+                                                onApprove={(data, actions) => {
+                                                    return actions.order.capture().then(details => {
+                                                        handlePaymentSuccess(details);
+                                                    });
+                                                }}
+                                                onError={handlePaymentError}
+                                            >
+                                                Thanh toán với VPBank
+                                            </VPBankButton>
+
+
+
                                             <PayPalScriptProvider options={{
                                                 "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
                                                 currency: "USD"
