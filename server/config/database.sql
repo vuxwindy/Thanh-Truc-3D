@@ -101,26 +101,8 @@ CREATE TABLE `categories` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_2` (`name`),
-  UNIQUE KEY `name_3` (`name`),
-  UNIQUE KEY `name_4` (`name`),
-  UNIQUE KEY `name_5` (`name`),
-  UNIQUE KEY `name_6` (`name`),
-  UNIQUE KEY `name_7` (`name`),
-  UNIQUE KEY `name_8` (`name`),
-  UNIQUE KEY `name_9` (`name`),
-  UNIQUE KEY `name_10` (`name`),
-  UNIQUE KEY `name_11` (`name`),
-  UNIQUE KEY `name_12` (`name`),
-  UNIQUE KEY `name_13` (`name`),
-  UNIQUE KEY `name_14` (`name`),
-  UNIQUE KEY `name_15` (`name`),
-  UNIQUE KEY `name_16` (`name`),
-  UNIQUE KEY `name_17` (`name`),
-  UNIQUE KEY `name_18` (`name`),
-  UNIQUE KEY `name_19` (`name`),
-  UNIQUE KEY `name_20` (`name`)
+  UNIQUE KEY `name` (`name`)
+  
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,7 +112,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Game Mobile',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(2,'Game Web',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(3,'Blocktrain',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(4,'Electronics',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(5,'Clothing',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(6,'Home & Kitchen',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(7,'Books',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(8,'Sports & Outdoors',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(9,'Beauty & Personal Care',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(10,'Toys & Games',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(11,'Health & Household',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(12,'Automotive',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(13,'Office Products',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13');
+INSERT INTO `categories` VALUES (1,'Game Mobile',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(2,'Game Web',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(3,'Blocktrain',NULL,'2025-04-19 16:02:47','2025-04-19 16:02:47'),(4,'Office Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(5,'Accounting & Finance Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(6,'Security & Anti-virus Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(7,'Learning & Education Software ',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(8,'Business Management Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(9,'Web3',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(10,'AI Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(11,'Health & Household',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(12,'Automation Software',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13'),(13,'Programming Documentation',NULL,'2025-04-19 16:04:13','2025-04-19 16:04:13');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,25 +180,8 @@ CREATE TABLE `examples` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `name_2` (`name`),
-  UNIQUE KEY `name_3` (`name`),
-  UNIQUE KEY `name_4` (`name`),
-  UNIQUE KEY `name_5` (`name`),
-  UNIQUE KEY `name_6` (`name`),
-  UNIQUE KEY `name_7` (`name`),
-  UNIQUE KEY `name_8` (`name`),
-  UNIQUE KEY `name_9` (`name`),
-  UNIQUE KEY `name_10` (`name`),
-  UNIQUE KEY `name_11` (`name`),
-  UNIQUE KEY `name_12` (`name`),
-  UNIQUE KEY `name_13` (`name`),
-  UNIQUE KEY `name_14` (`name`),
-  UNIQUE KEY `name_15` (`name`),
-  UNIQUE KEY `name_16` (`name`),
-  UNIQUE KEY `name_17` (`name`),
-  UNIQUE KEY `name_18` (`name`),
-  UNIQUE KEY `name_19` (`name`)
+  UNIQUE KEY `name` (`name`)
+ 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -329,24 +294,6 @@ CREATE TABLE `orders` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `transaction_id` (`transaction_id`),
-  UNIQUE KEY `transaction_id_2` (`transaction_id`),
-  UNIQUE KEY `transaction_id_3` (`transaction_id`),
-  UNIQUE KEY `transaction_id_4` (`transaction_id`),
-  UNIQUE KEY `transaction_id_5` (`transaction_id`),
-  UNIQUE KEY `transaction_id_6` (`transaction_id`),
-  UNIQUE KEY `transaction_id_7` (`transaction_id`),
-  UNIQUE KEY `transaction_id_8` (`transaction_id`),
-  UNIQUE KEY `transaction_id_9` (`transaction_id`),
-  UNIQUE KEY `transaction_id_10` (`transaction_id`),
-  UNIQUE KEY `transaction_id_11` (`transaction_id`),
-  UNIQUE KEY `transaction_id_12` (`transaction_id`),
-  UNIQUE KEY `transaction_id_13` (`transaction_id`),
-  UNIQUE KEY `transaction_id_14` (`transaction_id`),
-  UNIQUE KEY `transaction_id_15` (`transaction_id`),
-  UNIQUE KEY `transaction_id_16` (`transaction_id`),
-  UNIQUE KEY `transaction_id_17` (`transaction_id`),
-  UNIQUE KEY `transaction_id_18` (`transaction_id`),
-  UNIQUE KEY `transaction_id_19` (`transaction_id`),
   KEY `cid` (`cid`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `users` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -472,44 +419,7 @@ CREATE TABLE `roles` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `role_name` (`role_name`),
-  UNIQUE KEY `role_name_2` (`role_name`),
-  UNIQUE KEY `role_name_3` (`role_name`),
-  UNIQUE KEY `role_name_4` (`role_name`),
-  UNIQUE KEY `role_name_5` (`role_name`),
-  UNIQUE KEY `role_name_6` (`role_name`),
-  UNIQUE KEY `role_name_7` (`role_name`),
-  UNIQUE KEY `role_name_8` (`role_name`),
-  UNIQUE KEY `role_name_9` (`role_name`),
-  UNIQUE KEY `role_name_10` (`role_name`),
-  UNIQUE KEY `role_name_11` (`role_name`),
-  UNIQUE KEY `role_name_12` (`role_name`),
-  UNIQUE KEY `role_name_13` (`role_name`),
-  UNIQUE KEY `role_name_14` (`role_name`),
-  UNIQUE KEY `role_name_15` (`role_name`),
-  UNIQUE KEY `role_name_16` (`role_name`),
-  UNIQUE KEY `role_name_17` (`role_name`),
-  UNIQUE KEY `role_name_18` (`role_name`),
-  UNIQUE KEY `role_name_19` (`role_name`),
-  UNIQUE KEY `role_name_20` (`role_name`),
-  UNIQUE KEY `role_name_21` (`role_name`),
-  UNIQUE KEY `role_name_22` (`role_name`),
-  UNIQUE KEY `role_name_23` (`role_name`),
-  UNIQUE KEY `role_name_24` (`role_name`),
-  UNIQUE KEY `role_name_25` (`role_name`),
-  UNIQUE KEY `role_name_26` (`role_name`),
-  UNIQUE KEY `role_name_27` (`role_name`),
-  UNIQUE KEY `role_name_28` (`role_name`),
-  UNIQUE KEY `role_name_29` (`role_name`),
-  UNIQUE KEY `role_name_30` (`role_name`),
-  UNIQUE KEY `role_name_31` (`role_name`),
-  UNIQUE KEY `role_name_32` (`role_name`),
-  UNIQUE KEY `role_name_33` (`role_name`),
-  UNIQUE KEY `role_name_34` (`role_name`),
-  UNIQUE KEY `role_name_35` (`role_name`),
-  UNIQUE KEY `role_name_36` (`role_name`),
-  UNIQUE KEY `role_name_37` (`role_name`),
-  UNIQUE KEY `role_name_38` (`role_name`)
+  UNIQUE KEY `role_name` (`role_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -599,42 +509,7 @@ CREATE TABLE `users` (
   `deleted_at` datetime DEFAULT NULL,
   `passportImage` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `email_2` (`email`),
-  UNIQUE KEY `email_3` (`email`),
-  UNIQUE KEY `email_4` (`email`),
-  UNIQUE KEY `email_5` (`email`),
-  UNIQUE KEY `email_6` (`email`),
-  UNIQUE KEY `email_7` (`email`),
-  UNIQUE KEY `email_8` (`email`),
-  UNIQUE KEY `email_9` (`email`),
-  UNIQUE KEY `email_10` (`email`),
-  UNIQUE KEY `email_11` (`email`),
-  UNIQUE KEY `email_12` (`email`),
-  UNIQUE KEY `email_13` (`email`),
-  UNIQUE KEY `email_14` (`email`),
-  UNIQUE KEY `email_15` (`email`),
-  UNIQUE KEY `email_16` (`email`),
-  UNIQUE KEY `email_17` (`email`),
-  UNIQUE KEY `email_18` (`email`),
-  UNIQUE KEY `email_19` (`email`),
-  UNIQUE KEY `email_20` (`email`),
-  UNIQUE KEY `email_21` (`email`),
-  UNIQUE KEY `email_22` (`email`),
-  UNIQUE KEY `email_23` (`email`),
-  UNIQUE KEY `email_24` (`email`),
-  UNIQUE KEY `email_25` (`email`),
-  UNIQUE KEY `email_26` (`email`),
-  UNIQUE KEY `email_27` (`email`),
-  UNIQUE KEY `email_28` (`email`),
-  UNIQUE KEY `email_29` (`email`),
-  UNIQUE KEY `email_30` (`email`),
-  UNIQUE KEY `email_31` (`email`),
-  UNIQUE KEY `email_32` (`email`),
-  UNIQUE KEY `email_33` (`email`),
-  UNIQUE KEY `email_34` (`email`),
-  UNIQUE KEY `email_35` (`email`),
-  UNIQUE KEY `email_36` (`email`)
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
