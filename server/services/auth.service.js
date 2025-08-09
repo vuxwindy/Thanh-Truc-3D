@@ -31,6 +31,7 @@ const login = async (email, password) => {
   }
 
   // Check if user has customer role
+console.log("user.roles", user.roles);
   const hasCustomerRole = user.roles && user.roles.some(role => role.id === CUSTOMER_ROLE_ID);
   if (!hasCustomerRole) {
     throw new Error('Invalid user credentials');

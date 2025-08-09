@@ -1,4 +1,5 @@
 const db = require('../models');
+const { v4: uuidv4 } = require('uuid');
 const { Op } = require('sequelize');
 const { clearUserCart } = require('./cart.service');
 const { sendProductLicensesEmail } = require('../config/email');
@@ -36,7 +37,8 @@ const createOrderFromCart = async (userId, paymentMethod = 1) => {
       cid: userId,
       payment_method: paymentMethod,
       price: totalPrice,
-      status: 'pending'
+      status: 'pending',
+      transaction_id_send: uuidv4()
     }, { transaction });
 
     // Create order products

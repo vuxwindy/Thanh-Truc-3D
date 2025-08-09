@@ -36,7 +36,11 @@ const Order = sequelize.define('Order', {
   deleted_at: {
     type: DataTypes.DATE,
     allowNull: true
-  }
+  },
+  transaction_id_send: {
+  type: DataTypes.UUID,
+  defaultValue: DataTypes.UUIDV4 // hoặc tạo thủ công bằng uuidv4()
+}
 }, {
   tableName: 'orders',
   timestamps: true,
