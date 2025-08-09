@@ -29,6 +29,9 @@ try {
                 { where: { transaction_id_send: transaction_id_send } }
             );
 
+            // gui mail 
+
+
         } else {
             console.warn(`Thanh toán thất bại hoặc bị từ chối! Decision: ${decision}, Reason: ${req.body.reason_code}`);
 
