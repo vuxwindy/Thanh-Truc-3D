@@ -239,7 +239,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                 Pay with PayPal
                                             </h6>
 
-                                            <VPBankButton   
+                                            <Button   
                                                 style={{ layout: "vertical" }}  onClick={() => handleVPBankPayment(order.price)}
                                                 onApprove={(data, actions) => {
                                                     return actions.order.capture().then(details => {
@@ -249,7 +249,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                 onError={handlePaymentError}
                                             >
                                                 Thanh toán với VPBank
-                                            </VPBankButton>
+                                            </Button>
 
 
 
