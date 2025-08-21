@@ -32,6 +32,10 @@ const schema = yup.object().shape({
     then: (schema) => schema.required('Verification code is required'),
     otherwise: (schema) => schema.notRequired(),
   }),
+  // agreeToTerms: yup
+  // .boolean
+  // .oneOf([true], 'You must agree to the terms and conditions'),
+ 
 });
 
 const Register = () => {

@@ -17,40 +17,22 @@ const PaymentMethods = () => {
              
               <p>
               Hiện nay, khi mua sản phẩm trực tuyến trên website <a href="https://lucentis.it.com">lucentis.it.com</a>
-, khách hàng có thể chọn thực hiện thanh toán theo
-những cách sau:
+, khách hàng có thể chọn một phương thức thanh toán duy nhất là thực hiện thanh toán trực tiếp trên web site.
               </p>
+             
               <p>
-                <strong>
-                Chuyển khoản ngân hàng
-                  <br />
-                </strong>
-                <br />
-                Khách hàng chuyển tiền vào tài khoản ngân hàng của chúng tôi dưới đây:
-              </p>
-              <p>
-              Tên tài khoản:&nbsp;
-                <strong>CÔNG TY TNHH THÀNH TRÚC  </strong>
-              </p>
-              <p>
-              Số tài khoản:&nbsp;<strong>9683666666</strong>
-              </p>
-              <p>
-                <strong>Ngân hàng thương mại cổ phần Quân đội (MBBank)</strong>
-              </p>
-              <p>
-              * Lưu ý: Trước khi đặt hàng và thanh toán bằng chuyển khoản, vui lòng
+              * Lưu ý: Trước khi đặt hàng và thanh toán, vui lòng
 kiểm tra kỹ thông tin về sản phẩm đã đặt hàng
 (loại sản phẩm, hình ảnh mô tả, thông tin giới thiệu…)
 cùng số tiền cần thanh toán được hiển thị rõ ràng trong thông tin đơn hàng
 trên giao diện website <a href="https://lucentis.it.com">lucentis.it.com</a>.
               </p>
               <p>
-              * Lưu ý: Cần liên hệ với đội ngũ hỗi trợ khách hàng của lucentis trước khi thực hiện thanh toán bằng chuyển khoản. 
+              * Lưu ý: khi thanh toán là bạn đã đồng ý với các điều khoản mua hàng của bên tôi.
               </p>
               &nbsp;
               <h2>
-              <strong>Các thông tin liên hệ với Lucentis Shop</strong>
+              <strong>Các thông tin liên hệ với Lucentis </strong>
             </h2>
             <p>
               Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
@@ -65,7 +47,7 @@ trên giao diện website <a href="https://lucentis.it.com">lucentis.it.com</a>.
             </p>
             <p>
               * Cách 3: Đến trực tiếp địa chỉ: Khu phố Đỗ Nha, Phường Phương
-              Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
+              Liễu, Tỉnh Bắc Ninh.
             </p>
             <p>
               CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu

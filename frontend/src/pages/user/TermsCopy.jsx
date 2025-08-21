@@ -11,6 +11,7 @@ import WarrantyPolicy from './WarrantyPolicy';
 import InspectionPolicy from './InspectionPolicy';
 import AboutThanhTruc from './AboutThanhTruc';
 import CopyrightGameHelp from './CopyrightGameHelp';
+import Taiwan from './taiwan';
 
 const Termsc = () => {
   const [selectedPage, setSelectedPage] = useState("AboutThanhTruc");
@@ -25,6 +26,7 @@ const Termsc = () => {
     { title: "Hướng dẫn cài đặt phần mền", key: "HandlingInstall" },
     { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
     { title: "Hướng dẫn mua hàng", key: "Terms" },
+    { title: "taiwan", key: "Taiwan" },
   ];
   const renderContent = () => {
     switch (selectedPage) {
@@ -49,7 +51,9 @@ const Termsc = () => {
       case "CopyrightGameHelp":
       return <CopyrightGameHelp />;
       // case "CopyrightGameHelp":
-      //   return <CopyrightGameHelp />;
+      // return <CopyrightGameHelp />;
+      case "Taiwan":
+        return <Taiwan />;
       default:
         return <p>Vui lòng chọn mục bên trái để xem nội dung.</p>;
     }
