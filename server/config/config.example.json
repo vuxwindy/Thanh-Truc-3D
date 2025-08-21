@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "123456a@",
-    "database": "thanh_truc",
+    "database": "web2d",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "123456a@",
-    "database": "thanh_truc_test",
+    "database": "web2d",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "123456a@",
-    "database": "thanh_truc_prod",
+    "database": "web2d",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

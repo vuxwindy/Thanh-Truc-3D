@@ -25,7 +25,7 @@ const Termsc = () => {
     { title: "Quy trình tiếp nhận và xử lý khiếu nại", key: "HandlingProcess" },
     { title: "Hướng dẫn cài đặt phần mền", key: "HandlingInstall" },
     { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
-    { title: "Hướng dẫn mua hàng", key: "Terms" },
+    { title: "Hướng dẫn mua hàng", key: "Terms" }, 
     { title: "taiwan", key: "Taiwan" },
   ];
   const renderContent = () => {
