@@ -10,8 +10,8 @@ function sign(params, secretKey) {
     return Buffer.from(hmac.digest()).toString('base64');
 }
 
-function buildPaymentForm(amount, currency) {
-    const transaction_uuid = crypto.randomUUID();
+function buildPaymentForm(amount, currency, transaction) {
+    const transaction_uuid = transaction;
     const signed_date_time = new Date().toISOString().split('.')[0] + 'Z';
 
     const params = {

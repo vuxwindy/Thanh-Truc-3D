@@ -52,9 +52,9 @@ const [status, setStatus] = useState(null); // "success", "error", null
     }, [location.state, params, navigate]);
 
 
-    const handleVPBankPayment = (amount) => {
+    const handleVPBankPayment = (amount, transaction_id_send) => {
     const currency = 'VND';
-    const redirectUrl = `http://localhost:3001/payment-form/${amount}/${currency}`;
+    const redirectUrl = `http://localhost:3001/payment-form/${amount}/${currency}/${transaction_id_send}`;
     window.location.href = redirectUrl;
     };
 
@@ -239,7 +239,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                 Pay with PayPal
                                             </h6>
 
-                                            <Button   
+                                            <VPBankButton   
                                                 style={{ layout: "vertical" }}  onClick={() => handleVPBankPayment(order.price)}
                                                 onApprove={(data, actions) => {
                                                     return actions.order.capture().then(details => {
@@ -249,7 +249,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                 onError={handlePaymentError}
                                             >
                                                 Thanh toán với VPBank
-                                            </Button>
+                                            </VPBankButton>
 
 
 
