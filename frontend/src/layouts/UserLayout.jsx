@@ -108,7 +108,7 @@ const UserLayout = ({ children }) => {
                         ))}
                     </NavDropdown>
                 {/* Blogs Link */}
-                    <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link>
+                    {/* <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link> */}
                 {/* Buying_Guide */}
                     <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
                     <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
@@ -128,7 +128,7 @@ const UserLayout = ({ children }) => {
                             </NavDropdown.Item>
                         ))}
                     </NavDropdown>
-                    <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link>
+                    {/* <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link> */}
                     <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
                     <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
                 </Nav>

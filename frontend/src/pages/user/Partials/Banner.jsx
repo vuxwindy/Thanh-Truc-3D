@@ -49,10 +49,10 @@ const Banner = () => {
                       pointerEvents: 'none',
                     }}
                   />
-                   <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
-                    <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và trò chơi hấp dẫn nhất</h1>
-                    <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 5'</p>
-                  </Carousel.Caption>              
+                   {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                    <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và công nghệ đột phá dẫn đầu</h1>
+                    <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 12 này'</p>
+                  </Carousel.Caption>               */}
               </a>
             ) : (
                 <>
@@ -69,10 +69,10 @@ const Banner = () => {
                     pointerEvents: 'none',
                   }}
                 />
-              <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
-                <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và trò chơi hấp dẫn nhất</h1>
-                <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 5'</p>
-              </Carousel.Caption>
+              {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                    <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và công nghệ đột phá dẫn đầu</h1>
+                    <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 12 này'</p>
+                  </Carousel.Caption>               */}
               </>
             )}
           </Carousel.Item>

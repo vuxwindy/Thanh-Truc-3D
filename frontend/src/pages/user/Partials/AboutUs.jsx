@@ -15,7 +15,7 @@ const AboutUs = () => {
     >
       <Container>
         {/* Giới thiệu */}
-        <Row className="mb-5">
+        {/* <Row className="mb-5">
           <Col>
             <h1 className="text-center mb-4 display-5 fw-bold">
               About Lucentis
@@ -29,31 +29,29 @@ const AboutUs = () => {
             >
               <p className="lead mb-3">
                 Chào mừng đến với <strong>Lucentis</strong> - điểm đến hàng đầu
-                của bạn cho các trò chơi và sản phẩm trò chơi chất lượng cao.
+                của bạn cho các sản phẩm phần mền chất lượng cao.
               </p>
               <p>
-                Được thành lập vào năm 2020, chúng tôi chuyên cung cấp trải
-                nghiệm chơi game đặc biệt trên nhiều nền tảng. Bộ sưu tập được
-                tuyển chọn cẩn thận của chúng tôi bao gồm các tựa game mới nhất
-                và phổ biến nhất trong trò chơi di động, trò chơi trên web và
-                trò chơi dựa trên blockchain.
+                Được thành lập vào năm 2020, chúng tôi chuyên cung cấp mã nguồn đặc biệt dùng được trên nhiều hệ điều hàng, trong nhiều lĩnh vực khác nhau. Bộ sưu tập được
+                tuyển chọn cẩn thận của chúng tôi bao gồm các sản phẩm theo su hướng mới nhất
+                và phổ biến nhất trên di động, trên web điều đặc biệt là đều được ứng dụng blockchain.
               </p>
               <p>
-                Với đội ngũ đam mê công nghệ và yêu thích game, Lucentis không
-                chỉ là một nền tảng mua bán – chúng tôi là người bạn đồng hành
-                của mọi game thủ. Từ sản phẩm bản quyền đến các dịch vụ hỗ trợ
-                cộng đồng, chúng tôi luôn đặt sự hài lòng và an toàn của khách
+                Với đội ngũ đam mê công nghệ và yêu thích công nghệ mới - blockchain, Lucentis không
+                chỉ là một nền tảng bán hàng – chúng tôi là người bạn đồng hành
+                của mọi lập trình viên. Từ sản phẩm bản quyền đến các dịch vụ hỗ trợ
+                cộng đồng, chúng tôi luôn đặt sự hài lòng và bảo mật an toàn thông tin của khách
                 hàng lên hàng đầu.
               </p>
               <p>
                 Sự khác biệt của Lucentis đến từ sự kết hợp giữa công nghệ
                 hiện đại, dịch vụ tận tâm và cam kết không ngừng cải tiến. Chúng
-                tôi tự hào là cầu nối giữa game thủ và thế giới giải trí số –
+                tôi tự hào là cầu nối giữa người dung với nhà phát triển phần mền trên thế giới –
                 nơi mà mỗi trải nghiệm đều đáng nhớ.
               </p>
             </div>
           </Col>
-        </Row>
+        </Row> */}
         <Col>
           <h2 className="mb-4 fw-semibold text-center">
             Những gì chúng tôi cung cấp
@@ -63,14 +61,14 @@ const AboutUs = () => {
         <Row className="mb-5 text-center">
           {[
             {
-              title: "Trò chơi chất lượng",
-              text: "Chúng tôi cung cấp nhiều trò chơi chất lượng cao ở nhiều thể loại và nền tảng khác nhau.",
+              title: "Sản phẩm chất lượng",
+              text: "Chúng tôi cung cấp các sản phẩm phần mền chất lượng cao ở nhiều thể loại và nền tảng khác nhau.",
               icon: "🎮",
               link: "/customer/games/category/1",
             },
             {
               title: "Giao dịch an toàn",
-              text: "Nền tảng của chúng tôi đảm bảo các giao dịch an toàn và bảo mật cho mọi giao dịch mua trò chơi của bạn.",
+              text: "Nền tảng của chúng tôi đảm bảo các giao dịch an toàn và bảo mật cho mọi giao dịch mua  phần mềm của bạn.",
               icon: "🔒",
               link: "/customer/PrivacyPolicy",
             },
@@ -127,10 +125,10 @@ const AboutUs = () => {
             >
               <h2 className="mb-3 fw-semibold">Sứ mệnh của chúng tôi</h2>
               <p>
-                Tại Lucentis, sứ mệnh của chúng tôi là kết nối game thủ với
-                các sản phẩm và trải nghiệm chơi game tốt nhất. Chúng tôi nỗ lực
-                tạo ra một nền tảng nơi những người đam mê chơi game có thể khám
-                phá, mua và tận hưởng các trò chơi chất lượng một cách dễ dàng
+                Tại Lucentis, sứ mệnh của chúng tôi là kết nối người dùng với
+                các sản phẩm và trải nghiệm sử dụng tốt nhất. Chúng tôi nỗ lực
+                tạo ra một nền tảng nơi những người đam mê công nghệ có thể khám
+                phá, mua và tận hưởng các  phần mềm chất lượng một cách dễ dàng
                 và tự tin.
               </p>
               <p>
@@ -138,17 +136,17 @@ const AboutUs = () => {
                 an toàn — đảm bảo mỗi giao dịch đều minh bạch và đáng tin cậy.
                 Bằng việc hợp tác với các nhà phát hành uy tín, Lucentis mang
                 đến kho sản phẩm đa dạng, luôn cập nhật xu hướng mới nhất trong
-                thế giới game.
+                thế giới công nghệ số.
               </p>
               <p>
                 Hơn cả một nền tảng mua bán, chúng tôi mong muốn xây dựng một
-                cộng đồng gắn kết, nơi mọi game thủ đều được lắng nghe, hỗ trợ
+                cộng đồng gắn kết, nơi mọi nhà phát triển đều được lắng nghe, hỗ trợ
                 và đồng hành. Đó là lý do vì sao đội ngũ của chúng tôi không
                 ngừng phát triển hệ thống, cải tiến dịch vụ và đặt lợi ích người
-                chơi làm trung tâm trong mọi hoạt động.
+                dùng làm trung tâm trong mọi hoạt động.
               </p>
               <p className="mb-0">
-                Cảm ơn bạn đã chọn Lucentis cho nhu cầu chơi game của mình.
+                Cảm ơn bạn đã chọn Lucentis cho nhu cầu của bạn.
                 Chúng tôi mong muốn được phục vụ bạn!
               </p>
                <div

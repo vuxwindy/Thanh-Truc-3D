@@ -10,17 +10,17 @@ const Describe = () => {
           <Row className="align-items-center">
             <Col md={6}>
               <h2 className="display-5 fw-bold mb-4">
-                Chúng tôi xây dựng <br /> trải nghiệm đồng đội vượt thời gian
+                Chúng tôi xây dựng <br /> nền tảng công nghệ vượt thời gian
               </h2>
               <p className="text-secondary mb-4">
-                Đội ngũ Lucentis kết hợp giữa công nghệ và thẩm mỹ để tạo nên
-                các trò chơi dựa trên thời gian – nơi từng giây đều có giá trị.
+                Đội ngũ Lucentis kết hợp giữa công nghệ và bảo mật để tạo nên
+                các sản phẩm mới – nơi từng giây từng thao tác đều có giá trị.
                 Mỗi thành viên đều là một nghệ nhân, không ngừng hoàn thiện sản
                 phẩm từ chi tiết nhỏ nhất.
               </p>
               <Button variant="outline-light" size="lg">
                 <a href={`/customer/games/category/2`}style={{ textDecoration: 'none', color: '#00ffe0' }}>
-                  Khám phá Soulbound Arena
+                  Khám phá công nghệ blockchain
                 </a>
               </Button>
             </Col>
@@ -33,7 +33,7 @@ const Describe = () => {
                 style={{ filter: "brightness(0.7)" }} //làm mờ bên mặt
               />
               <p className="text-muted mt-2 text-center">
-                Trải nghiệm Soulbound Arena - game nhập vai sống động
+                Trải nghiệm phần mền quản lý - tiết kiệm tối ưu
               </p>
             </Col>
           </Row>
