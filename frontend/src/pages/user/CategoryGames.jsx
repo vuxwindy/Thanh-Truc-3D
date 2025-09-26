@@ -344,7 +344,8 @@ const reviews = [
           )}
         </>
       )}
-  <ProductReview reviews={reviews} />
+
+  {/* <ProductReview reviews={reviews} /> */}
  
       {/* Product Detail Modal */}
       <Modal
