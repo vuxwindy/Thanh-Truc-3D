@@ -269,6 +269,7 @@ const reviews = [
       
       {/* Results summary */}
       <Row className="mb-3">
+         <h1 className="mb-4 pt-5">{category?.name || 'Category'}</h1>
         <Col>
           <p className="text-light">
             {pagination.totalItems > 0
