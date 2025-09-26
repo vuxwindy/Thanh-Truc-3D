@@ -28,15 +28,15 @@ const CategoryGames = () => {
 //product reviews
 const reviews = [
   {
-    name: "Nguyễn Văn A",
+    name: "Nguyễn Văn Minh",
     rating: 5,
-    comment: "Sản phẩm rất tốt, nhiều mặt hàng đa dạng!",
+    comment: "Sản phẩm rất tốt, mình thích code blockchain của bạn, rất chuẩn!",
     date: "12/05/2025",
   },
   {
-    name: "Trần Thị B",
-    rating: 4,
-    comment: "Chất lượng ổn, gioa diện đóng gói đẹp.",
+    name: "Trần Thị Hoài Thu",
+    rating: 5,
+    comment: "Chất lượng code chuẩn, gioa diện đóng gói đẹp.",
     date: "10/05/2025",
   },
 ];
@@ -82,8 +82,8 @@ const reviews = [
 
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching category products:', err);
-        setError('Failed to load products for this category');
+        console.error('Lỗi khi tải sản phẩm danh mục:', err);
+        setError('Không tải được sản phẩm cho danh mục này');
         setLoading(false);
       }
     };
@@ -102,7 +102,7 @@ const reviews = [
 
       setLoadingProduct(false);
     } catch (err) {
-      console.error('Error fetching product details:', err);
+      console.error('Lỗi khi tìm kiếm thông tin chi tiết sản phẩm:', err);
       setLoadingProduct(false);
     }
   };
@@ -113,7 +113,7 @@ const reviews = [
     try {
       setCartLoading(true);
       await dispatch(addItemToCart({ productId: product.id, quantity: 1 })).unwrap();
-      toast.success(`${product.name} added to cart!`);
+      toast.success(`${product.name} đã thêm vào giỏ hàng!`);
         // Gửi thông báo về việc thêm sản phẩm vào giỏ hàng
         // Trang thông báo lỗi
         
@@ -122,8 +122,8 @@ const reviews = [
     //   message: `Bạn đã thêm ${productName} vào giỏ hàng.`,
     // });
     } catch (err) {
-      console.error('Error adding to cart:', err);
-      toast.error('Failed to add item to cart. Please try again.');
+      console.error('Lỗi khi thêm vào giỏ hàng:', err);
+      toast.error('Không thêm được sản phẩm vào giỏ hàng. Vui lòng thử lại.');
     } finally {
       setCartLoading(false);
     }
@@ -241,14 +241,14 @@ const reviews = [
   return (
 <div className="pt-5 " > 
     <Container className=" text-light " >
-      <Row className="min-vh-50 d-flex py-5 mb-5 rounded-3 " style={{ backgroundImage: `url('/banner11.jpg')`,backgroundSize: 'cover',  backgroundPosition: 'center',   boxShadow: '0 0 5px rgba(34, 255, 0, 0.36)'}}>
+      {/* <Row className="min-vh-50 d-flex py-5 mb-5 rounded-3 " style={{ backgroundImage: `url('/banner11.jpg')`,backgroundSize: 'cover',  backgroundPosition: 'center',   boxShadow: '0 0 5px rgba(34, 255, 0, 0.36)'}}>
     
         <h1 className="mb-4 pt-5">{category?.name || 'Category'}</h1>
         <h4 className="text-secondary pb-5">
           Được hơn 10.000 cá nhân, tổ chức tin tưởng sử dụng dịch vụ <br />
           từ các công ty khởi nghiệp đầy tham vọng đến các doanh nghiệp lớn.
-        </h4>
-  {/* Search Bar */}
+        </h4> </Row> */}
+   {/* Search Bar */}
       <Row className="mb-4 py-5">
         <Col md={6} className="mx-auto">
           <InputGroup>
@@ -265,7 +265,8 @@ const reviews = [
         </Col>
       </Row>
 
-      </Row>
+      
+      
       {/* Results summary */}
       <Row className="mb-3">
         <Col>
