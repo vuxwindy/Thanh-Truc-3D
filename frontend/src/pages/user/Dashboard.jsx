@@ -9,7 +9,7 @@ const Dashboard = () => {
     return (
         <Container fluid style={{backgroundColor: '#1a1a1a'}}>
             <Banner />
-            <Describe/>
+            {/* <Describe/> */}
             {/* <Category/> */}
             <AboutUs/>
         </Container>
