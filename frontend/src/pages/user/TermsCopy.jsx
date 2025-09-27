@@ -17,7 +17,7 @@ const Termsc = () => {
   const [selectedPage, setSelectedPage] = useState("AboutThanhTruc");
   const menu = [
     { title: "Giới thiệu về Lucentis", key: "AboutThanhTruc" },
-    { title: "Lý do nên mua game bản quyền", key: "CopyrightGameHelp" },
+    { title: "Lý do nên mua sản phẩm  Lucentis", key: "CopyrightGameHelp" },
     { title: "Chính sách bảo mật", key: "PrivacyPolicy" },
     { title: "Chính sách kiểm tra", key: "InspectionPolicy" },
     { title: "Chính sách hoàn trả và hoàn tiền", key: "RefundPolicy" },

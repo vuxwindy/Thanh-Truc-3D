@@ -20,10 +20,10 @@ const AboutThanhTruc = () => {
           <section className="mt-4">
             <h1 class="entry-title mb uppercase">Giới thiệu về Lucentis</h1>
             <p>
-              <em>Chuyên bán các sản phẩm về Game bản quyền, Phần mềm</em>
+              <em>Chuyên bán các sản phẩm về Phần mềm ứng dụng đa dạng các lĩnh vực</em>
             </p>
             <strong class="font-bold">
-              Divine Shop có mục tiêu đơn giản như sau:
+              Lucentis Shop có mục tiêu đơn giản như sau:
             </strong>
             <ul>
               <li>Tốc đô nhanh</li>

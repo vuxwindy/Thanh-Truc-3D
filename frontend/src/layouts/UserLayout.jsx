@@ -85,7 +85,7 @@ const UserLayout = ({ children }) => {
               width="160"
               height="80"
               className="d-inline-block align-top me-2"
-              alt="Lucentis - SOURCE SOFTWARE . GAME Logo" />                         
+              alt="Lucentis - SOURCE SOFTWARE .   Logo" />                         
           </Navbar.Brand>
           
           <Navbar.Toggle aria-controls="main-navbar" />
