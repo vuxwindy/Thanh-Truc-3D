@@ -27,9 +27,10 @@ const Products = () => {
     category_id: '',
     image: null
   });
-  const [imagePreview, setImagePreview] = useState(null);
+  // const [imagePreview, setImagePreview] = useState(null);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [previews, setPreviews] = useState([]);
 
   // Use useCallback to prevent unnecessary re-renders
   const fetchProducts = useCallback(async (page = 1) => {
@@ -83,7 +84,7 @@ const Products = () => {
         category_id: product.category_id || '',
         image: null
       });
-      setImagePreview(product.image ? `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${product.image}` : null);
+      setPreviews(product.image ? Array.isArray(product.image) ? product.image?.map(item => `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${item}`) : [`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${product.image}`] : null);
     } else {
       setFormData({
         name: '',
@@ -97,20 +98,33 @@ const Products = () => {
         category_id: '',
         image: null
       });
-      setImagePreview(null);
+      setPreviews(null);
     }
     setShowModal(true);
   };
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFormData({ ...formData, image: file });
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+    const files = e.target.files;
+
+    if (files) {
+      setFormData({ ...formData, image: files?.length < 2 ? files[0] : Array.from(files) });
+
+      const fileList = Array.from(files); // chuyển sang array
+      if (fileList.length > 0) {
+        const readers = fileList.map((file) => {
+          return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              resolve(reader.result); // base64
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+
+        Promise.all(readers).then((images) => {
+          setPreviews(images); // lưu toàn bộ preview vào state
+        });
+      }
     }
   };
 
@@ -118,11 +132,16 @@ const Products = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      
       // Append all form data to FormData
       Object.keys(formData).forEach(key => {
         if (key === 'image' && formData[key]) {
-          productData.append('image', formData[key]);
+          if (Array.isArray(formData[key])) {
+            formData[key].forEach((file) => {
+              productData.append('images', file);
+            });
+          } else {
+            productData.append('image', formData[key]);
+          }
         } else if (formData[key] !== undefined && key !== 'image') {
           productData.append(key, formData[key]);
         }
@@ -211,8 +230,8 @@ const Products = () => {
         items.push(<Pagination.Ellipsis key="ellipsis2" disabled />);
       }
       items.push(
-        <Pagination.Item 
-          key={pagination.totalPages} 
+        <Pagination.Item
+          key={pagination.totalPages}
           onClick={() => handlePageChange(pagination.totalPages)}
         >
           {pagination.totalPages}
@@ -222,12 +241,12 @@ const Products = () => {
 
     return (
       <Pagination>
-        <Pagination.Prev 
+        <Pagination.Prev
           onClick={() => handlePageChange(pagination.currentPage - 1)}
           disabled={pagination.currentPage === 1}
         />
         {items}
-        <Pagination.Next 
+        <Pagination.Next
           onClick={() => handlePageChange(pagination.currentPage + 1)}
           disabled={pagination.currentPage === pagination.totalPages}
         />
@@ -277,13 +296,19 @@ const Products = () => {
                   <tr key={product.id}>
                     <td>{product.id}</td>
                     <td>
-                      {product.image && (
-                        <Image 
-                          src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${product.image}`} 
-                          alt={product.name} 
-                          width={50} 
-                          height={50} 
-                          thumbnail 
+                      {product.image && Array.isArray(product.image) ? product.image?.map(item => <Image
+                        src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${item}`}
+                        alt={product.name}
+                        width={50}
+                        height={50}
+                        thumbnail
+                      />) : (
+                        <Image
+                          src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/uploads/${product.image}`}
+                          alt={product.name}
+                          width={50}
+                          height={50}
+                          thumbnail
                         />
                       )}
                     </td>
@@ -341,7 +366,6 @@ const Products = () => {
                     required
                   />
                 </Form.Group>
-                
                 <Form.Group className="mb-3">
                   <Form.Label>Category</Form.Label>
                   <Form.Select
@@ -357,7 +381,7 @@ const Products = () => {
                     ))}
                   </Form.Select>
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Label>Sale Price</Form.Label>
                   <Form.Control
@@ -368,7 +392,7 @@ const Products = () => {
                     required
                   />
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Label>Original Price</Form.Label>
                   <Form.Control
@@ -379,7 +403,7 @@ const Products = () => {
                     required
                   />
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Label>Type</Form.Label>
                   <Form.Control
@@ -389,22 +413,29 @@ const Products = () => {
                   />
                 </Form.Group>
               </div>
-              
+
               <div className="col-md-6">
                 <Form.Group className="mb-3">
                   <Form.Label>Product Image</Form.Label>
                   <Form.Control
                     type="file"
                     accept="image/*"
+                    multiple={true}
                     onChange={handleImageChange}
                   />
-                  {imagePreview && (
+
+                  {previews?.map((src, idx) => (
+                    <div className="mt-2" key={idx}>
+                      <Image src={src} alt="Preview" fluid thumbnail style={{ maxHeight: '150px' }} />
+                    </div>
+                  ))}
+                  {/* {imagePreview && (
                     <div className="mt-2">
                       <Image src={imagePreview} alt="Preview" fluid thumbnail style={{ maxHeight: '150px' }} />
                     </div>
-                  )}
+                  )} */}
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Label>Link</Form.Label>
                   <Form.Control
@@ -413,7 +444,7 @@ const Products = () => {
                     onChange={(e) => setFormData({ ...formData, link: e.target.value })}
                   />
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Check
                     type="checkbox"
@@ -422,7 +453,7 @@ const Products = () => {
                     onChange={(e) => setFormData({ ...formData, is_hot: e.target.checked })}
                   />
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3">
                   <Form.Check
                     type="checkbox"
@@ -433,7 +464,7 @@ const Products = () => {
                 </Form.Group>
               </div>
             </div>
-            
+
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
@@ -443,7 +474,7 @@ const Products = () => {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
             </Form.Group>
-            
+
             <div className="d-flex justify-content-end">
               <Button variant="secondary" className="me-2" onClick={() => setShowModal(false)}>
                 Cancel
