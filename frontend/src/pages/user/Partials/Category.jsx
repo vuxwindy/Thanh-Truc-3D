@@ -39,7 +39,7 @@ const Category = () => {
 
     return (
         <div className="category-section my-4 p-5  ">
-            <h2 className="mb-4   fw-bold text-dark">Danh Mục Sản Phẩm</h2>
+            <h2 className="mb-4   fw-bold text-white">Danh Mục Sản Phẩm</h2>
             <Row>
                 {categoryProducts.map(({ category, product }) => (
                     <Col key={category.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
@@ -78,13 +78,13 @@ const Category = () => {
                                     </div>
                                 </div>
                             </Card.Body>
-                            {/* <Card.Footer style={{ backgroundColor: '#f6eddc' }} className="border-0 rounded-bottom-2">
+                            <Card.Footer style={{ backgroundColor: '#f6eddc' }} className="border-0 rounded-bottom-2">
                                 <a href={`/customer/games/category/${category.id}`}
                                  className="btn btn-warning btn-sm w-100 fw-semibold"
                                  style={{ color: '#222' }}>
                                     View All Products
                                 </a>
-                            </Card.Footer> */}
+                            </Card.Footer>
                         </Card> </a>
                     </Col>
                 ))}
