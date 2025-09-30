@@ -255,7 +255,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
 
                                             <PayPalScriptProvider options={{
                                                 "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
-                                                currency: "USD"
+                                                currency: "VND"
                                             }}>
                                                 <PayPalButtons
                                                     style={{ layout: "vertical" }}
@@ -265,7 +265,7 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                                 {
                                                                     amount: {
                                                                         value: order.price,
-                                                                        currency_code: "USD"
+                                                                        currency_code: "VND"
                                                                     },
                                                                     description: `Order #${order.id}`
                                                                 },

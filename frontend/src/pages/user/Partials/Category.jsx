@@ -61,10 +61,10 @@ const Category = () => {
                                 <Card.Title className="fw-semibold">{product.name}</Card.Title>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <p className="text-danger mb-0 fw-bold">${product.priceSale}</p>
+                                        <p className="text-danger mb-0 fw-bold">{product.priceSale}vnd</p>
                                         {Number(product.priceOrigin) > Number(product.priceSale) && (
                                             <small className="text-muted text-decoration-line-through">
-                                                ${product.priceOrigin}
+                                                {product.priceOrigin}vnd
                                             </small>
                                         )}
                                     </div>
@@ -88,8 +88,8 @@ const Category = () => {
                         </Card> </a>
                     </Col>
                 ))}
-            </Row>
-        </div>
+            </Row>  
+            </div>
     );
 }
 

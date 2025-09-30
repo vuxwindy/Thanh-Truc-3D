@@ -13,7 +13,7 @@ export const formatDate = (date, formatStr = 'PPP') => {
   return format(new Date(date), formatStr, { locale });
 };
 
-export const formatCurrency = (amount, currencyCode = 'USD') => {
+export const formatCurrency = (amount, currencyCode = 'VND') => {
   const language = i18next.language;
   
   const currencyByLanguage = {
@@ -22,7 +22,7 @@ export const formatCurrency = (amount, currencyCode = 'USD') => {
     zh: 'CNY'
   };
   
-  const finalCurrencyCode = currencyCode || currencyByLanguage[language] || 'USD';
+  const finalCurrencyCode = currencyCode || currencyByLanguage[language] || 'VND';
   
   return new Intl.NumberFormat(language, {
     style: 'currency',

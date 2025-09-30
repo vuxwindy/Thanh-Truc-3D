@@ -86,7 +86,7 @@ const UserOrders = () => {
                   <tr key={order.id}>
                     <td>#{order.id}</td>
                     <td>{formatDate(order.created_at)}</td>
-                    <td>${Number(order.price).toFixed(2)}</td>
+                    <td>{Number(order.price).toFixed(2)}vnd</td>
                     <td>
                       <span className={`badge ${getStatusBadgeClass(order.status)}`}>
                         {order.status}

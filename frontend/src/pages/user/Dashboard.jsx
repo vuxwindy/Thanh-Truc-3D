@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import Category from './Partials/Category';
 import AboutUs from './Partials/AboutUs';
 import Describe from './Partials/Describe';
+import ProductsHot from './Partials/ProductsHot';
 
 const Dashboard = () => {
     return (
@@ -11,6 +12,7 @@ const Dashboard = () => {
             <Banner />
             {/* <Describe/> */}
             <Category/>
+            <ProductsHot/>
             <AboutUs/>
         </Container>
     )

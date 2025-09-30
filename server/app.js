@@ -70,7 +70,7 @@ app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Basic route
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to thanh_truc API' });
+  res.json({ message: 'Welcome to web2d API' });
 });
 
 // Error handling middleware
