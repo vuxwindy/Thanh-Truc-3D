@@ -52,11 +52,33 @@ const [status, setStatus] = useState(null); // "success", "error", null
     }, [location.state, params, navigate]);
 
 
-    const handleVPBankPayment = (amount, transaction_id_send) => {
-    const currency = 'VND';
-    const redirectUrl = `http://localhost:3001/payment-form/${amount}/${currency}/${transaction_id_send}`;
-    window.location.href = redirectUrl;
-    };
+    const handleVPBankPayment = async (amount, transaction_id_send) => {
+  const currency = 'VND';
+  const apiUrl = `http://localhost:3001/payment-form/${amount}/${currency}/${transaction_id_send}`;
+
+  try {
+    // Gọi API backend để lấy link thanh toán
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (data.paymentUrl) {
+      console.log("🔗 Redirecting to:", data.paymentUrl);
+      window.location.href = data.paymentUrl; // ✅ chuyển sang link thanh toán thật
+    } else {
+      alert("Không nhận được link thanh toán từ server!");
+    }
+  } catch (error) {
+    console.error("❌ Lỗi khi gọi API:", error);
+    alert("Lỗi khi tạo link thanh toán!");
+  }
+};
+
+
+//   const handleVNPTPayment = (amount, transaction_id_send) => {
+//     const currency = 'VND';
+//     const redirectUrl = `....`;
+//     window.location.href = redirectUrl;
+//     };
 
 
 
@@ -251,7 +273,17 @@ const [status, setStatus] = useState(null); // "success", "error", null
                                                 Thanh toán với VPBank
                                             </Button>
 
-
+                                            <Button   
+                                                style={{ layout: "vertical" }}  onClick={() => handleVNPTPayment(order.price)}
+                                                onApprove={(data, actions) => {
+                                                    return actions.order.capture().then(details => {
+                                                        handlePaymentSuccess(details);
+                                                    });
+                                                }}
+                                                onError={handlePaymentError}
+                                            >
+                                                Thanh toán với VNPT
+                                            </Button>
 
                                             <PayPalScriptProvider options={{
                                                 "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,

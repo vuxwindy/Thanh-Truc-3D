@@ -1,4 +1,4 @@
-# thanh_truc Server
+# web2d Server
 
 Express.js API server with MySQL and Sequelize ORM integration.
 
@@ -15,7 +15,7 @@ npm install
 
 3. Create MySQL database:
 ```sql
-CREATE DATABASE thanh_truc;
+CREATE DATABASE web2d;
 ```
 
 ## Database Migrations

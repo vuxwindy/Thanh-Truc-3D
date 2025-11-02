@@ -34,6 +34,19 @@ export const getProductById = async (productId) => {
   });
   return response.data;
 };
+// Get all products rồi lọc sản phẩm hot
+export const getHotProducts = async () => {
+  const token = localStorage.getItem('token');
+  const response = await axios.get(`${API_URL}/products`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  // lọc theo field is_hot
+  return response.data.products.filter(p => p.is_hot);
+};
+
 
 // Create new product
 export const createProduct = async (productData) => {

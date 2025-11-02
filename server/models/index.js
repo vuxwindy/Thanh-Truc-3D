@@ -55,6 +55,6 @@ sequelize.sync({ alter: true }).then(() => {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.Sequelize = Sequelize;
 
 module.exports = db;

@@ -1,14 +1,17 @@
 
 
 const {buildPaymentForm} = require('../services/cybersource.service');
+const { paymentVnPt } = require('../services/cybersource.service');
 const db = require('../models');
 
-function showPaymentForm(req, res) {
+async function showPaymentForm(req, res) {
     const amount = req.params.amount;
     const currency = req.params.currency;
     const transaction = req.params.transaction;
-    const formHtml = buildPaymentForm(amount, currency, transaction);
-    res.send(formHtml);
+    const paymentUrl = await paymentVnPt(amount, currency, transaction);
+    console.log("Payment URL:", paymentUrl);
+    return res.json({ paymentUrl });
+
 }
 const recivePayment = async (req, res) => {
     console.log("===== CyberSource Callback Received =====");

@@ -42,13 +42,13 @@ sequelize.authenticate()
   });
 
 // Sync database
-sequelize.sync({ alter: true })
-  .then(() => {
-    console.log('Database synchronized');
-  })
-  .catch(err => {
-    console.error('Error synchronizing database:', err);
-  });
+// sequelize.sync({ alter: true })
+//   .then(() => {
+//     console.log('Database synchronized');
+//   })
+//   .catch(err => {
+//     console.error('Error synchronizing database:', err);
+//   });
 
 // Routes
 const exampleRoutes = require('./routes/exampleRoutes');
