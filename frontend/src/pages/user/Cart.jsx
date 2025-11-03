@@ -159,8 +159,8 @@ const Cart = () => {
                                 )}
                               </div>
                             </div>
-                          </td>
-                          <td>${item.product.priceSale}</td>
+                          </td>                      
+                            <td> {Math.round(item.product.priceSale).toLocaleString()} VND </td> 
                           <td style={{ width: '120px' }}>
                             <div className="d-flex align-items-center">
                               <Button 
@@ -190,7 +190,7 @@ const Cart = () => {
                               </Button>
                             </div>
                           </td>
-                          <td>${(item.product.priceSale * item.quantity).toFixed(2)}</td>
+                          <td> {Math.round(item.product.priceSale * item.quantity).toLocaleString()} VND </td> 
                           <td>
                             <Button 
                               variant="danger" 
@@ -226,16 +226,16 @@ const Cart = () => {
                 <Card.Body>
                   <div className="d-flex justify-content-between mb-3">
                     <span>Subtotal:</span>
-                    <span>${total}</span>
+                    <span>{Math.round(total).toLocaleString('vi-VN')} VND</span>
                   </div>
                   <div className="d-flex justify-content-between mb-3">
-                    <span>Shipping:</span>
-                    <span>Free</span>
+                    <span>Tax Fee:</span>
+                    <span>15%</span>
                   </div>
                   <hr />
                   <div className="d-flex justify-content-between mb-3 fw-bold">
                     <span>Total:</span>
-                    <span>${total}</span>
+                    <span>{Math.round(total * 1.15).toLocaleString('vi-VN')} VND</span>
                   </div>
                   <Button 
                     variant="success" 

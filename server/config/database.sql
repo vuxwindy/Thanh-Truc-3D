@@ -15,7 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Create database if not exists (old)
+-- Create database if not exists (old) <<<<<<>>>>>>>hãy đổi thanh_truc thành web2d để đồng bộ<<<<<>>>>>>
 -- CREATE DATABASE IF NOT EXISTS thanh_truc;
 -- USE thanh_truc;
 
@@ -45,7 +45,7 @@ CREATE TABLE `banners` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `banners`
+-- Dumping data for table `banners` 
 --
 
 LOCK TABLES `banners` WRITE;
@@ -253,7 +253,7 @@ CREATE TABLE `order_products` (
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
   `quantity` int NOT NULL DEFAULT '1',
-  `price` decimal(10,2) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
   `licence` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -286,7 +286,7 @@ CREATE TABLE `orders` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cid` int NOT NULL,
   `payment_method` int NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
   `status` enum('pending','processing','completed','cancelled') NOT NULL DEFAULT 'pending',
   `transaction_id` varchar(255) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -355,8 +355,8 @@ CREATE TABLE `products` (
   `link` text,
   `is_hot` tinyint(1) DEFAULT '0',
   `is_new` tinyint(1) DEFAULT '0',
-  `priceSale` decimal(10,2) NOT NULL,
-  `priceOrigin` decimal(10,2) NOT NULL,
+  `priceSale` decimal(10,0) NOT NULL,
+  `priceOrigin` decimal(10,0) NOT NULL,
   `category_id` int NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,

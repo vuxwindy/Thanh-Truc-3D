@@ -425,9 +425,9 @@ const CategoryGames = () => {
                   <p className="text-muted mb-2">Category: {selectedProduct.category?.name}</p>
 
                   <div className="mb-3">
-                    <span className="text-danger fs-4 fw-bold me-2">{selectedProduct.priceSale}vnd</span>
+                    <span className="text-danger fs-4 fw-bold me-2">{Math.round(selectedProduct.priceSale).toLocaleString('vi-VN')  } VND</span>
                     {Number(selectedProduct.priceOrigin) > Number(selectedProduct.priceSale) && (
-                      <span className="text-muted text-decoration-line-through">{selectedProduct.priceOrigin}vnd</span>
+                      <span className="text-muted text-decoration-line-through">{ Math.round(selectedProduct.priceOrigin).toLocaleString('vi-VN')} VND</span>
                     )}
                   </div>
 

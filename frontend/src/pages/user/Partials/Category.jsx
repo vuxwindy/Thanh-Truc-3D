@@ -61,10 +61,10 @@ const Category = () => {
                                 <Card.Title className="fw-semibold">{product.name}</Card.Title>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <p className="text-danger mb-0 fw-bold">{product.priceSale}vnd</p>
+                                        <p className="text-danger mb-0 fw-bold">{Math.round(product.priceSale).toLocaleString('vi-VN')} VND</p>
                                         {Number(product.priceOrigin) > Number(product.priceSale) && (
                                             <small className="text-muted text-decoration-line-through">
-                                                {product.priceOrigin}vnd
+                                                {Math.round(product.priceOrigin).toLocaleString('vi-VN')} VND
                                             </small>
                                         )}
                                     </div>

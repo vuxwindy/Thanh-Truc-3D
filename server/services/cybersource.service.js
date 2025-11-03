@@ -60,7 +60,7 @@ function createMerchantToken(timeStamp, invoiceNo, merId, amount, linkExptime, e
 
 function getLinkExptime() {
   const now = new Date();
-  now.setHours(now.getHours() + 1); // thời gian hết hạn link thanh toán
+  now.setHours(now.getHours() + 24); // thời gian hết hạn link thanh toán
   const yyyy = now.getFullYear();
   const MM = String(now.getMonth() + 1).padStart(2, '0');
   const dd = String(now.getDate()).padStart(2, '0');
