@@ -64,7 +64,7 @@ const OrderConfirmation = () => {
   const handleVPBankPayment = async (amount, transaction_id_send) => {
     const currency = "VND";
     const formattedAmount = Math.round(amount);
-    const apiUrl = `http://api.lucentis.it.com/payment-form/${formattedAmount}/${currency}/${transaction_id_send}`;
+    const apiUrl = `https://api.lucentis.it.com/payment-form/${formattedAmount}/${currency}/${transaction_id_send}`;
 
     try {
       // Gọi API backend để lấy link thanh toán
