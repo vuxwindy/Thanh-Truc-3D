@@ -23,7 +23,7 @@ async function paymentVnPt(amount, currency, transaction) {
     buyerFirstNm: 'Tuan',
     buyerLastNm: 'Phung',
     buyerEmail: 'tuanphungdinh2002@gmail.com',
-    callBackUrl: 'lucentis.it.com',
+    callBackUrl: 'lucentis.it.com/payment-confirmation',
     notiUrl: 'test.com.vn',
     reqDomain: 'lucentis.it.com',
     descriptions: 'test mua hang',
