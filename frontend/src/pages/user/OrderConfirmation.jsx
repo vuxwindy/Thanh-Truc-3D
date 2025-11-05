@@ -333,12 +333,11 @@ const OrderConfirmation = () => {
                         Thanh toán với VNPT
                       </Button> */}
 
-                      <PayPalScriptProvider
+                      {/* <PayPalScriptProvider
                         options={{
                           "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
                           currency: "VND",
                         }}
-                        style={{ display: "none" }}
                       >
                         <PayPalButtons
                           style={{ layout: "vertical" }}
@@ -362,7 +361,7 @@ const OrderConfirmation = () => {
                           }}
                           onError={handlePaymentError}
                         />
-                      </PayPalScriptProvider>
+                      </PayPalScriptProvider> */}
                     </div>
                   )}
                 </Card.Body>
