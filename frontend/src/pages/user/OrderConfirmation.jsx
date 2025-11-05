@@ -302,10 +302,10 @@ const OrderConfirmation = () => {
                     </div>
                   ) : (
                     <div className="mt-3">
-                      <h6 className="mb-3 d-flex align-items-center">
+                      {/* <h6 className="mb-3 d-flex align-items-center">
                         <FaPaypal className="text-primary me-2" />
                         Pay with PayPal
-                      </h6>
+                      </h6> */}
 
                       <Button
                         style={{ layout: "vertical" }}
@@ -317,7 +317,7 @@ const OrderConfirmation = () => {
                         }}
                         onError={handlePaymentError}
                       >
-                        Thanh toán với VNPT
+                        Pay with VNPT Epay
                       </Button>
 
                       {/* <Button
@@ -338,6 +338,7 @@ const OrderConfirmation = () => {
                           "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
                           currency: "VND",
                         }}
+                        style={{ display: "none" }}
                       >
                         <PayPalButtons
                           style={{ layout: "vertical" }}
