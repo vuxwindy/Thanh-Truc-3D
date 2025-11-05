@@ -14,7 +14,7 @@ const Footer = () => {
         <Row className="mt-4 py-3" >
           <Col md={5}>
             <h5>Giới thiệu về Lucentis</h5>
-            <ul className="list-unstyled">
+            {/* <ul className="list-unstyled">
               <li>
                 Tên Doanh Nghiệp: <b> CÔNG TY TNHH LUCENTIS   </b>
               </li>
@@ -31,7 +31,7 @@ const Footer = () => {
               <li>
                 Điện Thoại: <b>0332354286</b>
               </li>
-            </ul>
+            </ul> */}
           </Col>
           <Col md={2}>
             {/* <h5>{t('footer.quickLinks')}</h5> */}
