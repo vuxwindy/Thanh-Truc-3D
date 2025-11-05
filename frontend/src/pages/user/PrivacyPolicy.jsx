@@ -301,7 +301,7 @@ chủ thể dữ liệu bị ảnh hưởng.
               <strong>Liên hệ với chúng tôi</strong>
             </p>
             <p>Nếu bạn có bất kỳ câu hỏi nào, bạn có thể liên hệ với chúng tôi:</p>
-            <p>
+            {/* <p>
               <strong>CÔNG TY TNHH LUCENTIS   </strong>
               <br />
               Hotline:&nbsp;<strong>0332354286</strong>
@@ -312,7 +312,7 @@ chủ thể dữ liệu bị ảnh hưởng.
               <strong>
               Khu phố Đỗ Nhà, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh , Việt Nam
               </strong>
-            </p>
+            </p> */}
           </section>
         </Col>
       </Row>

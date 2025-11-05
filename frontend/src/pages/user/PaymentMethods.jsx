@@ -38,7 +38,7 @@ trên giao diện website <a href="https://lucentis.it.com">lucentis.it.com</a>.
               Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
               theo các cách sau:
             </p>
-            <p>*Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
+            {/* <p>* Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
             <p>
               * Cách 2: Gửi email đến địa chỉ:&nbsp;
               <a href="mailto:lucentiscompany@gmail.com">
@@ -48,7 +48,7 @@ trên giao diện website <a href="https://lucentis.it.com">lucentis.it.com</a>.
             <p>
               * Cách 3: Đến trực tiếp địa chỉ: Khu phố Đỗ Nha, Phường Phương
               Liễu, Tỉnh Bắc Ninh.
-            </p>
+            </p> */}
             <p>
               CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu
               nại cho Khách hàng trong vòng 03 ngày làm việc kể từ ngày hoàn tất

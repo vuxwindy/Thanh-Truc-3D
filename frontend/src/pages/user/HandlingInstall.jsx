@@ -180,9 +180,9 @@ const HandlingInstall = () => {
             <section>
              <p> Nếu có bất kì thắc mắc hay cần hỗ trợ trực tiếp bạn có thể liên hệ với chúng tôi qua </p>
              <ul>
-              <li>Hostline:  0332354286 </li>
-              <li>Mail: lucentiscompany@gmail.com</li>
-              <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122">Nhân viên chăm sóc khách hàng</a> </li>
+              {/* <li>Hotline:  0332354286 </li> */}
+              {/* <li>Mail: lucentiscompany@gmail.com</li> */}
+              {/* <li>Facebook: <a href="https://www.facebook.com/profile.php?id=100016006836122">Nhân viên chăm sóc khách hàng</a> </li> */}
              </ul>
             </section>
           </Col>

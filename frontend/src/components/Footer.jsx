@@ -73,7 +73,7 @@ const Footer = () => {
                   lucentiscompany@gmail.com
                 </a>
               </li>
-              <li>Hostline: 0332354286 </li>
+              {/* <li>Hotline: 0332354286 </li> */}
               <li>
                 Facebook:{" Lucentis - "}
                 <a href="https://www.facebook.com/profile.php?id=100016006836122">
