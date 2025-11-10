@@ -10,6 +10,7 @@ import Dashboard from './admin/Dashboard';
 import Banners from './admin/Banners'; // Add this import
 import Posts from './admin/Posts';
 import Users from './admin/Users';
+import PendingUsers from './admin/PendingUsers';
 import AdminProfile from './admin/AdminProfile'; // Import the new AdminProfile component
 import Client from './admin/Client';
 
@@ -35,6 +36,7 @@ const Admin = () => {
       <Routes>
         <Route path="dashboard" element={<Dashboard user={user}></Dashboard>} />
         <Route path="users" element={<Users />} />
+  <Route path="users/pending" element={<PendingUsers />} />
         <Route path="client" element={<Client />} />
         <Route path="products" element={<Products />} />
         <Route path="banners" element={<Banners />} /> {/* Add this route */}

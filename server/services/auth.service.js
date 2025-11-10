@@ -41,6 +41,14 @@ const login = async (email, password) => {
     throw new Error('Invalid email or password');
   }
 
+  // Block login if ID not approved
+  if (user.idStatus && user.idStatus === 'rejected') {
+    throw new Error('Account ID verification was rejected by admin! Please contact support.');
+  }
+  if (user.idStatus && user.idStatus === 'pending') {
+    throw new Error('Account pending ID verification by admin');
+  }
+
   const token = generateToken({ 
     id: user.id, 
     email: user.email,
@@ -69,7 +77,7 @@ const verifyAndCompleteRegistration = async (email, code, userData) => {
   // Hash password
   const hashedPassword = await bcrypt.hash(userData.password, 10);
 
-  // Create user
+  // Create user (idStatus will default to 'pending' in model)
   const user = await db.User.create({
     ...userData,
     password: hashedPassword,
@@ -91,23 +99,16 @@ const verifyAndCompleteRegistration = async (email, code, userData) => {
       attributes: ['id', 'role_name']
     }]
   });
-
-  // Generate token
-  const token = generateToken({ 
-    id: user.id, 
-    email: user.email,
-    roles: userWithRoles.roles.map(role => role.role_name)
-  });
-
+  // Do NOT generate a token here. User must wait for admin approval before being allowed to login.
   return {
+    message: 'Registration completed. Your account is pending ID verification by admin. You will be notified when approved.',
     user: {
       id: user.id,
       email: user.email,
       fullName: user.fullName,
       phone: user.phone,
       roles: userWithRoles.roles.map(role => role.role_name)
-    },
-    token,
+    }
   };
 };
 

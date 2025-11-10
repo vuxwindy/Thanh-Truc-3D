@@ -21,7 +21,44 @@ export const login = async (credentials) => {
   };
 };
 
-export const verifyRegistration = async (email, code, userData) => {
+export const verifyRegistration = async (email, code, userData = {}, files = {}) => {
+  // If files provided or File objects included in userData, send multipart/form-data
+  const hasFiles = files.idFront || files.idBack || userData.idFront instanceof File || userData.idBack instanceof File;
+
+  if (hasFiles) {
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('code', code);
+
+    // append fields
+    Object.keys(userData).forEach((key) => {
+      const val = userData[key];
+      if (val !== undefined && val !== null && !(val instanceof File)) {
+        formData.append(key, val);
+      }
+    });
+
+    if (files.idFront) formData.append('idFront', files.idFront);
+    if (files.idBack) formData.append('idBack', files.idBack);
+    if (userData.idFront instanceof File) formData.append('idFront', userData.idFront);
+    if (userData.idBack instanceof File) formData.append('idBack', userData.idBack);
+
+    const response = await axios.post(`${API_URL}/auth/verify`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    return {
+      success: true,
+      data: {
+        user: response.data.user || null,
+        token: response.data.token || null,
+        message: response.data.message || null
+      }
+    };
+  }
+
   const response = await axios.post(`${API_URL}/auth/verify`, {
     email,
     code,
@@ -30,11 +67,9 @@ export const verifyRegistration = async (email, code, userData) => {
   return {
     success: true,
     data: {
-      user: {
-        ...response.data.user,
-        roles: response.data.user.roles || []
-      },
-      token: response.data.token
+      user: response.data.user || null,
+      token: response.data.token || null,
+      message: response.data.message || null
     }
   };
 };

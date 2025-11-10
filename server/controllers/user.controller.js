@@ -70,6 +70,32 @@ const updateUserProfile = async (req, res) => {
       fs.writeFileSync(path.join(passportDir, passportFileName), passportFile.buffer);
     }
 
+    // Xử lý idFront và idBack nếu có (resize to 720p)
+    const sharp = require('sharp');
+    if (files.idFront && files.idFront[0]) {
+      const idFrontFile = files.idFront[0];
+      const idDir = path.join(__dirname, '../uploads/id');
+      if (!fs.existsSync(idDir)) {
+        fs.mkdirSync(idDir, { recursive: true });
+      }
+      const idFrontFileName = `${req.params.id}-${Date.now()}-front${path.extname(idFrontFile.originalname)}`;
+      const outFront = path.join(idDir, idFrontFileName);
+      await sharp(idFrontFile.buffer).resize({ width: 1280, height: 720, fit: 'inside' }).toFile(outFront);
+      idFrontPath = path.join('id', idFrontFileName);
+    }
+
+    if (files.idBack && files.idBack[0]) {
+      const idBackFile = files.idBack[0];
+      const idDir = path.join(__dirname, '../uploads/id');
+      if (!fs.existsSync(idDir)) {
+        fs.mkdirSync(idDir, { recursive: true });
+      }
+      const idBackFileName = `${req.params.id}-${Date.now()}-back${path.extname(idBackFile.originalname)}`;
+      const outBack = path.join(idDir, idBackFileName);
+      await sharp(idBackFile.buffer).resize({ width: 1280, height: 720, fit: 'inside' }).toFile(outBack);
+      idBackPath = path.join('id', idBackFileName);
+    }
+
     const updatedUser = await updateUser(req.params.id, {
       ...req.body,
       ...(avatarPath && { avatar: avatarPath }),

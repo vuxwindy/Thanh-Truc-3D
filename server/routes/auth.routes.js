@@ -8,9 +8,13 @@ const {
   resetPasswordHandler,
   loginAdmin,
 } = require('../controllers/auth.controller');
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 router.post('/register', registerUser);
-router.post('/verify', verifyRegistration);
+// Expect multipart/form-data with fields: email, code, password, fullName, phone and files idFront, idBack
+router.post('/verify', upload.fields([{ name: 'idFront', maxCount: 1 }, { name: 'idBack', maxCount: 1 }]), verifyRegistration);
 router.post('/login', loginUser);
 router.post('/forgot-password', forgotPasswordHandler);
 router.post('/reset-password', resetPasswordHandler);

@@ -47,6 +47,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true
     },
+    idFrontImage: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    idBackImage: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    idStatus: {
+      type: DataTypes.ENUM('pending', 'approved', 'rejected'),
+      allowNull: false,
+      defaultValue: 'pending'
+    },
     // cccd: {
     //   type: DataTypes.STRING,
     //   allowNull: false,

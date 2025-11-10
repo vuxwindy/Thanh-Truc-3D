@@ -87,3 +87,28 @@ export const changePassword = async (userId, { newPassword }) => {
   );
   return response.data;
 };
+
+// Admin: get pending users awaiting ID approval
+export const getPendingUsers = async () => {
+  const token = localStorage.getItem('token');
+  const response = await axios.get(`${API_URL}/users/admin/pending`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};
+
+export const approveUser = async (userId) => {
+  const token = localStorage.getItem('token');
+  const response = await axios.post(`${API_URL}/users/admin/${userId}/approve`, {}, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};
+
+export const rejectUser = async (userId) => {
+  const token = localStorage.getItem('token');
+  const response = await axios.post(`${API_URL}/users/admin/${userId}/reject`, {}, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};

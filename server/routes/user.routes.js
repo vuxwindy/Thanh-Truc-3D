@@ -9,6 +9,7 @@ const {
   changePasswordHandler
 } = require('../controllers/user.controller');
 const { adminAuthMiddleware, authMiddleware } = require('../middlewares/auth.middleware');
+const { listPendingUsers, approveUser, rejectUser } = require('../controllers/admin.controller');
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Lưu vào RAM để xử lý file trực tiếp
 const upload = multer({ storage });
@@ -25,6 +26,8 @@ router.put(
   upload.fields([
     { name: 'avatar', maxCount: 1 },
     { name: 'passportImage', maxCount: 1 },
+    { name: 'idFront', maxCount: 1 },
+    { name: 'idBack', maxCount: 1 },
   ]),
   updateUserProfile
 );
@@ -33,5 +36,10 @@ router.delete('/:id', adminAuthMiddleware, deleteUserById);
 
 // Add this new route
 router.put('/:id/change-password', adminAuthMiddleware, changePasswordHandler);
+
+// Admin routes for user approval
+router.get('/admin/pending', adminAuthMiddleware, listPendingUsers);
+router.post('/admin/:id/approve', adminAuthMiddleware, approveUser);
+router.post('/admin/:id/reject', adminAuthMiddleware, rejectUser);
 
 module.exports = router;

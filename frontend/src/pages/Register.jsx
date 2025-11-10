@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { vietnameseCities } from '../constants/cities';
 import { register as registerApi, verifyRegistration } from '../services/auth.service';
 import { setCredentials, setLoading, setError } from '../store/slices/authSlice';
+import { toast } from 'react-toastify';
 
 const schema = yup.object().shape({
   fullName: yup.string().required('Full name is required'),
@@ -79,23 +80,36 @@ const Register = () => {
         setCountdown(60); // Start countdown when verification code is sent
       } else {
         const { email, verificationCode, ...userData } = data;
-        const result = await verifyRegistration(email, verificationCode, userData);
-        if (result.success) {
-          const { user, token } = result.data;
-          const action = setCredentials({
-            user: {
-              id: user.id,
-              email: user.email,
-              fullName: user.fullName,
-              phone: user.phone,
-              cccd: user.cccd,
-              roles: user.roles
-            },
-            token
-          });
-          dispatch(action);
 
-          navigate('/customer/dashboard');
+        // Prepare file payloads
+        const files = {};
+        if (idFrontFile) files.idFront = idFrontFile;
+        if (idBackFile) files.idBack = idBackFile;
+
+        const result = await verifyRegistration(email, verificationCode, userData, files);
+        if (result.success) {
+          const { user, token, message } = result.data;
+          if (token) {
+            const action = setCredentials({
+              user: {
+                id: user.id,
+                email: user.email,
+                fullName: user.fullName,
+                phone: user.phone,
+                cccd: user.cccd,
+                roles: user.roles
+              },
+              token
+            });
+            dispatch(action);
+
+            navigate('/customer/dashboard');
+          } else {
+            // No token returned: registration completed but pending admin approval
+            toast.info(message || 'Registration complete. Your account is pending admin approval. You can login after approval.');
+            // Redirect to login so user can login later after approval
+            navigate('/customer/login');
+          }
         }
       }
     } catch (error) {
@@ -104,6 +118,9 @@ const Register = () => {
       dispatch(setLoading(false));
     }
   };
+
+  const [idFrontFile, setIdFrontFile] = React.useState(null);
+  const [idBackFile, setIdBackFile] = React.useState(null);
 
   // Add resend verification code function
   const handleResendCode = async () => {
@@ -272,6 +289,28 @@ const Register = () => {
                           </Button>
                         </div>
                       </Form.Group>
+                  )}
+
+                  {showVerificationCode && (
+                    <>
+                      <Form.Group className="mb-3">
+                        <Form.Label>ID Front Image (jpg/png)</Form.Label>
+                        <Form.Control
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => setIdFrontFile(e.target.files[0] || null)}
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3">
+                        <Form.Label>ID Back Image (jpg/png)</Form.Label>
+                        <Form.Control
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => setIdBackFile(e.target.files[0] || null)}
+                        />
+                      </Form.Group>
+                    </>
                   )}
 
                   <div className="d-grid gap-2">

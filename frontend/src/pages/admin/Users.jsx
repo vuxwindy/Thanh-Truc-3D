@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Card, Table, Button, Modal, Form, Pagination } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 // Update the import statement at the top
@@ -57,6 +58,8 @@ const Users = () => {
     fetchUsers();
     fetchRoles();
   }, [searchTerm]);
+
+  const navigate = useNavigate();
 
   // Update handleShowModal to reset confirmPassword
   const handleShowModal = (user = null) => {
@@ -200,6 +203,10 @@ const Users = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ width: '200px' }}
             />
+            <Button variant="secondary" onClick={() => navigate('/admin/users/pending')}
+              title="View pending ID approvals">
+              Pending Approvals
+            </Button>
             <Button variant="primary" onClick={() => handleShowModal()}>
               Add New User
             </Button>
