@@ -258,16 +258,16 @@ module.exports = {
       }
 
       // Check if orders table has the expected structure
+      // --- Thay thế đoạn "Create orders" cũ bằng đoạn này ---
       try {
+        // Kiểm tra cấu trúc bảng orders
         const describeOrdersResult = await queryInterface.sequelize.query(
           'DESCRIBE orders',
           { type: Sequelize.QueryTypes.RAW }
         );
         
-        const orderColumns = describeOrdersResult[0].map(col => col.Field);
-        console.log('Order table columns:', orderColumns);
+        const orderColumns = describeOrdersResult[0].map(col => col.Field || col.column_name);
         
-        // If orders table exists with the expected columns, create orders
         if (orderColumns.includes('id')) {
           const users = await queryInterface.sequelize.query(
             'SELECT id FROM users LIMIT 15',
@@ -280,26 +280,27 @@ module.exports = {
           );
           
           if (users.length > 0 && products.length > 0) {
-            for (const user of users.slice(1)) { // Skip admin user
-              const numOrders = Math.floor(Math.random() * 3) + 1; // 1-3 orders per user
+            for (const user of users.slice(1)) { // Bỏ qua admin
+              const numOrders = Math.floor(Math.random() * 3) + 1;
               
               for (let i = 0; i < numOrders; i++) {
                 const orderDate = faker.date.past({ years: 1 });
-                const numProducts = Math.floor(Math.random() * 4) + 1; // 1-4 products per order
+                const numProducts = Math.floor(Math.random() * 4) + 1;
                 let totalAmount = 0;
                 
-                // Calculate total price first by looping through products
+                // Danh sách sản phẩm tạm thời để tính tổng tiền và insert sau
+                const selectedProducts = [];
                 for (let j = 0; j < numProducts; j++) {
                   const randomProduct = products[Math.floor(Math.random() * products.length)];
-                  const quantity = Math.floor(Math.random() * 3) + 1; // 1-3 quantity
+                  const quantity = Math.floor(Math.random() * 3) + 1;
                   const price = parseFloat(randomProduct.priceSale);
                   totalAmount += price * quantity;
+                  selectedProducts.push({ id: randomProduct.id, quantity, price });
                 }
 
-                // Create the order with the correct column structure
                 const orderData = {
-                  cid: user.id, // Using cid instead of user_id based on Order model
-                  payment_method: Math.floor(Math.random() * 2) + 1, // 1 or 2 (integer)
+                  cid: user.id,
+                  payment_method: Math.floor(Math.random() * 2) + 1,
                   price: totalAmount,
                   status: ['pending', 'processing', 'completed'][Math.floor(Math.random() * 3)],
                   transaction_id: faker.string.uuid(),
@@ -307,77 +308,39 @@ module.exports = {
                   updated_at: new Date(orderDate)
                 };
                 
-                // Insert order and get its ID
-                const [orderId] = await queryInterface.sequelize.query(
-                  `INSERT INTO orders (cid, payment_method, price, status, transaction_id, created_at, updated_at) 
-                   VALUES (:cid, :payment_method, :price, :status, :transaction_id, :created_at, :updated_at)`,
-                  {
-                    replacements: orderData,
-                    type: Sequelize.QueryTypes.INSERT
-                  }
-                );
-                
-                // Get order_products table structure
-                const describeOrderProductsResult = await queryInterface.sequelize.query(
+                // SỬA TẠI ĐÂY: Sử dụng queryInterface.insert thay vì raw query
+                // Hàm này trả về ID của record vừa insert một cách an toàn
+                const orderId = await queryInterface.insert(null, 'orders', orderData);
+
+                // Lấy cấu trúc bảng order_products
+                const describeOPResult = await queryInterface.sequelize.query(
                   'DESCRIBE order_products',
                   { type: Sequelize.QueryTypes.RAW }
                 );
+                const opColumns = describeOPResult[0].map(col => col.Field || col.column_name);
                 
-                const orderProductColumns = describeOrderProductsResult[0].map(col => col.Field);
-                console.log('Order products columns:', orderProductColumns);
-                
-                // Create order products with correct column structure
-                for (let j = 0; j < numProducts; j++) {
-                  const randomProduct = products[Math.floor(Math.random() * products.length)];
-                  const quantity = Math.floor(Math.random() * 3) + 1; // 1-3 quantity
-                  const price = parseFloat(randomProduct.priceSale);
-                  
-                  // Use the correct column names from the actual table
-                  const orderProductData = {
+                const orderProductsToInsert = selectedProducts.map(p => {
+                  const item = {
                     order_id: orderId,
-                    product_id: randomProduct.id
+                    product_id: p.id
                   };
-                  
-                  // Add optional columns if they exist
-                  if (orderProductColumns.includes('quantity')) {
-                    orderProductData.quantity = quantity;
-                  }
-                  
-                  if (orderProductColumns.includes('price')) {
-                    orderProductData.price = price;
-                  }
-                  
-                  if (orderProductColumns.includes('licence')) {
-                    orderProductData.licence = faker.string.alphanumeric(10).toUpperCase();
-                  }
-                  
-                  if (orderProductColumns.includes('created_at')) {
-                    orderProductData.created_at = new Date(orderDate);
-                  }
-                  
-                  if (orderProductColumns.includes('updated_at')) {
-                    orderProductData.updated_at = new Date(orderDate);
-                  }
-                  
-                  // Generate column names and placeholders for query
-                  const opColumns = Object.keys(orderProductData).join(', ');
-                  const opPlaceholders = Object.keys(orderProductData).map(key => `:${key}`).join(', ');
-                  
-                  await queryInterface.sequelize.query(
-                    `INSERT INTO order_products (${opColumns}) VALUES (${opPlaceholders})`,
-                    {
-                      replacements: orderProductData,
-                      type: Sequelize.QueryTypes.INSERT
-                    }
-                  );
-                }
+                  if (opColumns.includes('quantity')) item.quantity = p.quantity;
+                  if (opColumns.includes('price')) item.price = p.price;
+                  if (opColumns.includes('licence')) item.licence = faker.string.alphanumeric(10).toUpperCase();
+                  if (opColumns.includes('created_at')) item.created_at = new Date(orderDate);
+                  if (opColumns.includes('updated_at')) item.updated_at = new Date(orderDate);
+                  return item;
+                });
+
+                // SỬA TẠI ĐÂY: Sử dụng bulkInsert để thêm nhiều sản phẩm vào đơn hàng cùng lúc
+                await queryInterface.bulkInsert('order_products', orderProductsToInsert);
               }
             }
             console.log('Orders and order products seeded successfully');
           }
         }
       } catch (error) {
-        console.log('Error seeding orders, continuing...', error.message);
+        console.log('Error seeding orders:', error.message);
       }
 
       console.log('Seeding completed successfully!');
