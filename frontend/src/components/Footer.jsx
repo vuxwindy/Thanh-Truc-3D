@@ -13,25 +13,21 @@ const Footer = () => {
       <Container>
         <Row className="mt-4 py-3" >
           <Col md={5}>
-            <h5>Giới thiệu về Lucentis</h5>
-            {/* <ul className="list-unstyled">
+            <h5>Thông tin liên hệ Công ty TNHH Lucentis</h5>
+            <ul className="list-unstyled">
               <li>
-                Tên Doanh Nghiệp: <b> CÔNG TY TNHH LUCENTIS   </b>
-              </li>
-              <li>
-                MST/DKKD/QDTL: <b>2301333239</b>
-              </li>
-              <li>
-                Trụ Sở Doanh Nghiệp:{" "}
+                Địa chỉ trụ sở chính:{" "}
                 <b>
-                  Khu phố Đỗ Nhà, Phường Phương Liễu, Thị xã Quế Võ,Tỉnh Bắc
-                  Ninh, Việt Nam
+                  Khu phố Do Nha, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh, Việt Nam.
                 </b>
               </li>
               <li>
-                Điện Thoại: <b>0332354286</b>
+                Số điện thoại: <b>0332354286</b>
               </li>
-            </ul> */}
+              <li>
+                Email: <b>lucentiscompany@gmail.com</b>
+              </li>
+            </ul>
           </Col>
           <Col md={2}>
             {/* <h5>{t('footer.quickLinks')}</h5> */}
@@ -75,9 +71,9 @@ const Footer = () => {
               </li>
               {/* <li>Hotline: 0332354286 </li> */}
               <li>
-                Facebook:{" Lucentis - "}
-                <a href="https://www.facebook.com/profile.php?id=100016006836122">
-                  <FaFacebook />
+                Facebook: {" "}
+                <a href="https://www.facebook.com/LucentisCompany" target="_blank" rel="noopener noreferrer">
+                {"Lucentis"}
                 </a>{" "}
               </li>
             </ul>
