@@ -22,6 +22,7 @@ const OrderConfirmation = () => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [order, setOrder] = useState(null);
   const [status, setStatus] = useState(null); // "success", "error", null
+  const [isAgreed, setIsAgreed] = useState(false);
 
   // State cho Kien Long Bank QR Code (VietQR)
   const [klbPaymentData, setKlbPaymentData] = useState(null);
@@ -379,11 +380,28 @@ const OrderConfirmation = () => {
                     </div>
                   ) : (
                     <div className="mt-3">
+                      <div className="mb-3 d-flex align-items-start text-start">
+                        <input
+                          type="checkbox"
+                          id="agreePolicy"
+                          className="me-2 mt-1 form-check-input"
+                          checked={isAgreed}
+                          onChange={(e) => setIsAgreed(e.target.checked)}
+                          style={{ cursor: "pointer" }}
+                        />
+                        <label htmlFor="agreePolicy" className="text-light" style={{ fontSize: "0.9rem", cursor: "pointer" }}>
+                          By completing payment, you agree to our <Link to="/customer/refund-policy" className="text-info" target="_blank">Refund Policy</Link> and all sales are final.
+                          <br />
+                          (Bằng việc hoàn tất thanh toán, bạn đồng ý với <Link to="/customer/refund-policy" className="text-info" target="_blank">Chính sách hoàn tiền</Link> của chúng tôi và tất cả giao dịch mua)
+                        </label>
+                      </div>
+
                       <Button
                         style={{ layout: "vertical" }}
                         variant="warning"
                         className="w-100 fw-bold mb-3"
                         onClick={() => handleVPBankPayment(Math.round(order.price * 1.15))}
+                        disabled={!isAgreed}
                       >
                         Pay with VNPT Epay
                       </Button>
@@ -392,6 +410,7 @@ const OrderConfirmation = () => {
                         className="w-100 fw-bold text-light"
                         variant="success"
                         onClick={handleKlbPayment}
+                        disabled={!isAgreed}
                       >
                         Thanh toán chuyển khoản 247 (VietQR)
                       </Button>
