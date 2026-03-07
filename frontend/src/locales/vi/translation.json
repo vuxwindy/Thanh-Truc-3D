@@ -93,7 +93,18 @@
     "quickLinks": "Liên kết nhanh",
     "termsConditions": "Điều khoản và điều kiện",
     "connectWithUs": "Kết nối với chúng tôi",
-    "allRightsReserved": "Tất cả các quyền được bảo lưu."
+    "allRightsReserved": "Tất cả các quyền được bảo lưu.",
+    "companyInfo": "Thông tin liên hệ Công ty TNHH Lucentis",
+    "headquartersLabel": "Địa chỉ trụ sở chính: ",
+    "headquartersAddress": "Khu phố Do Nha, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh, Việt Nam.",
+    "phoneLabel": "Số điện thoại: ",
+    "emailLabel": "Email: ",
+    "support": "Hỗ Trợ",
+    "privacyPolicy": "Chính sách bảo mật",
+    "paymentMethods": "Phương thức thanh toán",
+    "inspectionPolicy": "Chính sách kiểm tra",
+    "contact": "Liên hệ:",
+    "govBadgeAlt": "Đã thông báo Bộ Công Thương"
   },
   "validation": {
     "required": "Trường này là bắt buộc",

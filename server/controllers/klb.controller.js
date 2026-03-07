@@ -82,13 +82,18 @@ const klbController = {
     },
 
     /**
-     * API - Frontend gọi vào đây để Check trạng thái giả lập
+     * API - Frontend polling để kiểm tra trạng thái thanh toán từ DB
      */
-    async getMockOrder(req, res) {
-        const { orderId } = req.params;
-        const order = global.mockOrders.find(o => o.id == orderId);
-        if (!order) return res.status(404).json({ error: "No mock order found" });
-        return res.json(order);
+    async getOrderStatus(req, res) {
+        try {
+            const { orderId } = req.params;
+            const order = await Order.findByPk(orderId);
+            if (!order) return res.status(404).json({ error: "Order not found" });
+            return res.json({ id: order.id, status: order.status, transaction_id: order.transaction_id });
+        } catch (error) {
+            console.error("Lỗi khi lấy trạng thái order:", error);
+            return res.status(500).json({ error: "Internal server error" });
+        }
     },
 
     /**

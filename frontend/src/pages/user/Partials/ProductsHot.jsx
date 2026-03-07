@@ -113,12 +113,12 @@ const ProductsHot = () => {
                     </Card.Text>
                     <div className="d-flex justify-content-between align-items-center">
                       <span className="text-danger fw-bold">
-                        ${product.priceSale}
+                        {Math.round(product.priceSale).toLocaleString('vi-VN')} VND
                       </span>
                       {Number(product.priceOrigin) >
                         Number(product.priceSale) && (
                           <span className="text-muted text-decoration-line-through">
-                            ${product.priceOrigin}
+                            {Math.round(product.priceOrigin).toLocaleString('vi-VN')} VND
                           </span>
                         )}
                     </div>

@@ -111,7 +111,7 @@ const OrderConfirmation = () => {
   const handleKlbPayment = async () => {
     try {
       setLoading(true);
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/klb/createPayment`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/klb/createPayment`, {
         orderId: order.id
       });
       if (res.data && res.data.success) {
@@ -130,16 +130,13 @@ const OrderConfirmation = () => {
   const startPollingOrderStatus = () => {
     const intervalId = setInterval(async () => {
       try {
-        console.log(`[POLLING] Bắt đầu gọi lấy order ${order.id}...`);
-        const fetchMock = await axios.get(`${import.meta.env.VITE_API_URL}/api/klb/mock-order/${order.id}`);
-        console.log("[POLLING] Kết quả từ Backend:", fetchMock.data);
-        if (fetchMock.data && fetchMock.data.status === "completed") {
-          console.log("[POLLING] Đơn hàng MOCK báo Thành Công! Dừng check và đổi giao diện...");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/klb/order-status/${order.id}`);
+        if (res.data && res.data.status === "completed") {
           clearInterval(intervalId);
           setPaymentSuccess(true);
         }
       } catch (e) {
-        console.error("[POLLING] Lỗi call mock-order", e);
+        console.error("[POLLING] Lỗi kiểm tra trạng thái đơn hàng:", e);
       }
     }, 5000); // Check mỗi 5 giây
   };
@@ -405,7 +402,7 @@ const OrderConfirmation = () => {
                         onClick={() => handleVPBankPayment(Math.round(order.price * 1.15))}
                         disabled={!isAgreed}
                       >
-                        Pay with VNPT Epay
+                        Pay via Visa/Master Card
                       </Button>
 
                       <Button
@@ -414,7 +411,7 @@ const OrderConfirmation = () => {
                         onClick={handleKlbPayment}
                         disabled={!isAgreed}
                       >
-                        Thanh toán chuyển khoản 247 (VietQR)
+                        Pay via VietQR
                       </Button>
 
                       {/* <Button
@@ -427,7 +424,7 @@ const OrderConfirmation = () => {
                         }}
                         onError={handlePaymentError}
                       >
-                        Thanh toán với VNPT
+                        Thanh toán thẻ
                       </Button> */}
 
                       {/* <PayPalScriptProvider

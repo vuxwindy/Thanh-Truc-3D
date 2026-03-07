@@ -16,15 +16,9 @@ export const formatDate = (date, formatStr = 'PPP') => {
 export const formatCurrency = (amount, currencyCode = 'VND') => {
   const language = i18next.language;
   
-  const currencyByLanguage = {
-    en: 'USD',
-    vi: 'VND',
-    zh: 'CNY'
-  };
+  const finalCurrencyCode = currencyCode || 'VND';
   
-  const finalCurrencyCode = currencyCode || currencyByLanguage[language] || 'VND';
-  
-  return new Intl.NumberFormat(language, {
+  return new Intl.NumberFormat(language === 'vi' ? 'vi-VN' : language, {
     style: 'currency',
     currency: finalCurrencyCode
   }).format(amount);

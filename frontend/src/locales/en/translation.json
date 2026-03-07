@@ -93,7 +93,18 @@
     "quickLinks": "Quick Links",
     "termsConditions": "Terms & Conditions",
     "connectWithUs": "Connect With Us",
-    "allRightsReserved": "All Rights Reserved."
+    "allRightsReserved": "All Rights Reserved.",
+    "companyInfo": "Contact Information - Lucentis Co., Ltd",
+    "headquartersLabel": "Headquarters: ",
+    "headquartersAddress": "Do Nha Quarter, Phuong Lieu Ward, Que Vo Town, Bac Ninh Province, Vietnam.",
+    "phoneLabel": "Phone: ",
+    "emailLabel": "Email: ",
+    "support": "Support",
+    "privacyPolicy": "Privacy Policy",
+    "paymentMethods": "Payment Methods",
+    "inspectionPolicy": "Inspection Policy",
+    "contact": "Contact:",
+    "govBadgeAlt": "Registered with Ministry of Industry and Trade"
   },
   "validation": {
     "required": "This field is required",

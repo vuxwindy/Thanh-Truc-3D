@@ -9,7 +9,7 @@ const router = express.Router();
  */
 
 router.post('/createPayment', klbController.createPayment);
-router.get('/mock-order/:orderId', klbController.getMockOrder);
+router.get('/order-status/:orderId', klbController.getOrderStatus);
 router.post('/inquiryChecking', klbController.inquiryChecking);
 router.post('/depositChecking', klbController.depositChecking);
 router.post('/notifyTransaction', klbController.notifyTransaction);

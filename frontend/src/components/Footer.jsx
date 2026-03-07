@@ -13,32 +13,29 @@ const Footer = () => {
       <Container>
         <Row className="mt-4 py-3" >
           <Col md={5}>
-            <h5>Thông tin liên hệ Công ty TNHH Lucentis</h5>
+            <h5>{t('footer.companyInfo')}</h5>
             <ul className="list-unstyled">
               <li>
-                Địa chỉ trụ sở chính:{" "}
-                <b>
-                  Khu phố Do Nha, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh, Việt Nam.
-                </b>
+                {t('footer.headquartersLabel')}
+                <b>{t('footer.headquartersAddress')}</b>
               </li>
               <li>
-                Số điện thoại: <b>0332354286</b>
+                {t('footer.phoneLabel')}<b>0332354286</b>
               </li>
               <li>
-                Email: <b>lucentiscompany@gmail.com</b>
+                {t('footer.emailLabel')}<b>lucentiscompany@gmail.com</b>
               </li>
             </ul>
           </Col>
           <Col md={2}>
-            {/* <h5>{t('footer.quickLinks')}</h5> */}
-            <h5>Hỗ Trợ</h5>
+            <h5>{t('footer.support')}</h5>
             <ul className="list-unstyled">
               <li>
                 <Link
                   to="/customer/PrivacyPolicy"
                   className="text-light text-decoration-none"
                 >
-                  Chính sách bảo mật
+                  {t('footer.privacyPolicy')}
                 </Link>
               </li>
               <li>
@@ -46,7 +43,7 @@ const Footer = () => {
                   to="/customer/PaymentMethods"
                   className="text-light text-decoration-none"
                 >
-                  Phương thức thanh toán
+                  {t('footer.paymentMethods')}
                 </Link>
               </li>
               <li>
@@ -54,22 +51,20 @@ const Footer = () => {
                   to="/customer/InspectionPolicy"
                   className="text-light text-decoration-none"
                 >
-                  Chính sách kiểm tra
+                  {t('footer.inspectionPolicy')}
                 </Link>
               </li>
             </ul>
           </Col>
           <Col md={3}>
-            <h5>Liên hệ:</h5>
+            <h5>{t('footer.contact')}</h5>
             <ul className="list-unstyled">
-              {/* chỉnh lại đường dẫn + tạo file chứa +  mô tả*/}
               <li>
                 Mail:{" "}
                 <a href="mailto: lucentiscompany@gmail.com">
                   lucentiscompany@gmail.com
                 </a>
               </li>
-              {/* <li>Hotline: 0332354286 </li> */}
               <li>
                 Facebook: {" "}
                 <a href="https://www.facebook.com/LucentisCompany" target="_blank" rel="noopener noreferrer">
@@ -78,13 +73,12 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          {/* lucentis.it.com   */}
         
           <Col md={1}>
             <a href='http://online.gov.vn/Home/WebDetails/132073'>           
               <img src='/logoSale.png'
-                   alt="Đã thông báo Bộ Công Thương" 
-                   title="Đã thông báo Bộ Công Thương" 
+                   alt={t('footer.govBadgeAlt')} 
+                   title={t('footer.govBadgeAlt')} 
                    style={{ height: '80px', width: 'auto' }}/>
             </a>
           </Col> 
