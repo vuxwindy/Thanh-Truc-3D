@@ -1,37 +1,38 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-
-const officeImages = [
-  { src: "/sanhvanphong.jpg", title: "Khu vực sảnh" },
-  { src: "/khonggianchung.jpg", title: "Khu vực không gian chung" },
-  { src: "/anninhmang.jpg", title: "Phòng  an ninh mạng" },
-  { src: "/nhan-vien.jpg", title: "Phòng bán hàng & CSKH" },
-  { src: "/cskh.jpg", title: "Bộ phận kỹ thuật chuyên môn" },
-  { src: "/anhPhongHop.jpg", title: "Không gian phòng họp" },
-];
+import { useTranslation } from "react-i18next";
 
 const AboutThanhTruc = () => {
+  const { t } = useTranslation();
+
+  const officeImages = [
+    { src: "/sanhvanphong.jpg", title: t('about.office.lobby') },
+    { src: "/khonggianchung.jpg", title: t('about.office.common') },
+    { src: "/anninhmang.jpg", title: t('about.office.security') },
+    { src: "/nhan-vien.jpg", title: t('about.office.sales') },
+    { src: "/cskh.jpg", title: t('about.office.tech') },
+    { src: "/anhPhongHop.jpg", title: t('about.office.meeting') },
+  ];
+
   return (
     <Container className="py-4">
       <Row>
         <Col>
-          {/* Add more sections as needed */}
-
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase">Giới thiệu về Lucentis</h1>
+            <h1 className="entry-title mb uppercase">{t('about.title')}</h1>
             <p>
-              <em>Chuyên bán các sản phẩm về Phần mềm ứng dụng đa dạng các lĩnh vực</em>
+              <em>{t('about.subtitle')}</em>
             </p>
-            <strong class="font-bold">
-              Lucentis Shop có mục tiêu đơn giản như sau:
+            <strong className="font-bold">
+              {t('about.goalIntro')}
             </strong>
             <ul>
-              <li>Tốc đô nhanh</li>
-              <li>Bỏa hành - Uy tín</li>
-              <li>Chất lượng dịch vụ</li>
+              <li>{t('about.goals.1')}</li>
+              <li>{t('about.goals.2')}</li>
+              <li>{t('about.goals.3')}</li>
             </ul>
             <p>&nbsp;</p>
-            <h2>Văn phòng hoạt động của Lucentis</h2>
+            <h2>{t('about.officeTitle')}</h2>
             <Row>
               {officeImages.map((img, idx) => (
                 <Col
@@ -54,130 +55,97 @@ const AboutThanhTruc = () => {
             </Row>
             <p>&nbsp;</p>
             <h2>
-              <strong>Vì sao các khách hàng thường chọn Lucentis?</strong>
+              <strong>{t('about.whyChooseTitle')}</strong>
             </h2>
             &nbsp;
             <h3>
-              <strong>1. Những năm hoạt động Uy tín </strong>
+              <strong>{t('about.reason1Title')}</strong>
             </h3>
             <p>
-              Lucentis Shop là một tên tuổi mới trong tại thị trường quốc tế,
-              được khẳng định thông qua hơn 1 triệu khách hàng.
+              {t('about.reason1Desc')}
             </p>
             <ul>
-              <li>Do chính cộng đồng bình chọn.</li>
+              <li>{t('about.reason1Bullets.1')}</li>
               <li>
-                Đã có hơn 1 Triệu khách hàng đặt hàng trong suốt 3 năm hoạt
-                động. &nbsp; Hàng tháng website Lucentis chào đón hơn 400.000
-                lượt truy cập mua hàng.
+                {t('about.reason1Bullets.2')}
               </li>
               <li>
-                Được các Kols, Streamer hàng đầu lựa chọn và quảng bá trên nhiều
-                quốc gia
+                {t('about.reason1Bullets.3')}
               </li>
             </ul>
             <h3>
-              <strong>2. Sản phẩm đa dạng</strong>{" "}
+              <strong>{t('about.reason2Title')}</strong>{" "}
             </h3>
             <p>
-              Với hàng chục nghìn sản phẩm trên Website Lucentis chúng tôi tự
-              tin mang đến cho bạn tất cả những gì bạn cần trong thế giới bản
-              quyền.
+              {t('about.reason2Desc')}
             </p>
             <ul>
-              <li>Các phần mềm tiện ích</li>
-              <li>Các phần mềm giải trí đa dạng</li>
-              <li>Các phần mềm học tập chất lượng</li>
+              <li>{t('about.reason2Bullets.1')}</li>
+              <li>{t('about.reason2Bullets.2')}</li>
+              <li>{t('about.reason2Bullets.3')}</li>
             </ul>
             <h3>
-              <strong>3. Hình thức thanh toán thuận tiện</strong>
+              <strong>{t('about.reason3Title')}</strong>
             </h3>
-            <p>Đa dạng hình thức thanh toán giúp khách hàng dễ dàng lựa chọn</p>
-            <p>Hệ thống tự động giúp hoàn thành đơn hàng ngay lập tức</p>
+            <p>{t('about.reason3Desc1')}</p>
+            <p>{t('about.reason3Desc2')}</p>
             <p>
-              * Mọi quy trình thanh toán đều được tự động cao giúp khách hàng có
-              thể hoàn thành đơn hàng chỉ trong 1 giây - Ngay lập tức.
+              {t('about.reason3Desc3')}
             </p>
             <h3>
-              <strong>4. Chế độ bảo hành và hỗ trợ.</strong>
+              <strong>{t('about.reason4Title')}</strong>
             </h3>
             <p>
-              <strong>Cam kết bảo hành</strong>
+              <strong>{t('about.reason4Warranty')}</strong>
             </p>
             <ul>
               <li>
-                Thông tin bảo hành từng sản phẩm đều được ghi chi tiết theo từng
-                loại sản phẩm.
+                {t('about.reason4WarrantyBullets.1')}
               </li>
               <li>
-                Trong suốt thời gian sử dụng sản phẩm. Bạn sẽ nhận được sự hỗ
-                trợ từ đội ngũ tư vấn của chúng tôi hoàn toàn miễn phí.
+                {t('about.reason4WarrantyBullets.2')}
               </li>
             </ul>
             <p>
-              <strong>Hỗ trợ tất cả các ngày trong năm</strong>
+              <strong>{t('about.reason4Support')}</strong>
             </p>
             <ul>
               <li>
-                Chúng tôi Online liên tục từ 08:30 đến 23:00, tất cả các ngày
-                trong năm kể cả lễ, Tết.
+                {t('about.reason4SupportBullets.1')}
               </li>
               <li>
-                Chúng tôi tự hào với thời gian phản hồi khách hàng trung bình là
-                1 Phút.{" "}
+                {t('about.reason4SupportBullets.2')}
               </li>
             </ul>
             <p>
-              <strong>Đội ngũ tư vấn nhiều kinh nghiệm</strong>
+              <strong>{t('about.reason4Team')}</strong>
             </p>
             <ul>
               <li>
-                Đội ngũ tư vấn với nhiều năm kinh nghiệm sẽ giải đáp cho bạn tất
-                cả các thắc mắc trong quá trình mua hàng và cài đặt sản phẩm.{" "}
+                {t('about.reason4TeamBullets.1')}
               </li>
               <li>
-                Với những trường hợp khó xử lý. Chúng tôi sẽ Teamview trực tiếp
-                để cài đặt giúp bạn.{" "}
+                {t('about.reason4TeamBullets.2')}
               </li>
             </ul>
             <h3>
-              <strong>5. Giá cả và ưu đãi</strong>
+              <strong>{t('about.reason5Title')}</strong>
             </h3>
             <p>
-              Chúng tôi đem đến cho khách hàng những sản phẩm với giá cả tốt
-              nhất cùng với đó là những ưu đãi vô cùng hấp dẫn. &nbsp;
+              {t('about.reason5Desc')}
             </p>
             <p>&nbsp;</p>
             <h2>
-              <strong>Các thông tin liên hệ với Lucentis Shop</strong>
+              <strong>{t('about.contactTitle')}</strong>
             </h2>
             <p>
-              Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
-              theo các cách sau:
-            </p>
-            {/* <p>* Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
-            <p>
-              * Cách 2: Gửi email đến địa chỉ:&nbsp;
-              <a href="mailto:lucentiscompany@gmail.com">
-                lucentiscompany@gmail.com
-              </a>
+              {t('about.contactDesc')}
             </p>
             <p>
-              * Cách 3: Đến trực tiếp địa chỉ: Khu phố Đỗ Nha, Phường Phương
-              Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
-            </p> */}
-            <p>
-              CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu
-              nại cho Khách hàng trong vòng 03 ngày làm việc kể từ ngày hoàn tất
-              xác minh thông tin và xử lý.
+              {t('about.contactResolution')}
             </p>
             <p>
-              CÔNG TY TNHH LUCENTIS   sẽ cố gắng xác minh thông tin và
-              giải quyết khiếu nại nhanh chóng, kịp thời để đảm bảo quyền lợi
-              của Khách hàng. Trong trường hợp vượt quá khả năng và thẩm quyền
-              của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này đến
-              cơ quan nhà nước có thẩm quyền để giải quyết theo quy định của
-              pháp luật.
+              {t('about.contactCommitment')}
             </p>
           </section>
         </Col>

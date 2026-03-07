@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { getBanners } from '../../../services/banner.service';
 import { CDN_URL } from '../../../constant';
+import { useTranslation } from 'react-i18next';
 
 const Banner = () => {
+  const { t } = useTranslation();
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +18,7 @@ const Banner = () => {
         setBanners(data.banners);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load banners');
+        setError(t('dashboard.failedBanners'));
         setLoading(false);
         console.error('Error fetching banners:', err);
       }
@@ -25,7 +27,7 @@ const Banner = () => {
     fetchBanners();
   }, []);
 
-  if (loading) return <div className="text-center py-5">Loading banners...</div>;
+  if (loading) return <div className="text-center py-5">{t('dashboard.loadingBanners')}</div>;
   if (error) return <div className="text-center py-5 text-danger">{error}</div>;
   if (banners.length === 0) return null;
 
@@ -42,26 +44,26 @@ const Banner = () => {
                   alt={`Banner ${banner.id}`}
                   style={{ maxHeight: '600px', objectFit: 'cover', filter: 'brightness(0.7)' }}
                 />
-                  <div
-                    className="position-absolute top-0 start-0 w-100 h-100"
-                    style={{
-                       background: 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, #1a1a1a 100%)',
-                      pointerEvents: 'none',
-                    }}
-                  />
-                   {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                <div
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, #1a1a1a 100%)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
                     <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và công nghệ đột phá dẫn đầu</h1>
                     <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 12 này'</p>
                   </Carousel.Caption>               */}
               </a>
             ) : (
-                <>
-              <img
-                className="d-block w-100"
-                src={CDN_URL + banner.image}
-                alt={`Banner ${banner.id}`}
-                style={{ maxHeight: '600px', objectFit: 'cover', filter: 'brightness(0.7)' }}
-              /> 
+              <>
+                <img
+                  className="d-block w-100"
+                  src={CDN_URL + banner.image}
+                  alt={`Banner ${banner.id}`}
+                  style={{ maxHeight: '600px', objectFit: 'cover', filter: 'brightness(0.7)' }}
+                />
                 <div
                   className="position-absolute top-0 start-0 w-100 h-100"
                   style={{
@@ -69,7 +71,7 @@ const Banner = () => {
                     pointerEvents: 'none',
                   }}
                 />
-              {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
+                {/* <Carousel.Caption className="position-absolute top-50 start-50 translate-middle text-center">
                     <h1 className="text-white fw-bold">Khám phá công nghệ vượt trội và công nghệ đột phá dẫn đầu</h1>
                     <p className="text-light">'Ưu Đãi Đặc Biệt Tháng 12 này'</p>
                   </Carousel.Caption>               */}

@@ -94,10 +94,10 @@ const UserLayout = ({ children }) => {
             {isAuthenticated ? (
               <Nav className="me-auto fw-semibold  ">
                 {/* Home Link */}
-                <Nav.Link href="/customer"   >Trang Chủ</Nav.Link>
+                <Nav.Link href="/customer"   >{t('common.home')}</Nav.Link>
 
                 {/* Games Dropdown */}
-                <NavDropdown title="Sản Phẩm" id="games-dropdown">
+                <NavDropdown title={t('common.products')} id="games-dropdown">
                   {categories.map(category => (
                     <NavDropdown.Item
                       key={category.id}
@@ -110,16 +110,16 @@ const UserLayout = ({ children }) => {
                 {/* Blogs Link */}
                 {/* <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link> */}
                 {/* Buying_Guide */}
-                <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
-                <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
-                <Nav.Link href="/customer/refund-policy">Chính sách Đổi trả & Hoàn tiền</Nav.Link>
+                <Nav.Link href="/customer/Terms">{t('common.buyingGuide')}</Nav.Link>
+                <Nav.Link href="/customer/user-manual">{t('common.userManual')}</Nav.Link>
+                <Nav.Link href="/customer/refund-policy">{t('common.refundPolicy')}</Nav.Link>
 
               </Nav>
             ) : (
               <Nav className="me-auto">
                 {/* Empty nav when not authenticated */}
-                <Nav.Link href="/customer">Trang Chủ</Nav.Link>
-                <NavDropdown title="Sản Phẩm" id="games-dropdown">
+                <Nav.Link href="/customer">{t('common.home')}</Nav.Link>
+                <NavDropdown title={t('common.products')} id="games-dropdown">
                   {categories.map(category => (
                     <NavDropdown.Item
                       key={category.id}
@@ -130,14 +130,17 @@ const UserLayout = ({ children }) => {
                   ))}
                 </NavDropdown>
                 {/* <Nav.Link href="/customer/blogs">Tin Tức</Nav.Link> */}
-                <Nav.Link href="/customer/Terms">Hướng Dẫn Mua Hàng</Nav.Link>
-                <Nav.Link href="/customer/user-manual">Hướng dẫn sử dụng tài liệu</Nav.Link>
-                <Nav.Link href="/customer/refund-policy">Chính sách Đổi trả & Hoàn tiền</Nav.Link>
+                <Nav.Link href="/customer/Terms">{t('common.buyingGuide')}</Nav.Link>
+                <Nav.Link href="/customer/user-manual">{t('common.userManual')}</Nav.Link>
+                <Nav.Link href="/customer/refund-policy">{t('common.refundPolicy')}</Nav.Link>
               </Nav>
             )}
 
             {!isAuthenticated ? (
-              <Nav>
+              <Nav className="align-items-center">
+                <LanguageSelector />
+                {/* cài đặt sáng tối */}
+                {/* <DarkModeToggle /> */}
                 <Nav.Link href="/customer/login">{t('common.login')}</Nav.Link>
                 <Nav.Link href="/customer/register">{t('common.register')}</Nav.Link>
               </Nav>
@@ -174,8 +177,8 @@ const UserLayout = ({ children }) => {
                   )}
                 </Nav.Link>
 
-                <Nav>
-                  {/* <LanguageSelector /> */}
+                <Nav className="align-items-center">
+                  <LanguageSelector />
                   {/* cài đặt sáng tối */}
                   {/* <DarkModeToggle /> */}
                   {user ? (

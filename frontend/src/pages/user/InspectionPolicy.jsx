@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useTranslation, Trans } from "react-i18next";
 
 const InspectionPolicy = () => {
+  const { t } = useTranslation();
+
   return (
     <Container className="py-4 text-light">
       <Row>
@@ -9,25 +12,26 @@ const InspectionPolicy = () => {
           {/* Add more sections as needed */}
 
           <section className="mt-4">
-            <h1 class="entry-title mb uppercase">Chính sách kiểm tra</h1>
+            <h1 className="entry-title mb uppercase">{t('inspectionPolicy.title')}</h1>
             <p className="lead">
-            Cập nhật lần cuối: {new Date().toLocaleDateString()}
+              {t('inspectionPolicy.updated')} {new Date().toLocaleDateString()}
             </p>
 
-          
-              <p>
-              Để bảo vệ quyền lợi của khách hàng khi mua sắm trên   
- <a href="https://lucentis.it.com"> lucentis.it.com</a>, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
-khi nhận hàng. Tức là khi bạn nhận được đường link từ email,
-bạn được phép cài đặt và kiểm tra trực tiếp.
-              </p>
-              &nbsp;
-              <h2>
-              <strong>Các thông tin liên hệ với Lucentis Shop</strong>
+
+            <p>
+              <Trans i18nKey="inspectionPolicy.p1">
+                Để bảo vệ quyền lợi của khách hàng khi mua sắm trên
+                <a href="https://lucentis.it.com"> lucentis.it.com</a>, chúng tôi có chính sách hỗ trợ khách hàng kiểm tra
+                khi nhận hàng. Tức là khi bạn nhận được đường link từ email,
+                bạn được phép cài đặt và kiểm tra trực tiếp.
+              </Trans>
+            </p>
+            &nbsp;
+            <h2>
+              <strong>{t('inspectionPolicy.subtitle')}</strong>
             </h2>
             <p>
-              Khách hàng có thể liên hệ với CÔNG TY TNHH LUCENTIS  
-              theo các cách sau:
+              {t('inspectionPolicy.p2')}
             </p>
             {/* <p>* Cách 1: Gọi đến số hotline của chúng tôi: 0332354286</p>
             <p>
@@ -41,19 +45,12 @@ bạn được phép cài đặt và kiểm tra trực tiếp.
               Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh.
             </p> */}
             <p>
-              CÔNG TY TNHH LUCENTIS   sẽ phản hồi kết quả xử lý khiếu
-              nại cho Khách hàng trong vòng 03 ngày làm việc kể từ ngày hoàn tất
-              xác minh thông tin và xử lý.
+              {t('inspectionPolicy.p3')}
             </p>
             <p>
-              CÔNG TY TNHH LUCENTIS   sẽ cố gắng xác minh thông tin và
-              giải quyết khiếu nại nhanh chóng, kịp thời để đảm bảo quyền lợi
-              của Khách hàng. Trong trường hợp vượt quá khả năng và thẩm quyền
-              của Trung tâm, chúng tôi sẽ yêu cầu Khách hàng đưa vụ việc này đến
-              cơ quan nhà nước có thẩm quyền để giải quyết theo quy định của
-              pháp luật.
+              {t('inspectionPolicy.p4')}
             </p>
- 
+
           </section>
         </Col>
       </Row>

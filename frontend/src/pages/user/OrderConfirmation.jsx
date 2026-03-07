@@ -13,10 +13,12 @@ import {
 import { FaArrowLeft, FaCheckCircle, FaPaypal } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useTranslation, Trans } from 'react-i18next';
 import { updateOrderStatus, getOrderById } from "../../services/order.service";
 import axios from "axios";
 
 const OrderConfirmation = () => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -390,9 +392,9 @@ const OrderConfirmation = () => {
                           style={{ cursor: "pointer" }}
                         />
                         <label htmlFor="agreePolicy" className="text-light" style={{ fontSize: "0.9rem", cursor: "pointer" }}>
-                          By completing payment, you agree to our <Link to="/customer/refund-policy" className="text-info" target="_blank">Refund Policy</Link> and all sales are final.
-                          <br />
-                          (Bằng việc hoàn tất thanh toán, bạn đồng ý với <Link to="/customer/refund-policy" className="text-info" target="_blank">Chính sách hoàn tiền</Link> của chúng tôi và tất cả giao dịch mua)
+                          <Trans i18nKey="checkout.agreeToRefundPolicy">
+                            By completing payment, you agree to our <Link to="/customer/refund-policy" className="text-info" target="_blank">Refund Policy</Link> and all sales are final.
+                          </Trans>
                         </label>
                       </div>
 

@@ -5,7 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Import translations
 import enTranslation from './locales/en/translation.json';
 import viTranslation from './locales/vi/translation.json';
-import zhTranslation from './locales/zh/translation.json';
 
 const resources = {
   en: {
@@ -13,9 +12,6 @@ const resources = {
   },
   vi: {
     translation: viTranslation
-  },
-  zh: {
-    translation: zhTranslation
   }
 };
 
@@ -27,13 +23,13 @@ i18n
   // init i18next
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'vi',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       caches: ['localStorage'],
     }
   });
@@ -42,10 +38,9 @@ i18n
 i18n.on('languageChanged', (lng) => {
   const titles = {
     en: 'Lucentis - Digital Gaming Platform',
-    vi: 'Lucentis - Nền tảng trò chơi kỹ thuật số',
-    zh: 'Lucentis - 数字游戏平台'
+    vi: 'Lucentis - Nền tảng trò chơi kỹ thuật số'
   };
-  
+
   document.title = titles[lng] || titles.en;
   document.documentElement.lang = lng;
 });

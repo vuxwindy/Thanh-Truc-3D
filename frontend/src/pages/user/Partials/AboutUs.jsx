@@ -1,10 +1,12 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
+  const { t } = useTranslation();
   return (
-    
+
     <div className="position-relative "
       style={{
         backgroundImage: `url('/bg-image.png')`,
@@ -54,27 +56,27 @@ const AboutUs = () => {
         </Row> */}
         <Col>
           <h2 className="mb-4 fw-semibold text-center">
-            Những gì chúng tôi cung cấp
+            {t('dashboard.aboutUs.title1')}
           </h2>
         </Col>
         {/* Dịch vụ */}
         <Row className="mb-5 text-center">
           {[
             {
-              title: "Sản phẩm chất lượng",
-              text: "Chúng tôi cung cấp các sản phẩm phần mền chất lượng cao ở nhiều thể loại và nền tảng khác nhau.",
+              title: t('dashboard.aboutUs.service1.title'),
+              text: t('dashboard.aboutUs.service1.desc'),
               icon: "🎮",
               link: "/customer/games/category/1",
             },
             {
-              title: "Giao dịch an toàn",
-              text: "Nền tảng của chúng tôi đảm bảo các giao dịch an toàn và bảo mật cho mọi giao dịch mua  phần mềm của bạn.",
+              title: t('dashboard.aboutUs.service2.title'),
+              text: t('dashboard.aboutUs.service2.desc'),
               icon: "🔒",
               link: "/customer/PrivacyPolicy",
             },
             {
-              title: "Hỗ trợ khách hàng",
-              text: "Chúng tôi cam kết cung cấp dịch vụ hỗ trợ và chăm sóc khách hàng tuyệt vời.",
+              title: t('dashboard.aboutUs.service3.title'),
+              text: t('dashboard.aboutUs.service3.desc'),
               icon: "🤝",
               link: "/customer/user-manual",
             },
@@ -123,39 +125,26 @@ const AboutUs = () => {
                 border: "1px solid transparent",
               }}
             >
-              <h2 className="mb-3 fw-semibold">Sứ mệnh của chúng tôi</h2>
+              <h2 className="mb-3 fw-semibold">{t('dashboard.aboutUs.title2')}</h2>
               <p>
-                Tại Lucentis, sứ mệnh của chúng tôi là kết nối người dùng với
-                các sản phẩm và trải nghiệm sử dụng tốt nhất. Chúng tôi nỗ lực
-                tạo ra một nền tảng nơi những người đam mê công nghệ có thể khám
-                phá, mua và tận hưởng các  phần mềm chất lượng một cách dễ dàng
-                và tự tin.
+                {t('dashboard.aboutUs.mission1')}
               </p>
               <p>
-                Chúng tôi cam kết cung cấp dịch vụ chuyên nghiệp, nhanh chóng và
-                an toàn — đảm bảo mỗi giao dịch đều minh bạch và đáng tin cậy.
-                Bằng việc hợp tác với các nhà phát hành uy tín, Lucentis mang
-                đến kho sản phẩm đa dạng, luôn cập nhật xu hướng mới nhất trong
-                thế giới công nghệ số.
+                {t('dashboard.aboutUs.mission2')}
               </p>
               <p>
-                Hơn cả một nền tảng mua bán, chúng tôi mong muốn xây dựng một
-                cộng đồng gắn kết, nơi mọi nhà phát triển đều được lắng nghe, hỗ trợ
-                và đồng hành. Đó là lý do vì sao đội ngũ của chúng tôi không
-                ngừng phát triển hệ thống, cải tiến dịch vụ và đặt lợi ích người
-                dùng làm trung tâm trong mọi hoạt động.
+                {t('dashboard.aboutUs.mission3')}
               </p>
               <p className="mb-0">
-                Cảm ơn bạn đã chọn Lucentis cho nhu cầu của bạn.
-                Chúng tôi mong muốn được phục vụ bạn!
+                {t('dashboard.aboutUs.mission4')}
               </p>
-               <div
-                    className="position-absolute bottom-0 start-0 w-100 h-50"
-                    style={{
-                      background: 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, #1a1a1a 100%)',
-                      pointerEvents: 'none', 
-                    }}
-                  />
+              <div
+                className="position-absolute bottom-0 start-0 w-100 h-50"
+                style={{
+                  background: 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, #1a1a1a 100%)',
+                  pointerEvents: 'none',
+                }}
+              />
             </div>
           </Col>
         </Row>
