@@ -13,15 +13,21 @@ import {
 import { FaArrowLeft, FaCheckCircle, FaPaypal } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useTranslation, Trans } from 'react-i18next';
 import { updateOrderStatus, getOrderById } from "../../services/order.service";
 import axios from "axios";
 
 const OrderConfirmation = () => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [order, setOrder] = useState(null);
   const [status, setStatus] = useState(null); // "success", "error", null
+  const [isAgreed, setIsAgreed] = useState(false);
+
+  // State cho Kien Long Bank QR Code (VietQR)
+  const [klbPaymentData, setKlbPaymentData] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,6 +38,25 @@ const OrderConfirmation = () => {
     const fetchOrder = async () => {
       try {
         setLoading(true);
+
+        // Forcing a mock test directly from URL (e.g., ?tester=1)
+        const paramsQ = new URLSearchParams(location.search);
+        if (paramsQ.get("tester")) {
+          setOrder({
+            id: 9999,
+            transaction_id: "",
+            price: 100000,
+            status: "pending",
+            created_at: new Date().toISOString(),
+            products: [
+              {
+                id: 1, name: "Test Product KLB", OrderProduct: { price: 100000, quantity: 1 }
+              }
+            ]
+          });
+          setLoading(false);
+          return;
+        }
 
         // Try to get order from location state first
         const orderFromState = location.state?.order;
@@ -81,6 +106,39 @@ const OrderConfirmation = () => {
       console.error("❌ Lỗi khi gọi API:", error);
       alert("Lỗi khi tạo link thanh toán!");
     }
+  };
+
+  const handleKlbPayment = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/klb/createPayment`, {
+        orderId: order.id
+      });
+      if (res.data && res.data.success) {
+        setKlbPaymentData(res.data);
+        // Bắt đầu tự động kiểm tra xem đơn hàng đã được Webhook đánh dấu là completed chưa
+        startPollingOrderStatus();
+      }
+    } catch (err) {
+      console.error("Lỗi khi tạo payment KLB:", err);
+      alert("Đã xảy ra lỗi khi kết nối với Ngân Hàng Kiên Long. Thử lại sau!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const startPollingOrderStatus = () => {
+    const intervalId = setInterval(async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/klb/order-status/${order.id}`);
+        if (res.data && res.data.status === "completed") {
+          clearInterval(intervalId);
+          setPaymentSuccess(true);
+        }
+      } catch (e) {
+        console.error("[POLLING] Lỗi kiểm tra trạng thái đơn hàng:", e);
+      }
+    }, 5000); // Check mỗi 5 giây
   };
 
   //   const handleVNPTPayment = (amount, transaction_id_send) => {
@@ -221,9 +279,8 @@ const OrderConfirmation = () => {
                           <div className="d-flex align-items-center">
                             {product.image && (
                               <img
-                                src={`${import.meta.env.VITE_API_URL}/uploads/${
-                                  product.image
-                                }`}
+                                src={`${import.meta.env.VITE_API_URL}/uploads/${product.image
+                                  }`}
                                 alt={product.name}
                                 style={{
                                   width: "50px",
@@ -248,7 +305,7 @@ const OrderConfirmation = () => {
                         <td>{product.OrderProduct.quantity}</td>
                         <td>
                           {/* tổng tiền thanh toán */}
-                       {Math.round(product.OrderProduct.price * product.OrderProduct.quantity).toLocaleString()} VND
+                          {Math.round(product.OrderProduct.price * product.OrderProduct.quantity).toLocaleString()} VND
 
                         </td>
                       </tr>
@@ -300,24 +357,61 @@ const OrderConfirmation = () => {
                       />
                       Processing...
                     </div>
+                  ) : klbPaymentData ? (
+                    <div className="mt-3 text-center">
+                      <Alert variant="info">
+                        Quét mã QR qua ứng dụng ngân hàng để thanh toán nhanh (Kienlongbank)
+                      </Alert>
+                      <Alert variant="warning" className="text-dark fw-bold">
+                        Lưu ý: Bạn giữ nguyên màn hình này trong khi thanh toán nhé. Hệ thống sẽ tự động cập nhật khi nhận được tiền.
+                      </Alert>
+                      <img
+                        src={klbPaymentData.qrUrl}
+                        alt="VietQR KLB"
+                        style={{ width: "100%", maxWidth: "300px", borderRadius: "10px", margin: "10px auto" }}
+                      />
+                      <div className="mt-2" style={{ textAlign: "left", fontSize: "14px", padding: '10px', background: '#222', borderRadius: '5px' }}>
+                        <p className="mb-1 text-light">Ngân hàng: <strong>Kiên Long Bank (KLB)</strong></p>
+                        <p className="mb-1 text-light">Chủ TK: <strong>MERCHANT WEB2D</strong></p>
+                        <p className="mb-1 text-light">Số tài khoản ảo: <strong className="text-primary fs-5">{klbPaymentData.virtualAccount}</strong></p>
+                        <p className="mb-1 text-light">Số tiền nạp: <strong>{klbPaymentData.amount.toLocaleString()} VND</strong></p>
+                      </div>
+                    </div>
                   ) : (
                     <div className="mt-3">
-                      {/* <h6 className="mb-3 d-flex align-items-center">
-                        <FaPaypal className="text-primary me-2" />
-                        Pay with PayPal
-                      </h6> */}
+                      <div className="mb-3 d-flex align-items-start text-start">
+                        <input
+                          type="checkbox"
+                          id="agreePolicy"
+                          className="me-2 mt-1 form-check-input"
+                          checked={isAgreed}
+                          onChange={(e) => setIsAgreed(e.target.checked)}
+                          style={{ cursor: "pointer" }}
+                        />
+                        <label htmlFor="agreePolicy" className="text-light" style={{ fontSize: "0.9rem", cursor: "pointer" }}>
+                          <Trans i18nKey="checkout.agreeToRefundPolicy">
+                            By completing payment, you agree to our <Link to="/customer/refund-policy" className="text-info" target="_blank">Refund Policy</Link> and all sales are final.
+                          </Trans>
+                        </label>
+                      </div>
 
                       <Button
                         style={{ layout: "vertical" }}
-                        onClick={() => handleVPBankPayment(Math.round(order.price*1.15))}
-                        onApprove={(data, actions) => {
-                          return actions.order.capture().then((details) => {
-                            handlePaymentSuccess(details);
-                          });
-                        }}
-                        onError={handlePaymentError}
+                        variant="warning"
+                        className="w-100 fw-bold mb-3"
+                        onClick={() => handleVPBankPayment(Math.round(order.price * 1.15))}
+                        disabled={!isAgreed}
                       >
-                        Pay with VNPT Epay
+                        Pay via Visa/Master Card
+                      </Button>
+
+                      <Button
+                        className="w-100 fw-bold text-light"
+                        variant="success"
+                        onClick={handleKlbPayment}
+                        disabled={!isAgreed}
+                      >
+                        Pay via VietQR
                       </Button>
 
                       {/* <Button
@@ -330,7 +424,7 @@ const OrderConfirmation = () => {
                         }}
                         onError={handlePaymentError}
                       >
-                        Thanh toán với VNPT
+                        Thanh toán thẻ
                       </Button> */}
 
                       {/* <PayPalScriptProvider

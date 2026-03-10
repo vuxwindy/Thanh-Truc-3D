@@ -27,6 +27,7 @@ import LanguageRedirect from './components/LanguageRedirect';
 import PrivacyPolicy from './pages/user/PrivacyPolicy.jsx';
 import PaymentMethods from './pages/user/PaymentMethods.jsx';
 import InspectionPolicy from './pages/user/InspectionPolicy.jsx';
+import RefundPolicy from './pages/user/RefundPolicy.jsx';
 
 // AppContent component that uses Redux
 const AppContent = () => {
@@ -93,14 +94,15 @@ const AppContent = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="forgot-password" element={<ForgotPassword />} />
-                <Route path="dashboard" element={<Dashboard/>}/>
-                <Route path="blogs" element={<Blogs/>}/> 
-                <Route path="terms" element={<Terms/>}/> 
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="blogs" element={<Blogs />} />
+                <Route path="terms" element={<Terms />} />
                 <Route path="games/category/:categoryId" element={<CategoryGames />} />
-                <Route path="user-manual" element={<Termsc/>}/> 
-                <Route path="PrivacyPolicy" element={<PrivacyPolicy/>} />
-                <Route path="PaymentMethods" element={<PaymentMethods/>} />
-                <Route path="InspectionPolicy" element={<InspectionPolicy/>} />
+                <Route path="user-manual" element={<Termsc />} />
+                <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
+                <Route path="PaymentMethods" element={<PaymentMethods />} />
+                <Route path="InspectionPolicy" element={<InspectionPolicy />} />
+                <Route path="refund-policy" element={<RefundPolicy />} />
               </Route>
 
               {/* Protected Routes */}
@@ -143,13 +145,13 @@ const AppContent = () => {
         <Route path="" element={<Navigate to="/customer/dashboard" replace />} />
 
         <Route
-  path=""
-  element={
-    isAuthenticated
-      ? <Navigate to="/admin/dashboard" replace />
-      : <Navigate to="/admin/login" replace />
-  }
-/>
+          path=""
+          element={
+            isAuthenticated
+              ? <Navigate to="/admin/dashboard" replace />
+              : <Navigate to="/admin/login" replace />
+          }
+        />
 
       </Routes>
     </>

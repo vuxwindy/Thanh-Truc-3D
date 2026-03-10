@@ -313,8 +313,8 @@ const Products = () => {
                       )}
                     </td>
                     <td>{product.name}</td>
-                    <td>${product.priceSale}</td>
-                    <td>${product.priceOrigin}</td>
+                    <td>{Math.round(product.priceSale).toLocaleString('vi-VN')} VND</td>
+                    <td>{Math.round(product.priceOrigin).toLocaleString('vi-VN')} VND</td>
                     <td>{product.is_hot ? 'Yes' : 'No'}</td>
                     <td>{product.is_new ? 'Yes' : 'No'}</td>
                     <td>

@@ -52,6 +52,9 @@ sequelize.authenticate()
 
 // Routes
 const exampleRoutes = require('./routes/exampleRoutes');
+const klbRoutes = require('./routes/klb.routes'); // Add KLB webhook routes
+
+app.use('/api/klb', klbRoutes);
 app.use('/api/examples', exampleRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/roles', roleRoutes);

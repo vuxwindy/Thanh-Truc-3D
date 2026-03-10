@@ -1,6 +1,7 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
- 
+import { useTranslation } from 'react-i18next';
+
 import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import PaymentMethods from './PaymentMethods';
@@ -14,19 +15,19 @@ import CopyrightGameHelp from './CopyrightGameHelp';
 
 
 const Termsc = () => {
+  const { t } = useTranslation();
   const [selectedPage, setSelectedPage] = useState("AboutThanhTruc");
   const menu = [
-    { title: "Giới thiệu về Lucentis", key: "AboutThanhTruc" },
-    { title: "Lý do nên mua sản phẩm  Lucentis", key: "CopyrightGameHelp" },
-    { title: "Chính sách bảo mật", key: "PrivacyPolicy" },
-    { title: "Chính sách kiểm tra", key: "InspectionPolicy" },
-    { title: "Chính sách hoàn trả và hoàn tiền", key: "RefundPolicy" },
-    { title: "Chính sách bảo hành", key: "WarrantyPolicy" },
-    { title: "Quy trình tiếp nhận và xử lý khiếu nại", key: "HandlingProcess" },
-    { title: "Hướng dẫn cài đặt phần mền", key: "HandlingInstall" },
-    { title: "Hướng dẫn thanh toán", key: "PaymentMethods" },
-    { title: "Hướng dẫn mua hàng", key: "Terms" }, 
-
+    { title: t('userManual.menu.AboutThanhTruc'), key: "AboutThanhTruc" },
+    { title: t('userManual.menu.CopyrightGameHelp'), key: "CopyrightGameHelp" },
+    { title: t('userManual.menu.PrivacyPolicy'), key: "PrivacyPolicy" },
+    { title: t('userManual.menu.InspectionPolicy'), key: "InspectionPolicy" },
+    { title: t('userManual.menu.RefundPolicy'), key: "RefundPolicy" },
+    { title: t('userManual.menu.WarrantyPolicy'), key: "WarrantyPolicy" },
+    { title: t('userManual.menu.HandlingProcess'), key: "HandlingProcess" },
+    { title: t('userManual.menu.HandlingInstall'), key: "HandlingInstall" },
+    { title: t('userManual.menu.PaymentMethods'), key: "PaymentMethods" },
+    { title: t('userManual.menu.Terms'), key: "Terms" },
   ];
   const renderContent = () => {
     switch (selectedPage) {
@@ -49,12 +50,12 @@ const Termsc = () => {
       case "AboutThanhTruc":
         return <AboutThanhTruc />;
       case "CopyrightGameHelp":
-      return <CopyrightGameHelp />;
+        return <CopyrightGameHelp />;
       // case "CopyrightGameHelp":
       // return <CopyrightGameHelp />;
-      
+
       default:
-        return <p>Vui lòng chọn mục bên trái để xem nội dung.</p>;
+        return <p>{t('userManual.selectPrompt')}</p>;
     }
   };
   return (
@@ -62,19 +63,17 @@ const Termsc = () => {
       <Row>
         <Col>
           {/* Add more sections as needed */}
-          
+
           <section className="mt-4">
-					 <em>* Trong tài liệu này chúng tôi sẽ hướng dẫn từ A-Z các bước để bạn có thể mua hàng tại Lucentis một cách dễ dàng và thuận tiện nhất. 
-              Cùng với đó là nắm được các chính sách bảo hành và được hỗ trợ nhanh chóng bởi đội ngũ CSKH đáng tự hào của Lucentis.
-           </em>
+            <em>{t('userManual.intro')}</em>
           </section>
         </Col>
       </Row>
 
       <Row className="my-5">
-      {/* Sidebar bên trái */}
-      <Col md={3}>
-            <ul className="list-group list-group-flush bg-dark rounded shadow">
+        {/* Sidebar bên trái */}
+        <Col md={3}>
+          <ul className="list-group list-group-flush bg-dark rounded shadow">
             {menu.map((item, idx) => (
               <li
                 key={idx}
@@ -88,13 +87,13 @@ const Termsc = () => {
           </ul>
         </Col>
 
-      {/* Nội dung bên phải */}
-      <Col md={9}>{renderContent()}</Col>
+        {/* Nội dung bên phải */}
+        <Col md={9}>{renderContent()}</Col>
       </Row>
 
-       
-     
-     
+
+
+
     </Container>
   );
 };
