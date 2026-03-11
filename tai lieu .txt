@@ -1,0 +1,44 @@
+BÁO CÁO PHÂN TÍCH TÍCH HỢP KIEN LONG BANK (TÀI KHOẢN ẢO)
+
+---
+1. NHỮNG GÌ TÔI ĐÃ HỌC ĐƯỢC
+Thông qua việc đọc "Quy trình thu chi hộ thông qua tài khoản ảo" và kiểm tra source code Backend (Node.js), tôi đã nắm được toàn bộ luồng tích hợp của Kien Long Bank (KLB):
+
+- Cấu trúc Request chuẩn KLB: 
+  Sử dụng phương thức HTTP POST, Content-Type: application/json. 
+  Body luôn phải chứa duy nhất một object theo format: {"data": "<Chuỗi Base64 đã mã hoá>"}.
+
+- Chuẩn Mã hoá (Quan trọng nhất):
+  1. Dữ liệu gốc (Plain Text JSON) bắt buộc phải được mã hoá bằng thuật toán AES-256-CBC với khoá `encryptKey`.
+  2. IV (Initialization Vector) cho thuật toán AES-256-CBC được quy định cứng là 16 bytes đầu tiên của chuỗi `encryptKey` sau khi giải mã từ dạng HEX sang Buffer.
+  3. Kết quả chuỗi sau khi mã hoá AES phải được xuất dưới định dạng Base64.
+
+- Khâu Xác thực & Chữ ký số (Signature):
+  Các APIs của KLB yêu cầu 3 Headers bắt buộc:
+  1. `x-api-client`: Chuỗi ID định danh đối tác do KLB cấp (Ví dụ: 60c7...543a).
+  2. `x-api-time`: Timestamp lúc tạo request (ở dạng milliseconds, tạo động mỗi lần gọi).
+  3. `x-api-validate`: Chữ ký HMAC SHA-256 dùng để xác thực. Hàm băm được tính toán dựa trên chuỗi format `{x-api-client}|{x-api-time}|{data mã hoá}` với `secretKey` do KLB cung cấp. Đầu ra là một chuỗi HEX 64 ký tự.
+
+- Tương tác Backend (Webhook KLB gọi về hệ thống):
+  Backend chạy bằng Express.js đã có định nghĩa các REST routes tại `server/routes/klb.routes.js`. Các routes như `/inquiryChecking`, `/depositChecking`, `/notifyTransaction` đều đã định nghĩa đúng method chuẩn là `POST`.
+  Khi KLB gọi webhook (ví dụ khi có lệnh chuyển khoản), nó sẽ gửi Payload mã hóa lên. Hàm `inquiryChecking` trên Backend thực thi việc giải mã (decryptAES), phân tách Order và đối chiếu dữ liệu lưu trong cơ sở dữ liệu (Database `Order`).
+
+
+---
+2. VẤN ĐỀ VÀ LỖI ĐANG GẶP PHẢI (Error 405 Method Not Allowed)
+Khi tôi chạy hai file test độc lập (File `demo_klb_connection.js` tự viết theo tài liệu + File `generate_klb_mock.js` có sẵn của hệ thống) để mô phỏng một request như KLB sẽ gọi lên:
+```bash
+curl --location 'https://lucentis.it.com/api/klb/inquiryChecking' \
+--header 'x-api-time: 1773239812' \
+...
+--data '{"data": "WFYmy..."}'
+```
+Kết quả trả về luôn là mã lỗi chuẩn của HTTP Server: `405 Method Not Allowed`, Request Body hoàn toàn trống (Empty).
+
+Nguyên nhân chính xác:
+Lỗi 405 không xuất phát từ Code Backend Node.js bên trong hệ thống `Thanh-Truc-3D`, mà bị vướng ở tầng Máy chủ ngoài (Web Hosting / Proxy Server). Đoạn mã trong Backend (`klb.controller.js`) vốn đã khai báo sẳn đúng method `router.post('/inquiryChecking')`.
+
+Do đó, Domain `lucentis.it.com` đang được cấu hình lớp bảo vệ hoặc router bên ngoài (Ví dụ: Nginx, Apache, HAProxy hoặc Cloudflare Firewall) chặn tất cả các tín hiệu POST đi vào đường dẫn API phân luồng `/api/klb/*`, giới hạn chỉ cho phép GET, hoặc chặn vì cho rằng đây là một cuộc tấn công do không thuộc mạng LAN nội bộ/IP Whitelist của máy chủ Kien Long Bank thật.
+
+Cách thức khắc phục lỗi này:
+Vào máy chủ chứa domain `lucentis.it.com`, mở file cấu hình Nginx (Nginx.conf) (Hoặc Cloudflare Rules) và kiểm tra lại khối Proxy Pass cho NodeJS để đảm bảo `allow method POST` hoặc kiểm tra lại Web Application Firewall (WAF) xem có đang drop request từ bên ngoài vào `/api/*` không.
