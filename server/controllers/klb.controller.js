@@ -48,11 +48,17 @@ const klbController = {
      */
     async createPayment(req, res) {
         try {
-            const { orderId } = req.body;
-            if (!orderId) return res.status(400).json({ error: "Missing orderId" });
+            // Parse orderId ra số nguyên để đảm bảo tìm được trong DB
+            const orderId = parseInt(req.body.orderId, 10);
+            if (!orderId || isNaN(orderId)) {
+                return res.status(400).json({ error: "Missing or invalid orderId" });
+            }
 
+            // Truy vấn order từ database
             const order = await Order.findByPk(orderId);
-            if (!order) return res.status(404).json({ error: "Order not found" });
+            if (!order) {
+                return res.status(404).json({ error: `Order #${orderId} not found` });
+            }
 
             // Sinh mã tài khoản ảo cho order này nếu chưa có
             let virtualAccount = order.transaction_id;
@@ -62,33 +68,40 @@ const klbController = {
                 await order.save();
             }
 
-            // Mặc định phí ví dụ 15% (như ở frontend đang tính)
+            // Tính tổng tiền (giá gốc + 15% phí)
             const finalAmount = Math.round(Number(order.price) * 1.15);
 
-            // Link tạo VietQR nhanh để render trên FrontEnd
-            const qrUrl = `https://img.vietqr.io/image/970452-${virtualAccount}-compact2.png?amount=${finalAmount}&addInfo=Thanh toan don ${orderId}&accountName=MERCHANT WEB2D`;
+            // Link tạo VietQR
+            const qrUrl = `https://img.vietqr.io/image/970452-${virtualAccount}-compact2.png?amount=${finalAmount}&addInfo=Thanh+toan+don+${orderId}&accountName=MERCHANT+WEB2D`;
 
             return res.json({
                 success: true,
                 virtualAccount,
-                bankBin: "970452", // Kiên Long Bank
+                bankBin: "970452",
                 amount: finalAmount,
                 qrUrl
             });
         } catch (error) {
             console.error("Lỗi khi tạo payment:", error);
-            res.status(500).json({ error: "Internal server error" });
+            res.status(500).json({ error: error.message, stack: error.stack });
         }
     },
 
     /**
-     * API - Frontend gọi vào đây để Check trạng thái giả lập
+     * Polling: Frontend gọi mỗi 5s để kiểm tra trạng thái thanh toán trong DB
      */
     async getMockOrder(req, res) {
-        const { orderId } = req.params;
-        const order = global.mockOrders.find(o => o.id == orderId);
-        if (!order) return res.status(404).json({ error: "No mock order found" });
-        return res.json(order);
+        try {
+            const orderId = parseInt(req.params.orderId, 10);
+            if (!orderId || isNaN(orderId)) {
+                return res.status(400).json({ error: "Invalid orderId" });
+            }
+            const order = await Order.findByPk(orderId);
+            if (!order) return res.status(404).json({ error: "Order not found" });
+            return res.json({ id: order.id, status: order.status });
+        } catch (e) {
+            return res.status(500).json({ error: e.message });
+        }
     },
 
     /**
