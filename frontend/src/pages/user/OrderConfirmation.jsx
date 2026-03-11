@@ -10,21 +10,19 @@ import {
   Spinner,
   Badge,
 } from "react-bootstrap";
-import { FaArrowLeft, FaCheckCircle, FaPaypal } from "react-icons/fa";
+import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { useTranslation, Trans } from 'react-i18next';
-import { updateOrderStatus, getOrderById } from "../../services/order.service";
+import { Trans } from 'react-i18next';
+import { getOrderById } from "../../services/order.service";
 import axios from "axios";
 
 const OrderConfirmation = () => {
-  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [order, setOrder] = useState(null);
-  const [status, setStatus] = useState(null); // "success", "error", null
   const [isAgreed, setIsAgreed] = useState(false);
+  const [pollTimeoutMsg, setPollTimeoutMsg] = useState(null);
 
   // State cho Kien Long Bank QR Code (VietQR)
   const [klbPaymentData, setKlbPaymentData] = useState(null);
@@ -86,6 +84,14 @@ const OrderConfirmation = () => {
     fetchOrder();
   }, [location.state, params, navigate]);
 
+  // Kiểm tra nếu URL có ?payment=success (redirect từ KLB sau khi thanh toán)
+  useEffect(() => {
+    const paramsQ = new URLSearchParams(location.search);
+    if (paramsQ.get('payment') === 'success') {
+      setPaymentSuccess(true);
+    }
+  }, [location.search]);
+
   const handleVPBankPayment = async (amount, transaction_id_send) => {
     const currency = "VND";
     const formattedAmount = Math.round(amount);
@@ -128,17 +134,27 @@ const OrderConfirmation = () => {
   };
 
   const startPollingOrderStatus = () => {
+    const MAX_POLL_ATTEMPTS = 36; // tối đa 36 lần x 5s = 3 phút
+    let attempts = 0;
     const intervalId = setInterval(async () => {
       try {
+        attempts++;
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/klb/order-status/${order.id}`);
         if (res.data && res.data.status === "completed") {
           clearInterval(intervalId);
           setPaymentSuccess(true);
+          // Return URL: chuyển sang trang orders sau 2 giây
+          setTimeout(() => {
+            navigate('/customer/orders', { replace: true });
+          }, 2000);
+        } else if (attempts >= MAX_POLL_ATTEMPTS) {
+          clearInterval(intervalId);
+          setPollTimeoutMsg('Hệ thống chưa xác nhận được giao dịch. Nếu bạn đã chuyển khoản, vui lòng chờ vài phút rồi kiểm tra lại mục “Lịch sử đơn hàng”.');
         }
       } catch (e) {
         console.error("[POLLING] Lỗi kiểm tra trạng thái đơn hàng:", e);
       }
-    }, 5000); // Check mỗi 5 giây
+    }, 5000);
   };
 
   //   const handleVNPTPayment = (amount, transaction_id_send) => {
@@ -147,29 +163,6 @@ const OrderConfirmation = () => {
   //     window.location.href = redirectUrl;
   //     };
 
-  // Handle PayPal payment success
-  const handlePaymentSuccess = async (details) => {
-    try {
-      setLoading(true);
-
-      // Update order status to completed
-      await updateOrderStatus(order.id, "completed", details.id);
-
-      setPaymentSuccess(true);
-    } catch (err) {
-      console.error("Failed to process payment:", err);
-      setError("Failed to process payment. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Handle PayPal payment error
-  const handlePaymentError = async (err) => {
-    await updateOrderStatus(order.id, "fail", details.id);
-    console.error("Payment error:", err);
-    setError("Payment failed. Please try again.");
-  };
 
   if (loading) {
     return (
@@ -206,22 +199,22 @@ const OrderConfirmation = () => {
         <Card className="text-center p-5 mb-4 ">
           <Card.Body>
             <FaCheckCircle size={50} className="text-success mb-3" />
-            <h3>Payment Successful!</h3>
+            <h3>Thanh toán thành công!</h3>
             <p className="text-muted">
-              Your order has been placed and payment has been received.
+              Đơn hàng đã được xác nhận. Đang chuyển đến trang đơn hàng...
             </p>
             <p className="text-muted">
-              We have sent the activation code to your email.
+              Mã kích hoạt sẽ được gửi vào email của bạn.
             </p>
             <p>
-              Order ID: <strong>{order.id}</strong>
+              Order ID: <strong>{order?.id}</strong>
             </p>
             <p>
-              Transaction ID: <strong>{order.transaction_id}</strong>
+              Mã giao dịch: <strong>{order?.transaction_id}</strong>
             </p>
             <Link to="/customer/orders">
               <Button variant="primary" className="mt-3">
-                View My Orders
+                Xem đơn hàng của tôi
               </Button>
             </Link>
           </Card.Body>
@@ -359,23 +352,61 @@ const OrderConfirmation = () => {
                     </div>
                   ) : klbPaymentData ? (
                     <div className="mt-3 text-center">
-                      <Alert variant="info">
-                        Quét mã QR qua ứng dụng ngân hàng để thanh toán nhanh (Kienlongbank)
-                      </Alert>
-                      <Alert variant="warning" className="text-dark fw-bold">
-                        Lưu ý: Bạn giữ nguyên màn hình này trong khi thanh toán nhé. Hệ thống sẽ tự động cập nhật khi nhận được tiền.
-                      </Alert>
+                      <p className="text-secondary mb-3" style={{ fontSize: '13px' }}>
+                        Quét mã QR hoặc chuyển khoản theo thông tin bên dưới
+                      </p>
+
                       <img
                         src={klbPaymentData.qrUrl}
-                        alt="VietQR KLB"
-                        style={{ width: "100%", maxWidth: "300px", borderRadius: "10px", margin: "10px auto" }}
+                        alt="VietQR"
+                        style={{
+                          width: '100%',
+                          maxWidth: '240px',
+                          borderRadius: '8px',
+                          marginBottom: '16px'
+                        }}
                       />
-                      <div className="mt-2" style={{ textAlign: "left", fontSize: "14px", padding: '10px', background: '#222', borderRadius: '5px' }}>
-                        <p className="mb-1 text-light">Ngân hàng: <strong>Kiên Long Bank (KLB)</strong></p>
-                        <p className="mb-1 text-light">Chủ TK: <strong>MERCHANT WEB2D</strong></p>
-                        <p className="mb-1 text-light">Số tài khoản ảo: <strong className="text-primary fs-5">{klbPaymentData.virtualAccount}</strong></p>
-                        <p className="mb-1 text-light">Số tiền nạp: <strong>{klbPaymentData.amount.toLocaleString()} VND</strong></p>
-                      </div>
+
+                      <Table size="sm" variant="dark" bordered={false} className="text-start mb-3" style={{ fontSize: '13px' }}>
+                        <tbody>
+                          <tr>
+                            <td className="text-secondary border-0 py-1" style={{ width: '40%' }}>Ngân hàng</td>
+                            <td className="text-light border-0 py-1 fw-semibold">Kiên Long Bank</td>
+                          </tr>
+                          <tr>
+                            <td className="text-secondary border-0 py-1">Chủ tài khoản</td>
+                            <td className="text-light border-0 py-1 fw-semibold">CTY TNHH LUCENTIS</td>
+                          </tr>
+                          <tr>
+                            <td className="text-secondary border-0 py-1">Số tài khoản</td>
+                            <td className="border-0 py-1 fw-bold" style={{ fontFamily: 'monospace', letterSpacing: '0.5px', color: '#6ea8fe' }}>
+                              {klbPaymentData.virtualAccount}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="text-secondary border-0 py-1">Nội dung CK</td>
+                            <td className="border-0 py-1 fw-semibold" style={{ fontFamily: 'monospace', color: '#f0ad4e' }}>
+                              {klbPaymentData.virtualAccount}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="text-secondary border-0 py-1">Số tiền</td>
+                            <td className="text-success border-0 py-1 fw-bold" style={{ fontSize: '15px' }}>
+                              {klbPaymentData.amount?.toLocaleString()} VND
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+
+                      <p className="text-secondary mb-0" style={{ fontSize: '12px' }}>
+                        Vui lòng giữ nguyên trang này — hệ thống sẽ tự động xác nhận khi nhận được thanh toán.
+                      </p>
+
+                      {pollTimeoutMsg && (
+                        <Alert variant="secondary" className="mt-3 text-start" style={{ fontSize: '13px' }}>
+                          {pollTimeoutMsg}
+                        </Alert>
+                      )}
                     </div>
                   ) : (
                     <div className="mt-3">

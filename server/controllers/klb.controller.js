@@ -2,6 +2,13 @@ const klbService = require('../services/klb.service');
 const { decryptAES, encryptAES, KLB_ENCRYPT_KEY, KLB_CLIENT_ID, hmacSHA256Encode } = klbService;
 const Order = require('../models/Order');
 
+// Số tài khoản thu hộ của đối tác tại KLB (được KLB cấp)
+const KLB_ACCOUNT_CHUYEN_THU = process.env.KLB_ACCOUNT_CHUYEN_THU || '0000006155';
+// Host VietQR (sandbox dùng uat.vietqr.vn, production dùng img.vietqr.io)
+const VIETQR_HOST = process.env.VIETQR_HOST || 'https://img.vietqr.io';
+// URL frontend để redirect sau khi thanh toán
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+
 /**
  * Verify Webhook Signature từ KLB gửi đến
  * @param {object} req 
@@ -65,13 +72,23 @@ const klbController = {
             // Mặc định phí ví dụ 15% (như ở frontend đang tính)
             const finalAmount = Math.round(Number(order.price) * 1.15);
 
-            // Link tạo VietQR nhanh để render trên FrontEnd
-            const qrUrl = `https://img.vietqr.io/image/970452-${virtualAccount}-compact2.png?amount=${finalAmount}&addInfo=Thanh toan don ${orderId}&accountName=MERCHANT WEB2D`;
+            /**
+             * Theo quy trình KLB:
+             * - Số TK thụ hưởng trong QR = Số tài khoản ảo (virtual account)
+             *   KLB sẽ dùng tiền tố 1629 để định danh merchant và dẫn tiền về đúng TK thu hộ.
+             * - addInfo = nội dung chuyển khoản (khách phải điền đúng để KLB match giao dịch)
+             *   Ở đây đặt virtualAccount làm addInfo để KLB có thể gọi API inquiryChecking đúng.
+             * Ref: PDF mục III Bước 3 "số TK thụ hưởng là số tài khoản ảo"
+             */
+            const encodedAddInfo = encodeURIComponent(virtualAccount);
+            const encodedAccountName = encodeURIComponent('CONG TY TNHH LUCENTIS');
+            const qrUrl = `${VIETQR_HOST}/image/970452-${virtualAccount}-compact2.png?amount=${finalAmount}&addInfo=${encodedAddInfo}&accountName=${encodedAccountName}`;
 
             return res.json({
                 success: true,
-                virtualAccount,
-                bankBin: "970452", // Kiên Long Bank
+                virtualAccount,          // Đây là số TK thụ hưởng (TK ảo) khách phải chuyển đến
+                bankAccount: KLB_ACCOUNT_CHUYEN_THU,  // TK mẹ thu hộ (để hiển thị thêm cho rõ)
+                bankBin: "970452",       // BIN Kiên Long Bank
                 amount: finalAmount,
                 qrUrl
             });
@@ -116,9 +133,15 @@ const klbController = {
             // Giả lập hợp lệ:
             console.log(`[KLB Webhook] Inquiry Checking for: ${virtualAccount}`);
 
+            // Xác minh tài khoản ảo thuộc đơn hàng nào trong DB
+            const order = await Order.findOne({ where: { transaction_id: virtualAccount } });
+            if (!order) {
+                return klbResponseError(res, 1606, "Invalid virtual account");
+            }
+
             const responsePayload = {
-                displayName: "Web2D Customer", // Tên tối đa 20 ký tự không dấu
-                actualAccount: "0000006155"    // Số tài khoản thu hộ thực tế của Cty
+                displayName: "CONG TY TNHH LUCENTIS", // Tên tối đa 20 ký tự không dấu
+                actualAccount: KLB_ACCOUNT_CHUYEN_THU  // Số tài khoản thu hộ thực tế của Cty
             };
 
             return klbResponseData(res, responsePayload);
@@ -160,8 +183,8 @@ const klbController = {
             }
 
             const responsePayload = {
-                displayName: "Web2D Customer",
-                actualAccount: "0000006155",
+                displayName: "CONG TY TNHH LUCENTIS",
+                actualAccount: KLB_ACCOUNT_CHUYEN_THU,
                 amount: amount
             };
 
