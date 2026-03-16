@@ -19,13 +19,41 @@ function verifyWebhookSignature(req, data) {
     const apiValidate = req.headers['x-api-validate']; // Chữ ký HMAC từ KLB gửi
     const apiTime = req.headers['x-api-time'];
 
-    // Nếu tuỳ vào dự án, bạn có thể tự tính lại Hash để so sánh nếu muốn bảo mật strict:
-    // const signFormat = `${KLB_CLIENT_ID}|${apiTime}|${data}`;
-    // const expectedSig = hmacSHA256Encode(signFormat);
-    // return apiValidate === expectedSig;
+    // Debug logging — xem KLB gửi gì
+    console.log(`[KLB Webhook] Incoming headers:`);
+    console.log(`  x-api-client: "${apiClient}"`);
+    console.log(`  x-api-time: "${apiTime}"`);
+    console.log(`  x-api-validate: "${apiValidate}"`);
+    console.log(`  Expected KLB_CLIENT_ID: "${KLB_CLIENT_ID}"`);
+    console.log(`  KLB_CLIENT_ID type: ${typeof KLB_CLIENT_ID}`);
 
-    // Tuy nhiên theo tài liệu, chúng ta cơ bản check ClientId
-    return apiClient === KLB_CLIENT_ID;
+    // Kiểm tra headers bắt buộc
+    if (!apiClient || !apiTime) {
+        console.error('[KLB Webhook] FAIL: Missing required headers (x-api-client or x-api-time)');
+        return false;
+    }
+
+    // So sánh Client ID
+    if (apiClient !== KLB_CLIENT_ID) {
+        console.error(`[KLB Webhook] FAIL: Client ID mismatch! got="${apiClient}", expected="${KLB_CLIENT_ID}"`);
+        return false;
+    }
+
+    // Verify HMAC signature (warn-only, không block — bật strict khi đã xác nhận hoạt động)
+    if (apiValidate && data) {
+        const signFormat = `${apiClient}|${apiTime}|${data}`;
+        const expectedSig = hmacSHA256Encode(signFormat);
+        if (apiValidate !== expectedSig) {
+            console.warn(`[KLB Webhook] WARNING: HMAC signature mismatch (not blocking)`);
+            console.warn(`  Received:  "${apiValidate}"`);
+            console.warn(`  Computed:  "${expectedSig}"`);
+        } else {
+            console.log(`[KLB Webhook] HMAC signature verified OK`);
+        }
+    }
+
+    console.log('[KLB Webhook] Verification PASSED');
+    return true;
 }
 
 /**
@@ -35,6 +63,17 @@ function klbResponseData(res, dataObj) {
     const dataStr = JSON.stringify(dataObj);
     const encryptedData = encryptAES(dataStr);
 
+    // Thêm response headers theo spec KLB (RESPONSE HEADER: Tương tự Request)
+    const timestamp = Date.now().toString();
+    const signFormat = `${KLB_CLIENT_ID}|${timestamp}|${encryptedData}`;
+    const signature = hmacSHA256Encode(signFormat);
+
+    res.set({
+        'x-api-client': KLB_CLIENT_ID,
+        'x-api-validate': signature,
+        'x-api-time': timestamp
+    });
+
     return res.status(200).json({
         code: 0,
         message: "success",
@@ -43,9 +82,21 @@ function klbResponseData(res, dataObj) {
 }
 
 function klbResponseError(res, code = 10024, message = "Lỗi xử lý") {
+    // Thêm response headers cho cả error response
+    const timestamp = Date.now().toString();
+    const signFormat = `${KLB_CLIENT_ID}|${timestamp}|`;
+    const signature = hmacSHA256Encode(signFormat);
+
+    res.set({
+        'x-api-client': KLB_CLIENT_ID,
+        'x-api-validate': signature,
+        'x-api-time': timestamp
+    });
+
     return res.status(200).json({
         code: code,
-        message: message
+        message: message,
+        data: null
     });
 }
 
